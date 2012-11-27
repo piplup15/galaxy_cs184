@@ -1,1 +1,11 @@
-#
+size 640 640
+camera 0 3 1 0 0 0 0 0 1 45.0
+
+backgroundColor 0.3 0.3 0.3 1
+
+pushTransform
+    ambient 0.3 0.6 0.3 1
+    diffuse 0.3 0.6 0.3 1
+    scale 1 1 0.5
+    cube 1
+popTransform

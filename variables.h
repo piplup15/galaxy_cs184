@@ -23,13 +23,12 @@ EXTERN vec3 center ;
 EXTERN int w, h ; 
 EXTERN float fovy ; 
 
-EXTERN float mousex;
-EXTERN float mousey; 
-
-EXTERN bool useGlu; // Toggle use of "official" opengl/glm transform vs user 
+EXTERN float mousex ;
+EXTERN float mousey ;
+ 
 EXTERN GLuint vertexshader, fragmentshader, shaderprogram ; // shaders
 static enum {view, translate, scale} transop ; // which operation to transform 
-enum shape {cube, sphere, teapot, cylinder, modelobj} ;
+enum shape {cube, sphere, teapot, modelobj} ;
 EXTERN float sx, sy ; // the scale in x and y 
 EXTERN float tx, ty ; // the translation in x and y
 
@@ -59,18 +58,11 @@ EXTERN struct object {
   GLfloat specular[4] ;
   GLfloat emission[4] ; 
   GLfloat shininess ;
-  mat4 transform ; 
-  GLdouble radius; // for cylinder
-  GLdouble height; // for cylinder
+  mat4 transform ;
   std::string name; // only necessary for .obj files.
   std::string file_path; // only necessary for .obj files.
   int shape_sides; // either 3 for tri or 4 for quad.
 } objects[maxobjects] ;
-EXTERN object character; 
-EXTERN bool use_char;
-EXTERN vec3 char_direction;
-EXTERN vec3 char_position;
-EXTERN int char_frame;
 
 // Variables to set uniform params for lighting fragment shader 
 EXTERN GLuint lightcol ; 
@@ -81,38 +73,10 @@ EXTERN GLuint ambientcol ;
 EXTERN GLuint diffusecol ; 
 EXTERN GLuint specularcol ; 
 EXTERN GLuint emissioncol ; 
-EXTERN GLuint shininesscol ;
+EXTERN GLuint shininesscol ; 
 
-//Scene variables
 EXTERN GLfloat backgroundColor[4];
 
-//Obj files - since only few models on screen (20 MB limit), we can only have a few .obj models (textures are expensive). Hence, an array is suitable to store .obj vertices/texture coords/normals.
 const int max_obj_models = 40; // per scene.
 EXTERN int num_obj_models;
 
-//Textures
-EXTERN bool textureOn;
-
-EXTERN GLuint dirt;
-EXTERN GLubyte washington[256][256][3] ;
-EXTERN GLubyte spiral[256][256][3] ;
-EXTERN GLubyte fireplace[256][256][3] ;
-EXTERN GLuint texNames[9] ; 
-EXTERN GLuint isTex ; 
-
-EXTERN GLuint isBump ; 
-
-EXTERN GLubyte anim0[256][256][3] ;
-EXTERN GLubyte anim1[256][256][3] ;
-EXTERN GLubyte anim2[256][256][3] ;
-EXTERN GLubyte anim3[256][256][3] ;
-EXTERN GLubyte anim4[256][256][3] ;
-
-EXTERN GLubyte bump0[256][256][3] ;
-
-//Animated tex time variable
-EXTERN GLuint texAnimInterval;
-
-//Used for transitioning animation
-EXTERN bool isTransitioning;
-EXTERN GLuint skeletonIndex;
