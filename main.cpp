@@ -15,6 +15,7 @@
 #include "Transform.h"
 #include <FreeImage.h>
 #include "UCB/grader.h"
+#include <sys/time.h>
 
 using namespace std ; 
 
@@ -25,6 +26,7 @@ using namespace std ;
 #include "ModelObj.h"
 
 bool * key_states = new bool[256];
+struct timeval time_register_key;
 
 void display(void) ;  // prototype for display function.
 void loadTex(const char * filename, GLubyte textureLocation[256][256][3]);
@@ -75,13 +77,72 @@ void keyUp (unsigned char key, int x, int y) {
 
 
 void idleFunc() {
-    if (key_states['h']) {
-        printHelp();
+    struct timeval current_time;
+    gettimeofday(&current_time, NULL);
+    //cout << (current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) << endl;
+    if ((current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000) {
+        if (key_states['h']) {
+            cout << current_time.tv_usec << endl;
+            printHelp();
+        }
+        if (key_states[27]) { // Escape to quit                                                                                                                                                                   
+            exit(0);
+        }
+        if (key_states['w']) { // forward movement
+            glm::vec3 direction = glm::normalize(glm::vec3(center.x - eye.x, center.y - eye.y, 0));
+            eye = glm::vec3(Transform::translate(direction.x/50.0, direction.y/50.0, 0) * glm::vec4(eye.x, eye.y, eye.z, 1));
+            center = glm::vec3(Transform::translate(direction.x/50.0, direction.y/50.0, 0) * glm::vec4(center.x, center.y, center.z, 1));
+        }
+        if (key_states['s']) { // backward movement
+            glm::vec3 direction = glm::normalize(glm::vec3(-center.x + eye.x, -center.y + eye.y, 0));
+            eye = glm::vec3(Transform::translate(direction.x/50.0, direction.y/50.0, 0) * glm::vec4(eye.x, eye.y, eye.z, 1));
+            center = glm::vec3(Transform::translate(direction.x/50.0, direction.y/50.0, 0) * glm::vec4(center.x, center.y, center.z, 1));
+        }
+        if (key_states['a']) { // left movement
+            glm::vec3 direction = glm::normalize(glm::vec3(-center.y + eye.y, center.x - eye.x, 0));
+            eye = glm::vec3(Transform::translate(direction.x/50.0, direction.y/50.0, 0) * glm::vec4(eye.x, eye.y, eye.z, 1));
+            center = glm::vec3(Transform::translate(direction.x/50.0, direction.y/50.0, 0) * glm::vec4(center.x, center.y, center.z, 1));
+        }
+        if (key_states['d']) { // right movement
+            glm::vec3 direction = glm::normalize(glm::vec3(center.y - eye.y, -center.x + eye.x, 0));
+            eye = glm::vec3(Transform::translate(direction.x/50.0, direction.y/50.0, 0) * glm::vec4(eye.x, eye.y, eye.z, 1));
+            center = glm::vec3(Transform::translate(direction.x/50.0, direction.y/50.0, 0) * glm::vec4(center.x, center.y, center.z, 1));
+        }
+        if (key_states['l']) { // up movement
+            glm::vec3 direction = glm::normalize(glm::vec3(0, 0, -1));
+            eye = glm::vec3(Transform::translate(0, 0, direction.z/50.0) * glm::vec4(eye.x, eye.y, eye.z, 1));
+            center = glm::vec3(Transform::translate(0, 0, direction.z/50.0) * glm::vec4(center.x, center.y, center.z, 1));
+        }
+        if (key_states['o']) { // down movement
+            glm::vec3 direction = glm::normalize(glm::vec3(0, 0, 1));
+            eye = glm::vec3(Transform::translate(0, 0, direction.z/50.0) * glm::vec4(eye.x, eye.y, eye.z, 1));
+            center = glm::vec3(Transform::translate(0, 0, direction.z/50.0) * glm::vec4(center.x, center.y, center.z, 1));
+        }
+        glutPostRedisplay();
+        gettimeofday(&time_register_key, NULL);
     }
-    if (key_states[27]) { // Escape to quit                                                                                                                                                                   
-        exit(0);
-    }
-    glutPostRedisplay();
+}
+
+void specialKey(int key,int x,int y) {
+	switch(key) {
+		case 100: //left
+            eyeinit = Transform::rotate(-amount, upinit) * eyeinit;
+            eye = eyeinit + center;
+			break;
+		case 101: //up
+			eyeinit = Transform::rotate(amount, glm::cross(eyeinit, upinit)) * eyeinit;
+            eye = eyeinit + center;
+			break;
+		case 102: //right
+			eyeinit = Transform::rotate(amount, upinit) * eyeinit;
+            eye = eyeinit + center;
+			break;
+		case 103: //down
+			eyeinit = Transform::rotate(-amount, glm::cross(eyeinit, upinit)) * eyeinit;
+            eye = eyeinit + center;
+			break;
+	}
+	glutPostRedisplay();
 }
 
 void mouse(int x, int y) {
@@ -100,19 +161,21 @@ void mouse(int x, int y) {
 }
 
 void init() {
-      // Initialize shaders
-      vertexshader = initshaders(GL_VERTEX_SHADER, "shaders/light.vert.glsl") ;
-      fragmentshader = initshaders(GL_FRAGMENT_SHADER, "shaders/light.frag.glsl") ;
-      shaderprogram = initprogram(vertexshader, fragmentshader) ; 
-      enablelighting = glGetUniformLocation(shaderprogram,"enablelighting") ;
-      lightpos = glGetUniformLocation(shaderprogram,"lightposn") ;       
-      lightcol = glGetUniformLocation(shaderprogram,"lightcolor") ;       
-      numusedcol = glGetUniformLocation(shaderprogram,"numused") ;       
-      ambientcol = glGetUniformLocation(shaderprogram,"ambient") ;       
-      diffusecol = glGetUniformLocation(shaderprogram,"diffuse") ;       
-      specularcol = glGetUniformLocation(shaderprogram,"specular") ;       
-      emissioncol = glGetUniformLocation(shaderprogram,"emission") ;       
-      shininesscol = glGetUniformLocation(shaderprogram,"shininess") ;       
+    // Initialize shaders
+    vertexshader = initshaders(GL_VERTEX_SHADER, "shaders/light.vert.glsl") ;
+    fragmentshader = initshaders(GL_FRAGMENT_SHADER, "shaders/light.frag.glsl") ;
+    shaderprogram = initprogram(vertexshader, fragmentshader) ; 
+    enablelighting = glGetUniformLocation(shaderprogram,"enablelighting") ;
+    lightpos = glGetUniformLocation(shaderprogram,"lightposn") ;       
+    lightcol = glGetUniformLocation(shaderprogram,"lightcolor") ;       
+    numusedcol = glGetUniformLocation(shaderprogram,"numused") ;       
+    ambientcol = glGetUniformLocation(shaderprogram,"ambient") ;       
+    diffusecol = glGetUniformLocation(shaderprogram,"diffuse") ;       
+    specularcol = glGetUniformLocation(shaderprogram,"specular") ;       
+    emissioncol = glGetUniformLocation(shaderprogram,"emission") ;       
+    shininesscol = glGetUniformLocation(shaderprogram,"shininess") ;
+    
+    gettimeofday(&time_register_key, NULL);
 }
 
 int main(int argc, char* argv[]) {
@@ -124,6 +187,7 @@ int main(int argc, char* argv[]) {
     readfile("input/toytimegalaxy.scene") ; 
 	glutDisplayFunc(display);
 	glutKeyboardFunc(keyboard);
+    glutSpecialFunc(specialKey);
     glutKeyboardUpFunc(keyUp);
     glutIdleFunc(idleFunc);
 	glutReshapeFunc(reshape);

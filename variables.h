@@ -28,7 +28,7 @@ EXTERN float mousey ;
  
 EXTERN GLuint vertexshader, fragmentshader, shaderprogram ; // shaders
 static enum {view, translate, scale} transop ; // which operation to transform 
-enum shape {cube, sphere, teapot, modelobj} ;
+enum shape {cube, sphere, teapot, disk, cylinder, modelobj} ;
 EXTERN float sx, sy ; // the scale in x and y 
 EXTERN float tx, ty ; // the translation in x and y
 
@@ -62,6 +62,13 @@ EXTERN struct object {
   std::string name; // only necessary for .obj files.
   std::string file_path; // only necessary for .obj files.
   int shape_sides; // either 3 for tri or 4 for quad.
+  GLfloat innerRadius; // Disk inner radius
+  GLfloat outerRadius; // Disk outer radius
+  GLfloat baseRadius; // Disk inner radius
+  GLfloat topRadius; // Disk outer radius
+  GLint slices; // Disk/cylinder slices
+  GLint loops; // Disk loops
+  GLint stacks; // Cylinder stacks
 } objects[maxobjects] ;
 
 // Variables to set uniform params for lighting fragment shader 

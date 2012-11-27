@@ -148,9 +148,7 @@ void readfile(const char * filename) {
                         eye = vec3(values[0], values[1], values[2]);
                         center = vec3(values[3], values[4], values[5]);
                         upinit = vec3(values[6], values[7], values[8]);
-                        upinit = Transform::upvector(upinit, center - eyeinit);
                         up = vec3(values[6], values[7], values[8]);
-                        up = Transform::upvector(up, center - eyeinit);
                         fovy = values[9];
                     }
                 }
@@ -175,9 +173,60 @@ void readfile(const char * filename) {
                             obj -> transform = transfstack.top() ;
                             if (cmd == "sphere") obj -> type = sphere ; 
                             else if (cmd == "cube") obj -> type = cube ; 
-                            else if (cmd == "teapot") obj -> type = teapot ; 
+                            else if (cmd == "teapot") obj -> type = teapot ;
                         }
                         ++numobjects ; 
+                    }
+                }
+                
+                else if (cmd == "disk") {
+                    if (numobjects == maxobjects) // No more objects
+                        cerr << "Reached Maximum Number of Objects " << numobjects << " Will ignore further objects\n" ;
+                    else {
+                        validinput = readvals(s, 4, values) ;
+                        if (validinput) {
+                            object * obj = &(objects[numobjects]) ;  
+                            for (i = 0 ; i < 4 ; i++) {
+                                (obj -> ambient)[i] = ambient[i] ; 
+                                (obj -> diffuse)[i] = diffuse[i] ; 
+                                (obj -> specular)[i] = specular[i] ; 
+                                (obj -> emission)[i] = emission[i] ;
+                            }
+                            obj -> shininess = shininess ; 
+                            obj -> transform = transfstack.top() ;
+                            obj -> type = disk;
+                            obj -> innerRadius = values[0];
+                            obj -> outerRadius = values[1];
+                            obj -> slices = values[2];
+                            obj -> loops = values[3];
+                        }
+                        ++numobjects ;
+                    }
+                }
+                
+                else if (cmd == "cylinder") {
+                    if (numobjects == maxobjects) // No more objects
+                        cerr << "Reached Maximum Number of Objects " << numobjects << " Will ignore further objects\n" ;
+                    else {
+                        validinput = readvals(s, 5, values) ;
+                        if (validinput) {
+                            object * obj = &(objects[numobjects]) ;  
+                            for (i = 0 ; i < 4 ; i++) {
+                                (obj -> ambient)[i] = ambient[i] ; 
+                                (obj -> diffuse)[i] = diffuse[i] ; 
+                                (obj -> specular)[i] = specular[i] ; 
+                                (obj -> emission)[i] = emission[i] ;
+                            }
+                            obj -> shininess = shininess ; 
+                            obj -> transform = transfstack.top() ;
+                            obj -> type = cylinder;
+                            obj -> baseRadius = values[0];
+                            obj -> topRadius = values[1];
+                            obj -> size = values[2];
+                            obj -> slices = values[3];
+                            obj -> stacks = values[4];
+                        }
+                        ++numobjects ;
                     }
                 }
 
@@ -220,8 +269,6 @@ void readfile(const char * filename) {
 
         // Set up initial position for eye, up and amount
         // As well as booleans 
-        eye = eyeinit ; 
-        up = upinit ; 
         amount = 5;
         sx = sy = 1.0 ; // scales in x and y 
         tx = ty = 0.0 ; // translation in x and y  

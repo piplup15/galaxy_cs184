@@ -36,7 +36,7 @@ void transformvec (const GLfloat input[4], GLfloat output[4]) {
 }
 
 void display() {
-	glClearColor(0, 0, 1, 0);
+	glClearColor(backgroundColor[0], backgroundColor[1], backgroundColor[2], backgroundColor[3]);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glMatrixMode(GL_MODELVIEW);
@@ -90,6 +90,16 @@ void display() {
         else if (obj -> type == teapot) {
             glutSolidTeapot(obj->size) ; 
         } 
+        
+        else if (obj -> type == disk) {
+            GLUquadric * quadric = gluNewQuadric();
+            gluDisk(quadric, obj -> innerRadius, obj -> outerRadius, obj -> slices, obj -> loops);
+        }
+        
+        else if (obj -> type == cylinder) {
+            GLUquadric * quadric = gluNewQuadric();
+            gluCylinder(quadric, obj -> baseRadius, obj -> topRadius, obj -> size,  obj -> slices, obj -> stacks);
+        }
             
         else if (obj -> type == modelobj) {
             ModelObj * object = new ModelObj();
