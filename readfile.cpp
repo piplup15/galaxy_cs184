@@ -237,7 +237,7 @@ void readfile(const char * filename) {
                     }
                 }
                 
-                else if (cmd == "smooth_cube" || cmd == "train_wheel" || cmd == "train_head" || cmd == "train_connect" || cmd == "disappear_cube" || cmd == "poison_cube") {
+                else if (cmd == "smooth_cube" || cmd == "train_wheel" || cmd == "train_head" || cmd == "train_connect" || cmd == "disappear_cube" || cmd == "poison_cube" || cmd == "purple_coin") {
                     if (numobjects == maxobjects) // No more objects
                         cerr << "Reached Maximum Number of Objects " << numobjects << " Will ignore further objects\n" ;
                     else {
@@ -286,6 +286,11 @@ void readfile(const char * filename) {
                             if (cmd == "poison_cube") {
                                 obj -> name = ((std::string)("poison_cube"));
                                 obj -> file_path = ((std::string)("images/shapes/poison_cube.obj"));
+                                obj -> shape_sides = 4;
+                            }
+                            if (cmd == "purple_coin") {
+                                obj -> name = ((std::string)("purple_coin"));
+                                obj -> file_path = ((std::string)("images/shapes/coin.obj"));
                                 obj -> shape_sides = 4;
                             }
                             ++numobjects;

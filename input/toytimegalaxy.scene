@@ -7724,6 +7724,741 @@ pushTransform
         poison_cube
     popTransform
     
+    #  ------- Purple Coins on Luigi
+    
+    ambient 0.4 0 0.4 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    
+    translate 0 -0.05 0.2
+    
+    # Purple Coin 1
+    pushTransform
+        translate 0.5 2.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 2
+    pushTransform
+        translate 1.5 2.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 3
+    pushTransform
+        translate 2.5 2.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 4
+    pushTransform
+        translate 3.5 2.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 5
+    pushTransform
+        translate 1.5 3.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 6
+    pushTransform
+        translate 2.5 3.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 7
+    pushTransform
+        translate 4.5 3.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 8
+    pushTransform
+        translate 3.5 4.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    -----------------------
+    
+    # Purple Coin 9
+    pushTransform
+        translate 0.5 5.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 10
+    pushTransform
+        translate -0.5 6.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 11
+    pushTransform
+        translate 0.5 6.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 12
+    pushTransform
+        translate 1.5 6.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 13
+    pushTransform
+        translate -1.5 7.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 14
+    pushTransform
+        translate 0.5 7.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    ------------------------
+    
+    # Purple Coin 15
+    pushTransform
+        translate 5.5 6.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 16
+    pushTransform
+        translate 1.5 7.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 17
+    pushTransform
+        translate 3.5 7.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 18
+    pushTransform
+        translate 1.5 8.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 19
+    pushTransform
+        translate 3.5 8.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 20
+    pushTransform
+        translate 0.5 9.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 21
+    pushTransform
+        translate 2.5 9.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 22
+    pushTransform
+        translate 4.5 9.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 23
+    pushTransform
+        translate 1.5 10.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 24
+    pushTransform
+        translate 3.5 10.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    ---------------------
+    
+    # Purple Coin 25
+    pushTransform
+        translate 3.5 12.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 26
+    pushTransform
+        translate 4.5 13.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 27
+    pushTransform
+        translate 3.5 14.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 28
+    pushTransform
+        translate 5.5 14.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 29
+    pushTransform
+        translate 4.5 15.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 30
+    pushTransform
+        translate 5.5 16.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    -------------------
+    
+    # Purple Coin 31
+    pushTransform
+        translate 6.5 11.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 32
+    pushTransform
+        translate 10.5 11.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 33
+    pushTransform
+        translate 12.5 11.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 34
+    pushTransform
+        translate 5.5 12.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 35
+    pushTransform
+        translate 7.5 12.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 36
+    pushTransform
+        translate 8.5 12.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 37
+    pushTransform
+        translate 10.5 13.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 38
+    pushTransform
+        translate 6.5 15.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 39
+    pushTransform
+        translate 8.5 15.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 40
+    pushTransform
+        translate 7.5 16.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 41
+    pushTransform
+        translate 9.5 16.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    -----------------
+    
+    # Purple Coin 42
+    pushTransform
+        translate 14.5 11.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 43
+    pushTransform
+        translate 15.5 11.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 44
+    pushTransform
+        translate 11.5 12.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 45
+    pushTransform
+        translate 13.5 12.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 46
+    pushTransform
+        translate 15.5 12.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 47
+    pushTransform
+        translate 12.5 13.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 48
+    pushTransform
+        translate 10.5 15.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    ----------------
+    
+    # Purple Coin 49
+    pushTransform
+        translate 14.5 13.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 50
+    pushTransform
+        translate 16.5 13.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 51
+    pushTransform
+        translate 11.5 14.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 52
+    pushTransform
+        translate 13.5 14.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 53
+    pushTransform
+        translate 12.5 15.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 54
+    pushTransform
+        translate 11.5 16.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    ----------------------
+    
+    # Purple Coin 55
+    pushTransform
+        translate 18.5 13.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 56
+    pushTransform
+        translate 15.5 14.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 57
+    pushTransform
+        translate 17.5 14.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 58
+    pushTransform
+        translate 14.5 15.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 59
+    pushTransform
+        translate 16.5 15.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 60
+    pushTransform
+        translate 18.5 15.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 61
+    pushTransform
+        translate 15.5 16.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 62
+    pushTransform
+        translate 17.5 16.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 63
+    pushTransform
+        translate 16.5 17.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 64
+    pushTransform
+        translate 18.5 17.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 65
+    pushTransform
+        translate 17.5 18.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 66
+    pushTransform
+        translate 16.5 19.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 67
+    pushTransform
+        translate 18.5 19.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 68
+    pushTransform
+        translate 15.5 20.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 69
+    pushTransform
+        translate 17.5 20.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    ----------------
+    
+    # Purple Coin 70
+    pushTransform
+        translate 8.5 8.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 71
+    pushTransform
+        translate 10.5 8.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 72
+    pushTransform
+        translate 12.5 8.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 73
+    pushTransform
+        translate 13.5 9.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    --------------------
+    
+    # Purple Coin 74
+    pushTransform
+        translate 7.5 5.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 75
+    pushTransform
+        translate 8.5 5.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 76
+    pushTransform
+        translate 12.5 5.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 77
+    pushTransform
+        translate 13.5 5.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 78
+    pushTransform
+        translate 7.5 6.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 79
+    pushTransform
+        translate 8.5 6.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 80
+    pushTransform
+        translate 12.5 6.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 81
+    pushTransform
+        translate 13.5 6.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    -----------------
+    
+    # Purple Coin 82
+    pushTransform
+        translate 16.5 3.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 83
+    pushTransform
+        translate 17.5 3.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 84
+    pushTransform
+        translate 16.5 4.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 85
+    pushTransform
+        translate 17.5 4.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 86
+    pushTransform
+        translate 16.5 5.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 87
+    pushTransform
+        translate 17.5 5.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 88
+    pushTransform
+        translate 16.5 6.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 89
+    pushTransform
+        translate 17.5 6.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 90
+    pushTransform
+        translate 15.5 7.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 91
+    pushTransform
+        translate 16.5 7.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 92
+    pushTransform
+        translate 17.5 7.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    -----------------------
+    
+    
+    translate 0 0 0.2
+    
+    # Purple Coin 93
+    pushTransform
+        translate 7.5 7.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 94
+    pushTransform
+        translate 7.5 8.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 95
+    pushTransform
+        translate 10.0 5.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 96
+    pushTransform
+        translate 10.5 5.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 97
+    pushTransform
+        translate 11.0 5.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 98
+    pushTransform
+        translate 10.0 6.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 99
+    pushTransform
+        translate 10.5 6.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    # Purple Coin 100
+    pushTransform
+        translate 11.0 6.5 0
+        scale 0.12 0.08 0.12
+        purple_coin
+    popTransform
+    
+    
 popTransform
     
     
