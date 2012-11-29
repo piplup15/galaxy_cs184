@@ -64,8 +64,8 @@ void display() {
     glUniform1i(numusedcol, numused); 
 
 
-    for (int i = 0 ; i < numobjects ; i++) {
-        object * obj = &(objects[i]) ; 
+    for (int i = 0 ; i < num_static_objects ; i++) {
+        object * obj = &(static_objects[i]) ; 
 
         {
             mat4 result = mv * obj->transform ;
@@ -135,6 +135,51 @@ void display() {
             glDisableClientState(GL_NORMAL_ARRAY);
         }
 
+    }
+    
+    for (std::vector<object>::iterator it = dynamic_objects.begin(); it != dynamic_objects.end(); ++it) {
+        object * obj = &(*it);
+        {
+            mat4 result = mv * obj->transform ;
+            glLoadMatrixf(&result[0][0]);
+            glUniform4fv(ambientcol, 1, obj->ambient); 
+            glUniform4fv(diffusecol, 1, obj->diffuse);
+            glUniform4fv(specularcol, 1, obj->specular);
+            glUniform4fv(emissioncol, 1, obj->emission);
+            glUniform1f(shininesscol, obj->shininess);
+        }
+
+        ModelObj * object = new ModelObj();
+        bool found_flag = false;
+        for (int i = 0; i < size_of_list_models; i++) {
+            if (list_of_models[i].name == obj->name) {
+                found_flag = true;
+                *object = list_of_models[i];
+            }
+        }
+        if (!found_flag) {
+            if (!object->loadObj(obj->file_path, obj->shape_sides, obj->name)) {
+                exit(1);
+            }
+            list_of_models[size_of_list_models] = *object;
+            size_of_list_models++;
+        }
+        
+        glEnableClientState(GL_NORMAL_ARRAY);
+        glEnableClientState(GL_VERTEX_ARRAY);
+        glEnableClientState(GL_INDEX_ARRAY);
+        
+        glIndexPointer(GL_UNSIGNED_INT, 0, object->vertex_indices);
+        glNormalPointer(GL_FLOAT, 0, object->normals);
+        glVertexPointer(3, GL_FLOAT, 0, object->vertices);
+        if (object->shape == 4) {
+            glDrawElements(GL_QUADS, object->num_of_indices, GL_UNSIGNED_INT, object->vertex_indices);
+        } else if (object -> shape == 3) {
+            glDrawElements(GL_TRIANGLES, object->num_of_indices, GL_UNSIGNED_INT, object->vertex_indices);
+        }
+        glDisableClientState(GL_INDEX_ARRAY);
+        glDisableClientState(GL_VERTEX_ARRAY);
+        glDisableClientState(GL_NORMAL_ARRAY);
     }
     glutSwapBuffers();
 }

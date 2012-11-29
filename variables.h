@@ -8,6 +8,7 @@
 // extern, depending on if included in the main program or not.
 
 #include <sys/time.h>
+#include <vector>
 
 #ifdef MAINPROGRAM 
 #define EXTERN 
@@ -51,7 +52,7 @@ EXTERN GLfloat shininess ;
 
 // For multiple objects, read from a file.  
 const int maxobjects = 2000 ; 
-EXTERN int numobjects ; 
+EXTERN int num_static_objects ; 
 EXTERN struct object {
   shape type ; 
   GLfloat size ;
@@ -75,7 +76,10 @@ EXTERN struct object {
   struct timeval timeUpdate;
   glm::vec3 direction; // Only used for objects which require direction for animation.
   glm::vec3 position; // Only used for objects which require position for animation.
-} objects[maxobjects] ;
+} static_objects[maxobjects] ;
+
+EXTERN int num_dynamic_objects;
+EXTERN std::vector<object> dynamic_objects;
 
 EXTERN object * character;
 

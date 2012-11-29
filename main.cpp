@@ -17,6 +17,7 @@
 #include "UCB/grader.h"
 #include <sys/time.h>
 #include <math.h>
+#include <vector>
 
 using namespace std ; 
 
@@ -31,18 +32,23 @@ bool * key_states = new bool[256];
 bool keyboard_locked;
 
 // Animation Variables
-struct timeval time_register_key, train_one_loop, train_two_loop;
-int train_one_counter, train_two_counter;
+struct timeval time_register_key, train_one_loop, train_two_loop, purple_coin_time;
+int train_one_counter, train_two_counter, purple_coin_counter;
 
 // Warp Star Variables
 GLfloat first_warp_star_t_val;
 bool first_warp_star;
 
+// Menu Variables
+int num_purple_coins_collected;
 
 void display(void) ;  // prototype for display function.
 void loadTex(const char * filename, GLubyte textureLocation[256][256][3]);
 void evaluateQuadraticBezierCurve(glm::vec3 & result, glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, GLfloat t);
 void handleFirstWarpStar();
+
+// Simple Physics Engine - Handle Jumps & Collisions with Floor
+
 
 // Very basic code to read a ppm file
 // And then set up buffers for texture coordinates
@@ -112,6 +118,8 @@ void reshape(int width, int height){
 void handleAnimation ( ) {
     struct timeval current_time;
     gettimeofday(&current_time, NULL);
+    
+    // UPDATE TIME COUNTERS
     if ((current_time.tv_sec - train_one_loop.tv_sec) * 1000000.0 + (current_time.tv_usec - train_one_loop.tv_usec > 30000.0)) {
         train_one_counter = 32;
         gettimeofday(&train_one_loop, NULL);
@@ -120,8 +128,15 @@ void handleAnimation ( ) {
         train_two_counter = 32;
         gettimeofday(&train_two_loop, NULL);
     }
-    for (int i = 0; i < numobjects; i++) {
-        object * obj = &(objects[i]);
+    
+    if ((current_time.tv_sec - purple_coin_time.tv_sec) * 1000000.0 + (current_time.tv_usec - purple_coin_time.tv_usec > 30000.0)) {
+        purple_coin_counter = 100 - num_purple_coins_collected;
+        gettimeofday(&purple_coin_time, NULL);
+    }
+    
+    // TRAIN ANIMATION
+    for (int i = 0; i < num_static_objects; i++) {
+        object * obj = &(static_objects[i]);
         if (obj -> animation_state == "train_one_loop") {
             if (train_one_counter != 0) {
                 obj->transform = Transform::translate(0.0, 4.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -4.5, 0.0) * obj->transform; 
@@ -130,9 +145,9 @@ void handleAnimation ( ) {
             }
         } else if (obj -> animation_state == "wheel_one_loop") {
             if (train_one_counter != 0) {
-                obj->transform = Transform::translate(obj->position.x, obj->position.y, obj->position.z) * glm::mat4(Transform::rotate(0.5, glm::normalize(glm::cross(glm::vec3(0.0,0.0,1.0), obj->direction)))) * Transform::translate(-obj->position.x, -obj->position.y, -obj->position.z) * obj->transform;
+                obj->transform = Transform::translate(obj->position.x, obj->position.y, obj->position.z) * glm::mat4(Transform::rotate(5.0, glm::normalize(glm::cross(glm::vec3(0.0,0.0,1.0), obj->direction)))) * Transform::translate(-obj->position.x, -obj->position.y, -obj->position.z) * obj->transform;
                 obj->transform = Transform::translate(0.0, 4.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -4.5, 0.0) * obj->transform;
-                obj->direction = glm::vec3(obj->transform * glm::vec4(-1.0, 0.0, 0.0, 0.0));
+                obj->direction = glm::vec3(glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * glm::vec4(obj->direction.x, obj->direction.y, obj->direction.z, 0.0));
                 obj->position = glm::vec3(obj->transform * glm::vec4(0.0, 0.0, 0.0, 1.0));
                 gettimeofday(&(obj->timeUpdate), NULL);
                 train_one_counter--;
@@ -146,12 +161,26 @@ void handleAnimation ( ) {
             }
         } else if (obj -> animation_state == "wheel_two_loop") {
             if (train_two_counter != 0) {
-                obj->transform = Transform::translate(obj->position.x, obj->position.y, obj->position.z) * glm::mat4(Transform::rotate(0.5, glm::normalize(glm::cross(glm::vec3(0.0,0.0,1.0), obj->direction)))) * Transform::translate(-obj->position.x, -obj->position.y, -obj->position.z) * obj->transform;
+                obj->transform = Transform::translate(obj->position.x, obj->position.y, obj->position.z) * glm::mat4(Transform::rotate(5.0, glm::normalize(glm::cross(glm::vec3(0.0,0.0,1.0), obj->direction)))) * Transform::translate(-obj->position.x, -obj->position.y, -obj->position.z) * obj->transform;
                 obj->transform = Transform::translate(0.0, 4.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -4.5, 0.0) * obj->transform;
-                obj->direction = glm::vec3(obj->transform * glm::vec4(-1.0, 0.0, 0.0, 0.0));
+                obj->direction = glm::vec3(glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * glm::vec4(obj->direction.x, obj->direction.y, obj->direction.z, 0.0));
                 obj->position = glm::vec3(obj->transform * glm::vec4(0.0, 0.0, 0.0, 1.0));
                 gettimeofday(&(obj->timeUpdate), NULL);
                 train_two_counter--;
+            }
+        }
+    }
+    
+    // PURPLE COIN ANIMATION
+    for (std::vector<object>::iterator it = dynamic_objects.begin(); it != dynamic_objects.end(); ++it) {
+        object * obj = &(*it);
+        if (obj -> name == "purple_coin") {
+            //cout << purple_coin_counter << endl;
+            if (purple_coin_counter != 0) {
+                obj->transform = Transform::translate(obj->position.x, obj->position.y, obj->position.z) * glm::mat4(Transform::rotate(8.0, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(-obj->position.x, -obj->position.y, -obj->position.z) * obj->transform;
+                obj->position = glm::vec3(obj->transform * glm::vec4(0.0, 0.0, 0.0, 1.0));
+                gettimeofday(&(obj->timeUpdate), NULL);
+                purple_coin_counter--;
             }
         }
     }
@@ -159,12 +188,26 @@ void handleAnimation ( ) {
 
 
 void printHelp() {
-    std::cout << "\npress 'h' to print this message again.\n";  
+    std::cout << "\npress 'h' to print this message again.\n";
+    std::cout << "press 'w' to move forward.\n";
+    std::cout << "press 's' to move backward.\n";
+    std::cout << "press 'a' to move left.\n";
+    std::cout << "press 'd' to move right.\n";
+    std::cout << "press 'SPACE' to jump.\n";
+    std::cout << "press 'LEFT ARROW' to shift camera left.\n";
+    std::cout << "press 'RIGHT ARROW' to shift camera right.\n";
+
 }
 
 
 void keyboard(unsigned char key, int x, int y) {
 	key_states[key] = true;
+    if (key == 'h') {
+        printHelp();
+    }
+    if (key == 27) { // Escape to quit                                                                                                                                                                   
+        exit(0);
+    }
 }
 
 void keyUp (unsigned char key, int x, int y) {
@@ -173,17 +216,10 @@ void keyUp (unsigned char key, int x, int y) {
 
 
 void idleFunc() {
-    if (key_states[27]) { // Escape to quit                                                                                                                                                                   
-        exit(0);
-    }
     struct timeval current_time;
     gettimeofday(&current_time, NULL);
     cout << char_position.x << " , " << char_position.y << " , " << char_position.z << endl;
     if ((current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000.0 && !keyboard_locked) {
-        if (key_states['h']) {
-            cout << current_time.tv_usec << endl;
-            printHelp();
-        }
         if (key_states['w']) { // forward movement
             glm::vec3 direction = glm::normalize(glm::vec3(center.x - eye.x, center.y - eye.y, 0));
             eye = glm::vec3(Transform::translate(direction.x/25.0, direction.y/25.0, 0) * glm::vec4(eye.x, eye.y, eye.z, 1));
@@ -304,11 +340,19 @@ void init() {
     train_one_counter = 32; // train 1 has 32 objects
     gettimeofday(&train_two_loop,NULL);
     train_two_counter = 32; // train 2 has 32 objects
+    gettimeofday(&purple_coin_time,NULL);
+    purple_coin_counter = 100; // initially 100 purple coins
     keyboard_locked = false;
     
     first_warp_star_t_val = 0.0;
     
     char_position = vec3(0.0,0.0,0.0);
+    
+    num_static_objects = 0;
+    num_dynamic_objects = 0;
+    dynamic_objects = std::vector<object>();
+    
+    num_purple_coins_collected = 0;
 }
 
 int main(int argc, char* argv[]) {

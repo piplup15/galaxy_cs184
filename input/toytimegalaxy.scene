@@ -7731,7 +7731,7 @@ pushTransform
     specular 0.05 0.05 0.05 1
     shininess 4
     
-    translate 0 -0.05 0.2
+    translate 0 -0.02 0.2
     
     # Purple Coin 1
     pushTransform
@@ -8460,5 +8460,3 @@ pushTransform
     
     
 popTransform
-    
-    

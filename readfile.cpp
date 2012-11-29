@@ -157,12 +157,12 @@ void readfile(const char * filename) {
                 // I've left the code for loading objects in the skeleton, so 
                 // you can get a sense of how this works.  
                 else if (cmd == "sphere" || cmd == "cube" || cmd == "teapot") {
-                    if (numobjects == maxobjects) // No more objects 
-                        cerr << "Reached Maximum Number of Objects " << numobjects << " Will ignore further objects\n" ; 
+                    if (num_static_objects == maxobjects) // No more objects 
+                        cerr << "Reached Maximum Number of Objects " << num_static_objects << " Will ignore further objects\n" ; 
                     else {
                         validinput = readvals(s, 1, values) ; 
                         if (validinput) {
-                            object * obj = &(objects[numobjects]) ; 
+                            object * obj = &(static_objects[num_static_objects]) ; 
                             obj -> size = values[0] ; 
                             for (i = 0 ; i < 4 ; i++) {
                                 (obj -> ambient)[i] = ambient[i] ; 
@@ -178,17 +178,17 @@ void readfile(const char * filename) {
                             obj -> animation_state = anim_state;
                             gettimeofday(&(obj -> timeUpdate), NULL);
                         }
-                        ++numobjects ; 
+                        ++num_static_objects ; 
                     }
                 }
                 
                 else if (cmd == "disk") {
-                    if (numobjects == maxobjects) // No more objects
-                        cerr << "Reached Maximum Number of Objects " << numobjects << " Will ignore further objects\n" ;
+                    if (num_static_objects == maxobjects) // No more objects
+                        cerr << "Reached Maximum Number of Objects " << num_static_objects << " Will ignore further objects\n" ;
                     else {
                         validinput = readvals(s, 4, values) ;
                         if (validinput) {
-                            object * obj = &(objects[numobjects]) ;  
+                            object * obj = &(static_objects[num_static_objects]) ;  
                             for (i = 0 ; i < 4 ; i++) {
                                 (obj -> ambient)[i] = ambient[i] ; 
                                 (obj -> diffuse)[i] = diffuse[i] ; 
@@ -205,17 +205,17 @@ void readfile(const char * filename) {
                             obj -> animation_state = anim_state;
                             gettimeofday(&(obj -> timeUpdate), NULL);
                         }
-                        ++numobjects ;
+                        ++num_static_objects ;
                     }
                 }
                 
                 else if (cmd == "cylinder") {
-                    if (numobjects == maxobjects) // No more objects
-                        cerr << "Reached Maximum Number of Objects " << numobjects << " Will ignore further objects\n" ;
+                    if (num_static_objects == maxobjects) // No more objects
+                        cerr << "Reached Maximum Number of Objects " << num_static_objects << " Will ignore further objects\n" ;
                     else {
                         validinput = readvals(s, 5, values) ;
                         if (validinput) {
-                            object * obj = &(objects[numobjects]) ;  
+                            object * obj = &(static_objects[num_static_objects]) ;  
                             for (i = 0 ; i < 4 ; i++) {
                                 (obj -> ambient)[i] = ambient[i] ; 
                                 (obj -> diffuse)[i] = diffuse[i] ; 
@@ -233,17 +233,17 @@ void readfile(const char * filename) {
                             obj -> animation_state = anim_state;
                             gettimeofday(&(obj -> timeUpdate), NULL);
                         }
-                        ++numobjects ;
+                        ++num_static_objects ;
                     }
                 }
                 
-                else if (cmd == "smooth_cube" || cmd == "train_wheel" || cmd == "train_head" || cmd == "train_connect" || cmd == "disappear_cube" || cmd == "poison_cube" || cmd == "purple_coin") {
-                    if (numobjects == maxobjects) // No more objects
-                        cerr << "Reached Maximum Number of Objects " << numobjects << " Will ignore further objects\n" ;
+                else if (cmd == "smooth_cube" || cmd == "train_wheel" || cmd == "train_head" || cmd == "train_connect" || cmd == "poison_cube") {
+                    if (num_static_objects == maxobjects) // No more objects
+                        cerr << "Reached Maximum Number of Objects " << num_static_objects << " Will ignore further objects\n" ;
                     else {
                         validinput = readvals(s, 0, values);
                         if (validinput) {
-                            object *obj = &(objects[numobjects]);
+                            object *obj = &(static_objects[num_static_objects]);
                             for (i = 0; i < 4; i++) {
                                 (obj -> ambient)[i] = ambient[i];
                                 (obj -> diffuse)[i] = diffuse[i];
@@ -278,31 +278,65 @@ void readfile(const char * filename) {
                                 obj -> file_path = ((std::string)("images/train/train_connect.obj"));
                                 obj -> shape_sides = 4;
                             }
-                            if (cmd == "disappear_cube") {
+                            /**if (cmd == "disappear_cube") {
                                 obj -> name = ((std::string)("disappear_cube"));
                                 obj -> file_path = ((std::string)("images/shapes/disappear_cube.obj"));
                                 obj -> shape_sides = 4;
-                            }
+                            }**/
                             if (cmd == "poison_cube") {
                                 obj -> name = ((std::string)("poison_cube"));
                                 obj -> file_path = ((std::string)("images/shapes/poison_cube.obj"));
                                 obj -> shape_sides = 4;
                             }
-                            if (cmd == "purple_coin") {
+                            /**if (cmd == "purple_coin") {
                                 obj -> name = ((std::string)("purple_coin"));
                                 obj -> file_path = ((std::string)("images/shapes/coin.obj"));
                                 obj -> shape_sides = 4;
-                            }
-                            ++numobjects;
+                            }**/
+                            ++num_static_objects;
                             ++num_obj_models;
                         }
                     }
                 }
                 
+                else if (cmd == "disappear_cube" || cmd == "purple_coin") {
+                    if (num_dynamic_objects == maxobjects) // No more objects
+                        cerr << "Reached Maximum Number of Objects " << num_dynamic_objects << " Will ignore further objects\n" ;
+                    else {
+                        validinput = readvals(s, 0, values);
+                        if (validinput) {
+                            object *obj = new object();
+                            for (i = 0; i < 4; i++) {
+                                (obj -> ambient)[i] = ambient[i];
+                                (obj -> diffuse)[i] = diffuse[i];
+                                (obj -> specular)[i] = specular[i];
+                                (obj -> emission)[i] = specular[i];
+                            }
+                            obj -> type = modelobj;
+                            obj -> shininess = shininess;
+                            obj -> transform = transfstack.top();
+                            obj -> animation_state = anim_state;
+                            gettimeofday(&(obj -> timeUpdate), NULL);                        
+                            if (cmd == "disappear_cube") {
+                                obj -> name = ((std::string)("disappear_cube"));
+                                obj -> file_path = ((std::string)("images/shapes/disappear_cube.obj"));
+                                obj -> shape_sides = 4;
+                                obj -> position = glm::vec3 ( obj->transform * glm::vec4 (0.0, 0.0, 0.0, 1.0)); // Model of cube begins position (0, 0, 0).
+                            }
+                            if (cmd == "purple_coin") {
+                                obj -> name = ((std::string)("purple_coin"));
+                                obj -> file_path = ((std::string)("images/shapes/coin.obj"));
+                                obj -> shape_sides = 4;
+                                obj -> position = glm::vec3 ( obj->transform * glm::vec4 (0.0, 0.0, 0.0, 1.0)); // Model of cube begins position (0, 0, 0).
+                            }
+                            dynamic_objects.push_back(*obj);
+                        }
+                    }
+                }
                 else if (cmd == "character") {
                     validinput = readvals(s, 0, values) ; 
                     if (validinput) {
-                        object * obj = &(objects[numobjects]) ; 
+                        object * obj = &(static_objects[num_static_objects]) ; 
                         obj -> size = 1; 
                         for (i = 0 ; i < 4 ; i++) {
                             (obj -> ambient)[i] = ambient[i] ; 
@@ -317,7 +351,7 @@ void readfile(const char * filename) {
                         gettimeofday(&(obj -> timeUpdate), NULL);
                         character = obj;
                     }
-                    ++numobjects ; 
+                    ++num_static_objects ; 
                 }
                 
                 else if (cmd == "animation_state") {
