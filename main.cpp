@@ -74,14 +74,14 @@ void handleFirstWarpStar() {
     glm::vec3 point1 = glm::vec3(0.0, 9.0, 0.2);
     glm::vec3 point2 = glm::vec3(60.0, 50.0, 50.0);
     glm::vec3 point3 = glm::vec3(30.0, 100.0, -20.0);
-    //glm::vec3 point3 = glm::vec3(-40.0, 70.0, -50.0);
+    //glm::vec3 point3 = glm::vec3(-50.0, 70.0, -60.0);
     glm::vec3 result = glm::vec3(0.0,0.0,0.0);
     evaluateQuadraticBezierCurve(result, point1, point2, point3, first_warp_star_t_val);
     character->transform = Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * character->transform;
     eye = glm::vec3(Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * glm::vec4(eye.x, eye.y, eye.z, 1.0));
     center = glm::vec3(Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * glm::vec4(center.x, center.y, center.z, 1.0));
     char_position = glm::vec3(character->transform * glm::vec4(0.0, 0.0, 0.0, 1.0));
-    cout << first_warp_star_t_val << endl;
+    //cout << first_warp_star_t_val << endl;
     if (approx_equals(first_warp_star_t_val, 1.000)) {
         character->transform = Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * character->transform;
         eye = glm::vec3(Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * glm::vec4(eye.x, eye.y, eye.z, 1.0));

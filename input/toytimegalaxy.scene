@@ -710,7 +710,7 @@ popTransform
 # STAGE 1 ------------------------------------------------------- PART 3
 animation_state none
 pushTransform
-    translate -40 70 -50.1
+    translate -50 70 -60.1
     pushTransform
         ambient 0.3 0.1 0.1 1
         diffuse 0.1 0.1 0.1 1
@@ -839,78 +839,78 @@ pushTransform
     
     # Green Cube 1 Frame
     pushTransform
-        translate 1.01 0.5 0
-        scale 0.02 1 0.08
+        translate 1.0125 0.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 1.99 0.5 0
-        scale 0.02 1 0.08
+        translate 1.9875 0.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 1.5 0.99 0
-        scale 0.96 0.02 0.08
+        translate 1.5 0.9875 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 1.5 0.01 0
-        scale 0.96 0.02 0.08
+        translate 1.5 0.0125 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     
     # Green Cube 2 Frame
     pushTransform
-        translate 0.01 1.5 0
-        scale 0.02 1 0.08
+        translate 0.0125 1.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 0.99 1.5 0
-        scale 0.02 1 0.08
+        translate 0.9875 1.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 0.5 1.99 0
-        scale 0.96 0.02 0.08
+        translate 0.5 1.9875 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 0.5 1.01 0
-        scale 0.96 0.02 0.08
+        translate 0.5 1.0125 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     
     # Green Cube 3 Frame
     pushTransform
-        translate 1.01 1.5 0
-        scale 0.02 1 0.08
+        translate 1.0125 1.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 1.99 1.5 0
-        scale 0.02 1 0.08
+        translate 1.9875 1.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 1.5 1.99 0
-        scale 0.96 0.02 0.08
+        translate 1.5 1.9875 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 1.5 1.01 0
-        scale 0.96 0.02 0.08
+        translate 1.5 1.0125 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
@@ -918,262 +918,6810 @@ pushTransform
     
     # Green Cube 4 Frame
     pushTransform
-        translate 0.01 2.5 0
-        scale 0.02 1 0.08
+        translate 0.0125 2.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 0.99 2.5 0
-        scale 0.02 1 0.08
+        translate 0.9875 2.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 0.5 2.99 0
-        scale 0.96 0.02 0.08
+        translate 0.5 2.9875 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 0.5 2.01 0
-        scale 0.96 0.02 0.08
+        translate 0.5 2.0125 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     
     # Green Cube 5 Frame
     pushTransform
-        translate 1.01 2.5 0
-        scale 0.02 1 0.08
+        translate 1.0125 2.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 1.99 2.5 0
-        scale 0.02 1 0.08
+        translate 1.9875 2.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 1.5 2.99 0
-        scale 0.96 0.02 0.08
+        translate 1.5 2.9875 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 1.5 2.01 0
-        scale 0.96 0.02 0.08
+        translate 1.5 2.0125 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     
     # Green Cube 6 Frame
     pushTransform
-        translate 2.01 2.5 0
-        scale 0.02 1 0.08
+        translate 2.0125 2.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 2.99 2.5 0
-        scale 0.02 1 0.08
+        translate 2.9875 2.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 2.5 2.99 0
-        scale 0.96 0.02 0.08
+        translate 2.5 2.9875 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 2.5 2.01 0
-        scale 0.96 0.02 0.08
+        translate 2.5 2.0125 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     
     # Green Cube 7 Frame
     pushTransform
-        translate 3.01 2.5 0
-        scale 0.02 1 0.08
+        translate 3.0125 2.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 3.99 2.5 0
-        scale 0.02 1 0.08
+        translate 3.9875 2.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 3.5 2.99 0
-        scale 0.96 0.02 0.08
+        translate 3.5 2.9875 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 3.5 2.01 0
-        scale 0.96 0.02 0.08
+        translate 3.5 2.0125 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     
     # Green Cube 8 Frame
     pushTransform
-        translate 1.01 3.5 0
-        scale 0.02 1 0.08
+        translate 1.0125 3.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 1.99 3.5 0
-        scale 0.02 1 0.08
+        translate 1.9875 3.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 1.5 3.99 0
-        scale 0.96 0.02 0.08
+        translate 1.5 3.9875 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 1.5 3.01 0
-        scale 0.96 0.02 0.08
+        translate 1.5 3.0125 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     
     # Green Cube 9 Frame
     pushTransform
-        translate 2.01 3.5 0
-        scale 0.02 1 0.08
+        translate 2.0125 3.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 2.99 3.5 0
-        scale 0.02 1 0.08
+        translate 2.9875 3.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 2.5 3.99 0
-        scale 0.96 0.02 0.08
+        translate 2.5 3.9875 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 2.5 3.01 0
-        scale 0.96 0.02 0.08
+        translate 2.5 3.0125 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     
     # Green Cube 10 Frame
     pushTransform
-        translate 3.01 3.5 0
-        scale 0.02 1 0.08
+        translate 3.0125 3.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 3.99 3.5 0
-        scale 0.02 1 0.08
+        translate 3.9875 3.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 3.5 3.99 0
-        scale 0.96 0.02 0.08
+        translate 3.5 3.9875 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 3.5 3.01 0
-        scale 0.96 0.02 0.08
+        translate 3.5 3.0125 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     
     # Green Cube 11 Frame
     pushTransform
-        translate 4.01 3.5 0
-        scale 0.02 1 0.08
+        translate 4.0125 3.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 4.99 3.5 0
-        scale 0.02 1 0.08
+        translate 4.9875 3.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 4.5 3.99 0
-        scale 0.96 0.02 0.08
+        translate 4.5 3.9875 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 4.5 3.01 0
-        scale 0.96 0.02 0.08
+        translate 4.5 3.0125 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     
     # Green Cube 12 Frame
     pushTransform
-        translate 2.01 4.5 0
-        scale 0.02 1 0.08
+        translate 2.0125 4.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 2.99 4.5 0
-        scale 0.02 1 0.08
+        translate 2.9875 4.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 2.5 4.99 0
-        scale 0.96 0.02 0.08
+        translate 2.5 4.9875 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 2.5 4.01 0
-        scale 0.96 0.02 0.08
+        translate 2.5 4.0125 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     
     # Green Cube 13 Frame
     pushTransform
-        translate 3.01 4.5 0
-        scale 0.02 1 0.08
+        translate 3.0125 4.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 3.99 4.5 0
-        scale 0.02 1 0.08
+        translate 3.9875 4.5 0
+        scale 0.015 0.99 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 3.5 4.99 0
-        scale 0.96 0.02 0.08
+        translate 3.5 4.9875 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
     popTransform
     pushTransform
-        translate 3.5 4.01 0
-        scale 0.96 0.02 0.08
+        translate 3.5 4.0125 0
+        scale 0.96 0.015 0.08
         translate 0 0 -0.5
         cube 1
+    popTransform
+    
+    # ------------------------ LUIGI'S LEFT ARM -----------------------
+    ambient 0.8 0.7 0.5 1
+    diffuse 0.05 0.05 0.05 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    
+    # Yellow Cube 1
+    pushTransform
+        translate -0.5 5.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+       cube 1
+    popTransform
+    
+    # Yellow Cube 2
+    pushTransform
+        translate 0.5 5.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 3
+    pushTransform
+        translate -1.5 6.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 4
+    pushTransform
+        translate -0.5 6.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 5
+    pushTransform
+        translate 0.5 6.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 6
+    pushTransform
+        translate 1.5 6.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 7
+    pushTransform
+        translate -1.5 7.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 8
+    pushTransform
+        translate -0.5 7.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 9
+    pushTransform
+        translate 0.5 7.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+
+    ambient 0.15 0.6 0.15 1
+    diffuse 0.05 0.05 0.05 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    
+    # Green Cube 1
+    pushTransform
+        translate 5.5 6.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 2
+    pushTransform
+        translate 1.5 7.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 3
+    pushTransform
+        translate 2.5 7.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 4
+    pushTransform
+        translate 3.5 7.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 5
+    pushTransform
+        translate 4.5 7.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 6
+    pushTransform
+        translate 5.5 7.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 7
+    pushTransform
+        translate 6.5 7.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 8
+    pushTransform
+        translate 0.5 8.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 9
+    pushTransform
+        translate 1.5 8.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 10
+    pushTransform
+        translate 2.5 8.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 11
+    pushTransform
+        translate 3.5 8.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 12
+    pushTransform
+        translate 4.5 8.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 13
+    pushTransform
+        translate 5.5 8.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 14
+    pushTransform
+        translate 6.5 8.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 15
+    pushTransform
+        translate 0.5 9.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 16
+    pushTransform
+        translate 1.5 9.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 17
+    pushTransform
+        translate 2.5 9.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 18
+    pushTransform
+        translate 3.5 9.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 19
+    pushTransform
+        translate 4.5 9.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 20
+    pushTransform
+        translate 1.5 10.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 21
+    pushTransform
+        translate 2.5 10.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 22
+    pushTransform
+        translate 3.5 10.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 23
+    pushTransform
+        translate 4.5 10.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # ---------- LUIGI'S LEFT ARM FRAMES ----------------------
+    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.3 0.3 0.3 1
+    shininess 4
+    
+    # Yellow Cube 1 Frame
+    pushTransform
+        translate -0.0125 5.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate -0.9875 5.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate -0.5 5.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate -0.5 5.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 2 Frame
+    pushTransform
+        translate 0.0125 5.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 0.9875 5.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 0.5 5.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 0.5 5.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 3 Frame
+    pushTransform
+        translate -1.0125 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate -1.9875 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate -1.5 6.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate -1.5 6.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 4 Frame
+    pushTransform
+        translate -0.0125 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate -0.9875 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate -0.5 6.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate -0.5 6.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 5 Frame
+    pushTransform
+        translate 0.0125 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 0.9875 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 0.5 6.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 0.5 6.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 6 Frame
+    pushTransform
+        translate 1.0125 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 1.9875 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 1.5 6.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 1.5 6.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 7 Frame
+    pushTransform
+        translate -1.0125 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate -1.9875 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate -1.5 7.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate -1.5 7.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 8 Frame
+    pushTransform
+        translate -0.0125 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate -0.9875 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate -0.5 7.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate -0.5 7.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 9 Frame
+    pushTransform
+        translate 0.0125 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 0.9875 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 0.5 7.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 0.5 7.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 1 Frame
+    pushTransform
+        translate 5.0125 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.9875 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 6.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 6.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 2 Frame
+    pushTransform
+        translate 1.0125 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 1.9875 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 1.5 7.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 1.5 7.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 3 Frame
+    pushTransform
+        translate 2.0125 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 2.9875 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 2.5 7.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 2.5 7.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 4 Frame
+    pushTransform
+        translate 3.0125 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.9875 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.5 7.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.5 7.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 5 Frame
+    pushTransform
+        translate 4.0125 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.9875 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 7.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 7.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 6 Frame
+    pushTransform
+        translate 5.0125 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.9875 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 7.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 7.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 7 Frame
+    pushTransform
+        translate 6.0125 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.9875 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.5 7.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.5 7.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 8 Frame
+    pushTransform
+        translate 0.0125 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 0.9875 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 0.5 8.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 0.5 8.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 9 Frame
+    pushTransform
+        translate 1.0125 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 1.9875 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 1.5 8.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 1.5 8.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 10 Frame
+    pushTransform
+        translate 2.0125 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 2.9875 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 2.5 8.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 2.5 8.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 11 Frame
+    pushTransform
+        translate 3.0125 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.9875 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.5 8.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.5 8.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 12 Frame
+    pushTransform
+        translate 4.0125 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.9875 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 8.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 8.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 13 Frame
+    pushTransform
+        translate 5.0125 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.9875 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 8.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 8.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 14 Frame
+    pushTransform
+        translate 6.0125 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.9875 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.5 8.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.5 8.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 15 Frame
+    pushTransform
+        translate 0.0125 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 0.9875 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 0.5 9.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 0.5 9.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 16 Frame
+    pushTransform
+        translate 1.0125 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 1.9875 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 1.5 9.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 1.5 9.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 17 Frame
+    pushTransform
+        translate 2.0125 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 2.9875 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 2.5 9.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 2.5 9.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 18 Frame
+    pushTransform
+        translate 3.0125 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.9875 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.5 9.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.5 9.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 19 Frame
+    pushTransform
+        translate 4.0125 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.9875 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 9.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 9.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 20 Frame
+    pushTransform
+        translate 1.0125 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 1.9875 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 1.5 10.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 1.5 10.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 21 Frame
+    pushTransform
+        translate 2.0125 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 2.9875 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 2.5 10.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 2.5 10.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 22 Frame
+    pushTransform
+        translate 3.0125 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.9875 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.5 10.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.5 10.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 23 Frame
+    pushTransform
+        translate 4.0125 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.9875 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 10.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 10.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # ------------------------ LUIGI'S LEFT EAR -----------------------
+    ambient 0.8 0.7 0.5 1
+    diffuse 0.05 0.05 0.05 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    
+    # Yellow Cube 1
+    pushTransform
+        translate 4.5 14.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 2
+    pushTransform
+        translate 4.5 15.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    
+    ambient 0.15 0.6 0.15 1
+    diffuse 0.05 0.05 0.05 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    
+    # Green Cube 1
+    pushTransform
+        translate 3.5 12.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 2
+    pushTransform
+        translate 4.5 12.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 3
+    pushTransform
+        translate 3.5 13.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 4
+    pushTransform
+        translate 4.5 13.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 5
+    pushTransform
+        translate 5.5 13.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 6
+    pushTransform
+        translate 6.5 13.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 7
+    pushTransform
+        translate 3.5 14.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 8
+    pushTransform
+        translate 5.5 14.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 9
+    pushTransform
+        translate 6.5 14.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 10
+    pushTransform
+        translate 3.5 15.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 11
+    pushTransform
+        translate 5.5 15.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 12
+    pushTransform
+        translate 4.5 16.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+     # Green Cube 13
+    pushTransform
+        translate 5.5 16.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+     # Green Cube 14
+    pushTransform
+        translate 6.5 16.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # ---------- LUIGI'S LEFT EAR FRAMES ----------------------
+    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.3 0.3 0.3 1
+    shininess 4
+    
+    # Yellow Cube 1 Frame
+    pushTransform
+        translate 4.0125 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.9875 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 14.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 14.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 2 Frame
+    pushTransform
+        translate 4.0125 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.9875 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 15.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 15.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 1 Frame
+    pushTransform
+        translate 3.0125 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.9875 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.5 12.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.5 12.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 2 Frame
+    pushTransform
+        translate 4.0125 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.9875 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 12.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 12.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 3 Frame
+    pushTransform
+        translate 3.0125 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.9875 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.5 13.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.5 13.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 4 Frame
+    pushTransform
+        translate 4.0125 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.9875 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 13.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 13.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 5 Frame
+    pushTransform
+        translate 5.0125 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.9875 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 13.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 13.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 6 Frame
+    pushTransform
+        translate 6.0125 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.9875 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.5 13.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.5 13.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 7 Frame
+    pushTransform
+        translate 3.0125 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.9875 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.5 14.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.5 14.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 8 Frame
+    pushTransform
+        translate 5.0125 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.9875 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 14.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 14.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 9 Frame
+    pushTransform
+        translate 6.0125 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.9875 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.5 14.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.5 14.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 10 Frame
+    pushTransform
+        translate 3.0125 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.9875 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.5 15.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 3.5 15.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 11 Frame
+    pushTransform
+        translate 5.0125 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.9875 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 15.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 15.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 12 Frame
+    pushTransform
+        translate 4.0125 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.9875 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 16.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 4.5 16.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 13 Frame
+    pushTransform
+        translate 5.0125 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.9875 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 16.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 16.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 14 Frame
+    pushTransform
+        translate 6.0125 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.9875 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.5 16.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.5 16.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # ------------------------ LUIGI'S CHEEK -----------------------
+    
+    ambient 0.8 0.7 0.5 1
+    diffuse 0.05 0.05 0.05 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    
+    # Yellow Cube 1
+    pushTransform
+        translate 5.5 11.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 2
+    pushTransform
+        translate 6.5 11.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 3
+    pushTransform
+        translate 7.5 11.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 4
+    pushTransform
+        translate 8.5 11.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 5
+    pushTransform
+        translate 9.5 11.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 6
+    pushTransform
+        translate 10.5 11.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 7
+    pushTransform
+        translate 11.5 11.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 8
+    pushTransform
+        translate 12.5 11.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 9
+    pushTransform
+        translate 13.5 11.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 10
+    pushTransform
+        translate 5.5 12.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 11
+    pushTransform
+        translate 6.5 12.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 12
+    pushTransform
+        translate 7.5 12.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 13
+    pushTransform
+        translate 8.5 12.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 14
+    pushTransform
+        translate 9.5 12.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 15
+    pushTransform
+        translate 7.5 13.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 16
+    pushTransform
+        translate 8.5 13.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 17
+    pushTransform
+        translate 9.5 13.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 18
+    pushTransform
+        translate 10.5 13.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 19
+    pushTransform
+        translate 7.5 14.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 20
+    pushTransform
+        translate 8.5 14.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 21
+    pushTransform
+        translate 9.5 14.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 22
+    pushTransform
+        translate 6.5 15.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 23
+    pushTransform
+        translate 7.5 15.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 24
+    pushTransform
+        translate 8.5 15.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 25
+    pushTransform
+        translate 9.5 15.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 26
+    pushTransform
+        translate 7.5 16.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 27
+    pushTransform
+        translate 8.5 16.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 28
+    pushTransform
+        translate 9.5 16.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # ---------- LUIGI'S CHEEK FRAMES ----------------------
+    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.3 0.3 0.3 1
+    shininess 4
+    
+    # Yellow Cube 1 Frame
+    pushTransform
+        translate 5.0125 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.9875 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 11.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 11.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 2 Frame
+    pushTransform
+        translate 6.0125 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.9875 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.5 11.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.5 11.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 3 Frame
+    pushTransform
+        translate 7.0125 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.9875 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 11.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 11.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 4 Frame
+    pushTransform
+        translate 8.0125 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.9875 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 11.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 11.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 5 Frame
+    pushTransform
+        translate 9.0125 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.9875 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 11.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 11.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 6 Frame
+    pushTransform
+        translate 10.0125 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.9875 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 11.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 11.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 7 Frame
+    pushTransform
+        translate 11.0125 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.9875 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.5 11.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.5 11.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 8 Frame
+    pushTransform
+        translate 12.0125 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.9875 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 11.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 11.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 9 Frame
+    pushTransform
+        translate 13.0125 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.9875 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 11.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 11.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 10 Frame
+    pushTransform
+        translate 5.0125 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.9875 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 12.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 5.5 12.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 11 Frame
+    pushTransform
+        translate 6.0125 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.9875 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.5 12.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.5 12.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 12 Frame
+    pushTransform
+        translate 7.0125 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.9875 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 12.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 12.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 13 Frame
+    pushTransform
+        translate 8.0125 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.9875 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 12.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 12.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 14 Frame
+    pushTransform
+        translate 9.0125 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.9875 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 12.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 12.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 15 Frame
+    pushTransform
+        translate 7.0125 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.9875 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 13.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 13.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 16 Frame
+    pushTransform
+        translate 8.0125 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.9875 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 13.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 13.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 17 Frame
+    pushTransform
+        translate 9.0125 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.9875 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 13.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 13.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 18 Frame
+    pushTransform
+        translate 10.0125 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.9875 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 13.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 13.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 19 Frame
+    pushTransform
+        translate 7.0125 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.9875 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 14.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 14.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 20 Frame
+    pushTransform
+        translate 8.0125 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.9875 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 14.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 14.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 21 Frame
+    pushTransform
+        translate 9.0125 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.9875 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 14.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 14.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 22 Frame
+    pushTransform
+        translate 6.0125 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.9875 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.5 15.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 6.5 15.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 23 Frame
+    pushTransform
+        translate 7.0125 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.9875 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 15.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 15.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 24 Frame
+    pushTransform
+        translate 8.0125 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.9875 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 15.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 15.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 25 Frame
+    pushTransform
+        translate 9.0125 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.9875 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 15.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 15.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 26 Frame
+    pushTransform
+        translate 7.0125 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.9875 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 16.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 16.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 27 Frame
+    pushTransform
+        translate 8.0125 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.9875 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 16.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 16.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 28 Frame
+    pushTransform
+        translate 9.0125 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.9875 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 16.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 16.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # ------------------------ LUIGI'S EYE/MOUTH -----------------------
+    
+    ambient 0.15 0.6 0.15 1
+    diffuse 0.05 0.05 0.05 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    
+    # Green Cube 1
+    pushTransform
+        translate 14.5 11.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 2
+    pushTransform
+        translate 15.5 11.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 3
+    pushTransform
+        translate 10.5 12.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 4
+    pushTransform
+        translate 11.5 12.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 5
+    pushTransform
+        translate 12.5 12.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 6
+    pushTransform
+        translate 13.5 12.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 7
+    pushTransform
+        translate 14.5 12.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 8
+    pushTransform
+        translate 15.5 12.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 9
+    pushTransform
+        translate 16.5 12.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 10
+    pushTransform
+        translate 11.5 13.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 11
+    pushTransform
+        translate 12.5 13.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 12
+    pushTransform
+        translate 10.5 14.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 13
+    pushTransform
+        translate 10.5 15.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 14
+    pushTransform
+        translate 10.5 16.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # ---------- LUIGI'S EYE/MOUTH FRAMES ----------------------
+    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.3 0.3 0.3 1
+    shininess 4
+    
+    # Green Cube 1 Frame
+    pushTransform
+        translate 14.0125 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.9875 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.5 11.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.5 11.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 2 Frame
+    pushTransform
+        translate 15.0125 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.9875 11.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 11.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 11.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 3 Frame
+    pushTransform
+        translate 10.0125 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.9875 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 12.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 12.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 4 Frame
+    pushTransform
+        translate 11.0125 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.9875 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.5 12.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.5 12.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 5 Frame
+    pushTransform
+        translate 12.0125 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.9875 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 12.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 12.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 6 Frame
+    pushTransform
+        translate 13.0125 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.9875 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 12.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 12.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 7 Frame
+    pushTransform
+        translate 14.0125 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.9875 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.5 12.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.5 12.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 8 Frame
+    pushTransform
+        translate 15.0125 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.9875 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 12.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 12.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 9 Frame
+    pushTransform
+        translate 16.0125 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.9875 12.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 12.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 12.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 10 Frame
+    pushTransform
+        translate 11.0125 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.9875 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.5 13.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.5 13.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 11 Frame
+    pushTransform
+        translate 12.0125 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.9875 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 13.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 13.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 12 Frame
+    pushTransform
+        translate 10.0125 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.9875 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 14.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 14.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 13 Frame
+    pushTransform
+        translate 10.0125 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.9875 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 15.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 15.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 14 Frame
+    pushTransform
+        translate 10.0125 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.9875 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 16.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 16.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # ------------------------ LUIGI'S NOSE/STACHE -----------------------
+    
+    ambient 0.8 0.7 0.5 1
+    diffuse 0.05 0.05 0.05 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    
+    # Yellow Cube 1
+    pushTransform
+        translate 13.5 13.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 2
+    pushTransform
+        translate 14.5 13.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 3
+    pushTransform
+        translate 15.5 13.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 4
+    pushTransform
+        translate 16.5 13.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 5
+    pushTransform
+        translate 11.5 14.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 6
+    pushTransform
+        translate 12.5 14.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 7
+    pushTransform
+        translate 13.5 14.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+
+    # Yellow Cube 8
+    pushTransform
+        translate 11.5 15.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 9
+    pushTransform
+        translate 12.5 15.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 10
+    pushTransform
+        translate 13.5 15.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 11
+    pushTransform
+        translate 11.5 16.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 12
+    pushTransform
+        translate 12.5 16.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # ---------- LUIGI'S NOSE/STACHE FRAMES ----------------------
+    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.3 0.3 0.3 1
+    shininess 4
+    
+    # Yellow Cube 1 Frame
+    pushTransform
+        translate 13.0125 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.9875 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 13.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 13.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 2 Frame
+    pushTransform
+        translate 14.0125 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.9875 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.5 13.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.5 13.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 3 Frame
+    pushTransform
+        translate 15.0125 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.9875 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 13.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 13.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 4 Frame
+    pushTransform
+        translate 16.0125 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.9875 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 13.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 13.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 5 Frame
+    pushTransform
+        translate 11.0125 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.9875 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.5 14.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.5 14.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 6 Frame
+    pushTransform
+        translate 12.0125 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.9875 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 14.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 14.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 7 Frame
+    pushTransform
+        translate 13.0125 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.9875 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 14.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 14.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 8 Frame
+    pushTransform
+        translate 11.0125 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.9875 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.5 15.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.5 15.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 9 Frame
+    pushTransform
+        translate 12.0125 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.9875 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 15.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 15.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 10 Frame
+    pushTransform
+        translate 13.0125 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.9875 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 15.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 15.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 11 Frame
+    pushTransform
+        translate 11.0125 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.9875 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.5 16.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.5 16.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 12 Frame
+    pushTransform
+        translate 12.0125 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.9875 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 16.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 16.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # ---------- LUIGI'S RIGHT ARM ----------------------
+    
+    ambient 0.15 0.6 0.15 1
+    diffuse 0.05 0.05 0.05 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    
+    # Green Cube 1
+    pushTransform
+        translate 17.5 13.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 2
+    pushTransform
+        translate 18.5 13.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 3
+    pushTransform
+        translate 14.5 14.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+
+    # Green Cube 4
+    pushTransform
+        translate 15.5 14.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 5
+    pushTransform
+        translate 16.5 14.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 6
+    pushTransform
+        translate 17.5 14.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 7
+    pushTransform
+        translate 18.5 14.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 8
+    pushTransform
+        translate 14.5 15.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+
+    # Green Cube 9
+    pushTransform
+        translate 15.5 15.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 10
+    pushTransform
+        translate 16.5 15.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 11
+    pushTransform
+        translate 17.5 15.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 12
+    pushTransform
+        translate 18.5 15.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 13
+    pushTransform
+        translate 14.5 16.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+
+    # Green Cube 14
+    pushTransform
+        translate 15.5 16.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 15
+    pushTransform
+        translate 16.5 16.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 16
+    pushTransform
+        translate 17.5 16.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 17
+    pushTransform
+        translate 18.5 16.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    
+    ambient 0.8 0.7 0.5 1
+    diffuse 0.05 0.05 0.05 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    
+    # Yellow Cube 1
+    pushTransform
+        translate 16.5 17.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 2
+    pushTransform
+        translate 17.5 17.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 3
+    pushTransform
+        translate 18.5 17.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 4
+    pushTransform
+        translate 16.5 18.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 5
+    pushTransform
+        translate 17.5 18.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 6
+    pushTransform
+        translate 18.5 18.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 7
+    pushTransform
+        translate 15.5 19.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 8
+    pushTransform
+        translate 16.5 19.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 9
+    pushTransform
+        translate 17.5 19.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 10
+    pushTransform
+        translate 18.5 19.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 11
+    pushTransform
+        translate 15.5 20.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 12
+    pushTransform
+        translate 16.5 20.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 13
+    pushTransform
+        translate 17.5 20.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 14
+    pushTransform
+        translate 18.5 20.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # ---------- LUIGI'S RIGHT ARM FRAMES ----------------------
+    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.3 0.3 0.3 1
+    shininess 4
+    
+    # Green Cube 1 Frame
+    pushTransform
+        translate 17.0125 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.9875 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 13.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 13.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 2 Frame
+    pushTransform
+        translate 18.0125 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.9875 13.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.5 13.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.5 13.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 3 Frame
+    pushTransform
+        translate 14.0125 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.9875 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.5 14.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.5 14.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 4 Frame
+    pushTransform
+        translate 15.0125 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.9875 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 14.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 14.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 5 Frame
+    pushTransform
+        translate 16.0125 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.9875 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 14.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 14.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 6 Frame
+    pushTransform
+        translate 17.0125 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.9875 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 14.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 14.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 7 Frame
+    pushTransform
+        translate 18.0125 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.9875 14.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.5 14.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.5 14.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 8 Frame
+    pushTransform
+        translate 14.0125 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.9875 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.5 15.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.5 15.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 9 Frame
+    pushTransform
+        translate 15.0125 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.9875 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 15.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 15.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 10 Frame
+    pushTransform
+        translate 16.0125 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.9875 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 15.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 15.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 11 Frame
+    pushTransform
+        translate 17.0125 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.9875 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 15.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 15.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 12 Frame
+    pushTransform
+        translate 18.0125 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.9875 15.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.5 15.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.5 15.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 13 Frame
+    pushTransform
+        translate 14.0125 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.9875 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.5 16.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 14.5 16.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 14 Frame
+    pushTransform
+        translate 15.0125 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.9875 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 16.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 16.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 15 Frame
+    pushTransform
+        translate 16.0125 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.9875 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 16.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 16.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 16 Frame
+    pushTransform
+        translate 17.0125 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.9875 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 16.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 16.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 17 Frame
+    pushTransform
+        translate 18.0125 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.9875 16.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.5 16.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.5 16.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    
+    # Yellow Cube 1 Frame
+    pushTransform
+        translate 16.0125 17.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.9875 17.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 17.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 17.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 2 Frame
+    pushTransform
+        translate 17.0125 17.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.9875 17.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 17.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 17.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 3 Frame
+    pushTransform
+        translate 18.0125 17.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.9875 17.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.5 17.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.5 17.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 4 Frame
+    pushTransform
+        translate 16.0125 18.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.9875 18.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 18.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 18.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 5 Frame
+    pushTransform
+        translate 17.0125 18.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.9875 18.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 18.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 18.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 6 Frame
+    pushTransform
+        translate 18.0125 18.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.9875 18.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.5 18.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.5 18.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 7 Frame
+    pushTransform
+        translate 15.0125 19.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.9875 19.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 19.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 19.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 8 Frame
+    pushTransform
+        translate 16.0125 19.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.9875 19.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 19.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 19.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 9 Frame
+    pushTransform
+        translate 17.0125 19.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.9875 19.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 19.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 19.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 10 Frame
+    pushTransform
+        translate 18.0125 19.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.9875 19.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.5 19.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.5 19.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 11 Frame
+    pushTransform
+        translate 15.0125 20.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.9875 20.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 20.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 20.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 12 Frame
+    pushTransform
+        translate 16.0125 20.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.9875 20.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 20.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 20.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 13 Frame
+    pushTransform
+        translate 17.0125 20.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.9875 20.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 20.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 20.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 14 Frame
+    pushTransform
+        translate 18.0125 20.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.9875 20.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.5 20.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 18.5 20.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # ---------- LUIGI'S TORSO ----------------------
+    
+    ambient 0.15 0.6 0.15 1
+    diffuse 0.05 0.05 0.05 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    
+    # Green Cube 1
+    pushTransform
+        translate 12.5 7.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 2
+    pushTransform
+        translate 8.5 8.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 3
+    pushTransform
+        translate 9.5 8.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 4
+    pushTransform
+        translate 10.5 8.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 5
+    pushTransform
+        translate 11.5 8.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 6
+    pushTransform
+        translate 12.5 8.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 7
+    pushTransform
+        translate 13.5 8.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 8
+    pushTransform
+        translate 7.5 9.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 9
+    pushTransform
+        translate 8.5 9.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 10
+    pushTransform
+        translate 9.5 9.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 11
+    pushTransform
+        translate 10.5 9.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 12
+    pushTransform
+        translate 13.5 9.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 13
+    pushTransform
+        translate 7.5 10.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 14
+    pushTransform
+        translate 8.5 10.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 15
+    pushTransform
+        translate 9.5 10.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 16
+    pushTransform
+        translate 10.5 10.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 17
+    pushTransform
+        translate 13.5 10.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+
+
+# ---------- LUIGI'S TORSO ----------------------
+
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.3 0.3 0.3 1
+    shininess 4
+
+    # Green Cube 1 Frame
+    pushTransform
+        translate 12.0125 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.9875 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 7.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 7.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 2 Frame
+    pushTransform
+        translate 8.0125 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.9875 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 8.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 8.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 3 Frame
+    pushTransform
+        translate 9.0125 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.9875 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 8.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 8.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 4 Frame
+    pushTransform
+        translate 10.0125 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.9875 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 8.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 8.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 5 Frame
+    pushTransform
+        translate 11.0125 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.9875 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.5 8.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 11.5 8.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 6 Frame
+    pushTransform
+        translate 12.0125 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.9875 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 8.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 8.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 7 Frame
+    pushTransform
+        translate 13.0125 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.9875 8.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 8.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 8.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 8 Frame
+    pushTransform
+        translate 7.0125 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.9875 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 9.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 9.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 9 Frame
+    pushTransform
+        translate 8.0125 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.9875 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 9.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 9.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 10 Frame
+    pushTransform
+        translate 9.0125 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.9875 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 9.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 9.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 11 Frame
+    pushTransform
+        translate 10.0125 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.9875 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 9.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 9.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 12 Frame
+    pushTransform
+        translate 13.0125 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.9875 9.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 9.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 9.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 13 Frame
+    pushTransform
+        translate 7.0125 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.9875 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 10.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 10.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 14 Frame
+    pushTransform
+        translate 8.0125 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.9875 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 10.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 10.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 15 Frame
+    pushTransform
+        translate 9.0125 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.9875 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 10.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 9.5 10.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 16 Frame
+    pushTransform
+        translate 10.0125 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.9875 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 10.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 10.5 10.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 17 Frame
+    pushTransform
+        translate 13.0125 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.9875 10.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 10.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 10.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # ---------- LUIGI'S BUTTONS ----------------------
+
+    ambient 0.8 0.7 0.5 1
+    diffuse 0.05 0.05 0.05 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    
+    # Yellow Cube 1
+    pushTransform
+        translate 7.5 5.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 2
+    pushTransform
+        translate 8.5 5.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 3
+    pushTransform
+        translate 12.5 5.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 4
+    pushTransform
+        translate 13.5 5.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 5
+    pushTransform
+        translate 7.5 6.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 6
+    pushTransform
+        translate 8.5 6.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 7
+    pushTransform
+        translate 12.5 6.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # Yellow Cube 8
+    pushTransform
+        translate 13.5 6.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        cube 1
+    popTransform
+    
+    # ---------- LUIGI'S BUTTONS FRAMES ----------------------
+    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.3 0.3 0.3 1
+    shininess 4
+
+    # Yellow Cube 1 Frame
+    pushTransform
+        translate 7.0125 5.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.9875 5.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 5.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 5.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 2 Frame
+    pushTransform
+        translate 8.0125 5.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.9875 5.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 5.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 5.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 3 Frame
+    pushTransform
+        translate 12.0125 5.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.9875 5.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 5.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 5.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 4 Frame
+    pushTransform
+        translate 13.0125 5.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.9875 5.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 5.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 5.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 5 Frame
+    pushTransform
+        translate 7.0125 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.9875 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 6.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 7.5 6.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 6 Frame
+    pushTransform
+        translate 8.0125 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.9875 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 6.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 8.5 6.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 7 Frame
+    pushTransform
+        translate 12.0125 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.9875 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 6.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 12.5 6.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Yellow Cube 8 Frame
+    pushTransform
+        translate 13.0125 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.9875 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 6.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 13.5 6.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # ---------- LUIGI'S RIGHT LEG ----------------------
+    
+    ambient 0.15 0.6 0.15 1
+    diffuse 0.05 0.05 0.05 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    
+    # Green Cube 1
+    pushTransform
+        translate 16.5 3.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 2
+    pushTransform
+        translate 17.5 3.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 3
+    pushTransform
+        translate 16.5 4.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 4
+    pushTransform
+        translate 17.5 4.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 5
+    pushTransform
+        translate 16.5 5.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 6
+    pushTransform
+        translate 17.5 5.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 7
+    pushTransform
+        translate 16.5 6.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 8
+    pushTransform
+        translate 17.5 6.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 9
+    pushTransform
+        translate 15.5 7.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 10
+    pushTransform
+        translate 16.5 7.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # Green Cube 11
+    pushTransform
+        translate 17.5 7.5 0
+        scale 0.96 0.96 0.08
+        translate 0 0 -0.5 
+        disappear_cube
+    popTransform
+    
+    # ---------- LUIGI'S RIGHT LEG FRAMES ----------------------
+    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.3 0.3 0.3 1
+    shininess 4
+
+    # Green Cube 1 Frame
+    pushTransform
+        translate 16.0125 3.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.9875 3.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 3.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 3.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 2 Frame
+    pushTransform
+        translate 17.0125 3.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.9875 3.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 3.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 3.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 3 Frame
+    pushTransform
+        translate 16.0125 4.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.9875 4.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 4.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 4.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 4 Frame
+    pushTransform
+        translate 17.0125 4.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.9875 4.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 4.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 4.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 5 Frame
+    pushTransform
+        translate 16.0125 5.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.9875 5.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 5.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 5.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 6 Frame
+    pushTransform
+        translate 17.0125 5.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.9875 5.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 5.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 5.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 7 Frame
+    pushTransform
+        translate 16.0125 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.9875 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 6.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 6.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 8 Frame
+    pushTransform
+        translate 17.0125 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.9875 6.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 6.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 6.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 9 Frame
+    pushTransform
+        translate 15.0125 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.9875 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 7.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 15.5 7.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 10 Frame
+    pushTransform
+        translate 16.0125 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.9875 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 7.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 16.5 7.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # Green Cube 11 Frame
+    pushTransform
+        translate 17.0125 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.9875 7.5 0
+        scale 0.015 0.99 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 7.9875 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    pushTransform
+        translate 17.5 7.0125 0
+        scale 0.96 0.015 0.08
+        translate 0 0 -0.5
+        cube 1
+    popTransform
+    
+    # ---------- LUIGI'S POISON SPOTS (OVERALLS, CAP) ----------------------
+    
+    ambient 0.1 0.3 0.25 1
+    diffuse 0.05 0.05 0.05 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    
+    pushTransform
+        translate 4.5 1.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 5.5 1.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 6.5 1.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 4.5 2.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 5.5 2.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 6.5 2.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 7.5 2.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 8.5 2.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 9.5 2.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 5.5 3.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 6.5 3.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 7.5 3.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 8.5 3.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 9.5 3.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 10.5 3.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 11.5 3.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 12.5 3.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 13.5 3.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 14.5 3.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 15.5 3.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 4.5 4.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 5.5 4.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 6.5 4.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 7.5 4.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 8.5 4.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 9.5 4.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 10.5 4.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 11.5 4.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 12.5 4.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 13.5 4.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 14.5 4.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 15.5 4.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 3.5 5.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 4.5 5.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 5.5 5.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 6.5 5.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 9.5 5.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 10.5 5.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 11.5 5.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 14.5 5.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 15.5 5.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 3.5 6.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 4.5 6.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 6.5 6.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 9.5 6.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 10.5 6.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 11.5 6.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 7.5 7.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 8.5 7.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 9.5 7.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 10.5 7.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 11.5 7.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 13.5 7.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 7.5 8.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 5.5 9.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 6.5 9.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 11.5 9.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 12.5 9.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 5.5 10.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 6.5 10.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 11.5 10.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 12.5 10.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 4.5 17.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 5.5 17.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 6.5 17.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 7.5 17.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 8.5 17.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 9.5 17.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 10.5 17.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 11.5 17.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 12.5 17.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 13.5 17.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 14.5 17.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 15.5 17.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 4.5 18.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 5.5 18.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 6.5 18.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 7.5 18.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 8.5 18.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 9.5 18.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 10.5 18.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 11.5 18.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 12.5 18.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 13.5 18.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 14.5 18.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 15.5 18.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 5.5 19.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 6.5 19.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 7.5 19.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 8.5 19.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 9.5 19.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 10.5 19.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
+    popTransform
+    
+    pushTransform
+        translate 11.5 19.5 -0.05
+        scale 1 1 0.4
+        translate 0 0 -0.5 
+        poison_cube
     popTransform
     
 popTransform
