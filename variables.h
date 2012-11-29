@@ -77,6 +77,8 @@ EXTERN struct object {
   glm::vec3 position; // Only used for objects which require position for animation.
 } objects[maxobjects] ;
 
+EXTERN object * character;
+
 EXTERN std::string anim_state;
 
 // Variables to set uniform params for lighting fragment shader 

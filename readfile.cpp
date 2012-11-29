@@ -237,7 +237,7 @@ void readfile(const char * filename) {
                     }
                 }
                 
-                else if (cmd == "smooth_cube" || cmd == "train_wheel" || cmd == "train_head" || cmd == "train_connect") {
+                else if (cmd == "smooth_cube" || cmd == "train_wheel" || cmd == "train_head" || cmd == "train_connect" || cmd == "disappear_cube") {
                     if (numobjects == maxobjects) // No more objects
                         cerr << "Reached Maximum Number of Objects " << numobjects << " Will ignore further objects\n" ;
                     else {
@@ -278,10 +278,36 @@ void readfile(const char * filename) {
                                 obj -> file_path = ((std::string)("images/train/train_connect.obj"));
                                 obj -> shape_sides = 4;
                             }
+                            if (cmd == "disappear_cube") {
+                                obj -> name = ((std::string)("disappear_cube"));
+                                obj -> file_path = ((std::string)("images/shapes/disappear_cube.obj"));
+                                obj -> shape_sides = 4;
+                            }
                             ++numobjects;
                             ++num_obj_models;
                         }
                     }
+                }
+                
+                else if (cmd == "character") {
+                    validinput = readvals(s, 0, values) ; 
+                    if (validinput) {
+                        object * obj = &(objects[numobjects]) ; 
+                        obj -> size = 1; 
+                        for (i = 0 ; i < 4 ; i++) {
+                            (obj -> ambient)[i] = ambient[i] ; 
+                            (obj -> diffuse)[i] = diffuse[i] ; 
+                            (obj -> specular)[i] = specular[i] ; 
+                            (obj -> emission)[i] = emission[i] ;
+                        }
+                        obj -> shininess = shininess ; 
+                        obj -> transform = transfstack.top() ;
+                        obj -> type = cube;
+                        obj -> animation_state = anim_state;
+                        gettimeofday(&(obj -> timeUpdate), NULL);
+                        character = obj;
+                    }
+                    ++numobjects ; 
                 }
                 
                 else if (cmd == "animation_state") {

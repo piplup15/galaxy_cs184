@@ -16,6 +16,7 @@
 #include <FreeImage.h>
 #include "UCB/grader.h"
 #include <sys/time.h>
+#include <math.h>
 
 using namespace std ; 
 
@@ -25,12 +26,23 @@ using namespace std ;
 #include "readfile.h" // prototypes for readfile.cpp
 #include "ModelObj.h"
 
+// Keyboard variables
 bool * key_states = new bool[256];
+bool keyboard_locked;
+
+// Animation Variables
 struct timeval time_register_key, train_one_loop, train_two_loop;
 int train_one_counter, train_two_counter;
 
+// Warp Star Variables
+GLfloat first_warp_star_t_val;
+bool first_warp_star;
+
+
 void display(void) ;  // prototype for display function.
 void loadTex(const char * filename, GLubyte textureLocation[256][256][3]);
+void evaluateQuadraticBezierCurve(glm::vec3 & result, glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, GLfloat t);
+void handleFirstWarpStar();
 
 // Very basic code to read a ppm file
 // And then set up buffers for texture coordinates
@@ -45,6 +57,41 @@ void loadTex (const char * filename, GLubyte textureLocation[256][256][3]) {
 			for (k = 0 ; k < 3 ; k++)
 				fscanf(fp,"%c",&(textureLocation[i][j][k])) ;
 	fclose(fp) ;  
+}
+
+void evaluateQuadraticBezierCurve(glm::vec3 & result, glm::vec3 point1, glm::vec3 point2, glm::vec3 point3, GLfloat t) {
+    result.x = (1.0-t)*(1.0-t)*point1.x + 2.0*t*(1.0-t)*point2.x + t*t*point3.x;
+    result.y = (1.0-t)*(1.0-t)*point1.y + 2.0*t*(1.0-t)*point2.y + t*t*point3.y;
+    result.z = (1.0-t)*(1.0-t)*point1.z + 2.0*t*(1.0-t)*point2.z + t*t*point3.z;
+}
+
+bool approx_equals(float val1, float val2) {
+    return abs(val1 - val2) <= 0.001;
+}
+
+// First Warp Star: Initial Position: (0, 9, 0.2), Final Position: (30, 100, -20), Control Point: (60, 50, 50)
+void handleFirstWarpStar() {
+    glm::vec3 point1 = glm::vec3(0.0, 9.0, 0.2);
+    glm::vec3 point2 = glm::vec3(60.0, 50.0, 50.0);
+    glm::vec3 point3 = glm::vec3(30.0, 100.0, -20.0);
+    //glm::vec3 point3 = glm::vec3(-40.0, 70.0, -50.0);
+    glm::vec3 result = glm::vec3(0.0,0.0,0.0);
+    evaluateQuadraticBezierCurve(result, point1, point2, point3, first_warp_star_t_val);
+    character->transform = Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * character->transform;
+    eye = glm::vec3(Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * glm::vec4(eye.x, eye.y, eye.z, 1.0));
+    center = glm::vec3(Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * glm::vec4(center.x, center.y, center.z, 1.0));
+    char_position = glm::vec3(character->transform * glm::vec4(0.0, 0.0, 0.0, 1.0));
+    cout << first_warp_star_t_val << endl;
+    if (approx_equals(first_warp_star_t_val, 1.000)) {
+        character->transform = Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * character->transform;
+        eye = glm::vec3(Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * glm::vec4(eye.x, eye.y, eye.z, 1.0));
+        center = glm::vec3(Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * glm::vec4(center.x, center.y, center.z, 1.0));
+        char_position = glm::vec3(character->transform * glm::vec4(0.0, 0.0, 0.0, 1.0));
+        keyboard_locked = false;
+        first_warp_star = false;
+        return;
+    }
+    first_warp_star_t_val += 0.004;
 }
 
 
@@ -126,46 +173,73 @@ void keyUp (unsigned char key, int x, int y) {
 
 
 void idleFunc() {
+    if (key_states[27]) { // Escape to quit                                                                                                                                                                   
+        exit(0);
+    }
     struct timeval current_time;
     gettimeofday(&current_time, NULL);
-    if ((current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000.0) {
+    cout << char_position.x << " , " << char_position.y << " , " << char_position.z << endl;
+    if ((current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000.0 && !keyboard_locked) {
         if (key_states['h']) {
             cout << current_time.tv_usec << endl;
             printHelp();
         }
-        if (key_states[27]) { // Escape to quit                                                                                                                                                                   
-            exit(0);
-        }
         if (key_states['w']) { // forward movement
             glm::vec3 direction = glm::normalize(glm::vec3(center.x - eye.x, center.y - eye.y, 0));
-            eye = glm::vec3(Transform::translate(direction.x/50.0, direction.y/50.0, 0) * glm::vec4(eye.x, eye.y, eye.z, 1));
-            center = glm::vec3(Transform::translate(direction.x/50.0, direction.y/50.0, 0) * glm::vec4(center.x, center.y, center.z, 1));
+            eye = glm::vec3(Transform::translate(direction.x/25.0, direction.y/25.0, 0) * glm::vec4(eye.x, eye.y, eye.z, 1));
+            center = glm::vec3(Transform::translate(direction.x/25.0, direction.y/25.0, 0) * glm::vec4(center.x, center.y, center.z, 1));
+            character -> transform = Transform::translate(direction.x/25.0, direction.y/25.0, 0) * character->transform;
+            char_position = glm::vec3(Transform::translate(direction.x/25.0, direction.y/25.0, 0) * glm::vec4(char_position.x, char_position.y, char_position.z, 1));
         }
         if (key_states['s']) { // backward movement
             glm::vec3 direction = glm::normalize(glm::vec3(-center.x + eye.x, -center.y + eye.y, 0));
-            eye = glm::vec3(Transform::translate(direction.x/50.0, direction.y/50.0, 0) * glm::vec4(eye.x, eye.y, eye.z, 1));
-            center = glm::vec3(Transform::translate(direction.x/50.0, direction.y/50.0, 0) * glm::vec4(center.x, center.y, center.z, 1));
+            eye = glm::vec3(Transform::translate(direction.x/25.0, direction.y/25.0, 0) * glm::vec4(eye.x, eye.y, eye.z, 1));
+            center = glm::vec3(Transform::translate(direction.x/25.0, direction.y/25.0, 0) * glm::vec4(center.x, center.y, center.z, 1));
+            character -> transform = Transform::translate(direction.x/25.0, direction.y/25.0, 0) * character->transform;
+            char_position = glm::vec3(Transform::translate(direction.x/25.0, direction.y/25.0, 0) * glm::vec4(char_position.x, char_position.y, char_position.z, 1));
         }
         if (key_states['a']) { // left movement
             glm::vec3 direction = glm::normalize(glm::vec3(-center.y + eye.y, center.x - eye.x, 0));
-            eye = glm::vec3(Transform::translate(direction.x/50.0, direction.y/50.0, 0) * glm::vec4(eye.x, eye.y, eye.z, 1));
-            center = glm::vec3(Transform::translate(direction.x/50.0, direction.y/50.0, 0) * glm::vec4(center.x, center.y, center.z, 1));
+            eye = glm::vec3(Transform::translate(direction.x/25.0, direction.y/25.0, 0) * glm::vec4(eye.x, eye.y, eye.z, 1));
+            center = glm::vec3(Transform::translate(direction.x/25.0, direction.y/25.0, 0) * glm::vec4(center.x, center.y, center.z, 1));
+            character -> transform = Transform::translate(direction.x/25.0, direction.y/25.0, 0) * character->transform;
+            char_position = glm::vec3(Transform::translate(direction.x/25.0, direction.y/25.0, 0) * glm::vec4(char_position.x, char_position.y, char_position.z, 1));
         }
         if (key_states['d']) { // right movement
             glm::vec3 direction = glm::normalize(glm::vec3(center.y - eye.y, -center.x + eye.x, 0));
-            eye = glm::vec3(Transform::translate(direction.x/50.0, direction.y/50.0, 0) * glm::vec4(eye.x, eye.y, eye.z, 1));
-            center = glm::vec3(Transform::translate(direction.x/50.0, direction.y/50.0, 0) * glm::vec4(center.x, center.y, center.z, 1));
+            eye = glm::vec3(Transform::translate(direction.x/25.0, direction.y/25.0, 0) * glm::vec4(eye.x, eye.y, eye.z, 1));
+            center = glm::vec3(Transform::translate(direction.x/25.0, direction.y/25.0, 0) * glm::vec4(center.x, center.y, center.z, 1));
+            character -> transform = Transform::translate(direction.x/25.0, direction.y/25.0, 0) * character->transform;
+            char_position = glm::vec3(Transform::translate(direction.x/25.0, direction.y/25.0, 0) * glm::vec4(char_position.x, char_position.y, char_position.z, 1));
         }
         if (key_states['l']) { // up movement
             glm::vec3 direction = glm::normalize(glm::vec3(0, 0, -1));
-            eye = glm::vec3(Transform::translate(0, 0, direction.z/50.0) * glm::vec4(eye.x, eye.y, eye.z, 1));
-            center = glm::vec3(Transform::translate(0, 0, direction.z/50.0) * glm::vec4(center.x, center.y, center.z, 1));
+            eye = glm::vec3(Transform::translate(0, 0, direction.z/25.0) * glm::vec4(eye.x, eye.y, eye.z, 1));
+            center = glm::vec3(Transform::translate(0, 0, direction.z/25.0) * glm::vec4(center.x, center.y, center.z, 1));
+            character -> transform = Transform::translate(0, 0, direction.z/25.0) * character->transform;
+            char_position = glm::vec3(Transform::translate(0, 0, direction.z/25.0) * glm::vec4(char_position.x, char_position.y, char_position.z, 1));
         }
         if (key_states['o']) { // down movement
             glm::vec3 direction = glm::normalize(glm::vec3(0, 0, 1));
-            eye = glm::vec3(Transform::translate(0, 0, direction.z/50.0) * glm::vec4(eye.x, eye.y, eye.z, 1));
-            center = glm::vec3(Transform::translate(0, 0, direction.z/50.0) * glm::vec4(center.x, center.y, center.z, 1));
+            eye = glm::vec3(Transform::translate(0, 0, direction.z/25.0) * glm::vec4(eye.x, eye.y, eye.z, 1));
+            center = glm::vec3(Transform::translate(0, 0, direction.z/25.0) * glm::vec4(center.x, center.y, center.z, 1));
+            character -> transform = Transform::translate(0, 0, direction.z/25.0) * character->transform;
+            char_position = glm::vec3(Transform::translate(0, 0, direction.z/25.0) * glm::vec4(char_position.x, char_position.y, char_position.z, 1));
         }
+        if (char_position.x >= -0.05 && char_position.x <= 0.05 && char_position.y >= 8.95 && char_position.y <= 9.05 && char_position.z >= -0.2 && char_position.z <= 0.2) {
+            cout << " HERE " << endl;
+            character->transform = Transform::translate(-char_position.x, 9.0 - char_position.y, 0.2 - char_position.z) * character->transform;
+            char_position = glm::vec3(0.0, 9.0, 0.2);
+            eye = glm::vec3(Transform::translate(-char_position.x, 9.0 - char_position.y, 0.2 - char_position.z) * glm::vec4(eye.x, eye.y, eye.z, 1.0));
+            center = glm::vec3(0.0, 9.0, 0.2);
+            keyboard_locked = true;
+            first_warp_star = true;
+        }
+        gettimeofday(&time_register_key, NULL);
+    }
+    
+    if (first_warp_star && (current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000.0) {
+        handleFirstWarpStar();
         gettimeofday(&time_register_key, NULL);
     }
     handleAnimation();
@@ -230,6 +304,9 @@ void init() {
     train_one_counter = 32; // train 1 has 32 objects
     gettimeofday(&train_two_loop,NULL);
     train_two_counter = 32; // train 2 has 32 objects
+    keyboard_locked = false;
+    
+    first_warp_star_t_val = 0.0;
     
     char_position = vec3(0.0,0.0,0.0);
 }
