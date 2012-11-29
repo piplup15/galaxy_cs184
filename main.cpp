@@ -26,7 +26,8 @@ using namespace std ;
 #include "ModelObj.h"
 
 bool * key_states = new bool[256];
-struct timeval time_register_key;
+struct timeval time_register_key, train_one_loop, train_two_loop;
+int train_one_counter, train_two_counter;
 
 void display(void) ;  // prototype for display function.
 void loadTex(const char * filename, GLubyte textureLocation[256][256][3]);
@@ -54,11 +55,59 @@ void reshape(int width, int height){
 	h = height;
     mat4 mv ; // just like for lookat
 	glMatrixMode(GL_PROJECTION);
-    float aspect = w / (float) h, zNear = 0.1, zFar = 99.0 ;
+    float aspect = w / (float) h, zNear = 0.1, zFar = 999.0 ;
     mv = Transform::perspective(fovy,aspect,zNear,zFar) ; 
     mv = glm::transpose(mv) ; // accounting for row major 
     glLoadMatrixf(&mv[0][0]) ; 
     glViewport(0, 0, w, h);
+}
+
+void handleAnimation ( ) {
+    struct timeval current_time;
+    gettimeofday(&current_time, NULL);
+    if ((current_time.tv_sec - train_one_loop.tv_sec) * 1000000.0 + (current_time.tv_usec - train_one_loop.tv_usec > 30000.0)) {
+        train_one_counter = 32;
+        gettimeofday(&train_one_loop, NULL);
+    }
+    if ((current_time.tv_sec - train_two_loop.tv_sec) * 1000000.0 + (current_time.tv_usec - train_two_loop.tv_usec > 30000.0)) {
+        train_two_counter = 32;
+        gettimeofday(&train_two_loop, NULL);
+    }
+    for (int i = 0; i < numobjects; i++) {
+        object * obj = &(objects[i]);
+        if (obj -> animation_state == "train_one_loop") {
+            if (train_one_counter != 0) {
+                obj->transform = Transform::translate(0.0, 4.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -4.5, 0.0) * obj->transform; 
+                gettimeofday(&(obj->timeUpdate), NULL);
+                train_one_counter--;
+            }
+        } else if (obj -> animation_state == "wheel_one_loop") {
+            if (train_one_counter != 0) {
+                obj->transform = Transform::translate(obj->position.x, obj->position.y, obj->position.z) * glm::mat4(Transform::rotate(0.5, glm::normalize(glm::cross(glm::vec3(0.0,0.0,1.0), obj->direction)))) * Transform::translate(-obj->position.x, -obj->position.y, -obj->position.z) * obj->transform;
+                obj->transform = Transform::translate(0.0, 4.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -4.5, 0.0) * obj->transform;
+                obj->direction = glm::vec3(obj->transform * glm::vec4(-1.0, 0.0, 0.0, 0.0));
+                obj->position = glm::vec3(obj->transform * glm::vec4(0.0, 0.0, 0.0, 1.0));
+                gettimeofday(&(obj->timeUpdate), NULL);
+                train_one_counter--;
+            }
+        }
+        if (obj -> animation_state == "train_two_loop") {
+            if (train_two_counter != 0) {
+                obj->transform = Transform::translate(0.0, 4.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -4.5, 0.0) * obj->transform; 
+                gettimeofday(&(obj->timeUpdate), NULL);
+                train_two_counter--;
+            }
+        } else if (obj -> animation_state == "wheel_two_loop") {
+            if (train_two_counter != 0) {
+                obj->transform = Transform::translate(obj->position.x, obj->position.y, obj->position.z) * glm::mat4(Transform::rotate(0.5, glm::normalize(glm::cross(glm::vec3(0.0,0.0,1.0), obj->direction)))) * Transform::translate(-obj->position.x, -obj->position.y, -obj->position.z) * obj->transform;
+                obj->transform = Transform::translate(0.0, 4.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -4.5, 0.0) * obj->transform;
+                obj->direction = glm::vec3(obj->transform * glm::vec4(-1.0, 0.0, 0.0, 0.0));
+                obj->position = glm::vec3(obj->transform * glm::vec4(0.0, 0.0, 0.0, 1.0));
+                gettimeofday(&(obj->timeUpdate), NULL);
+                train_two_counter--;
+            }
+        }
+    }
 }
 
 
@@ -79,8 +128,7 @@ void keyUp (unsigned char key, int x, int y) {
 void idleFunc() {
     struct timeval current_time;
     gettimeofday(&current_time, NULL);
-    //cout << (current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) << endl;
-    if ((current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000) {
+    if ((current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000.0) {
         if (key_states['h']) {
             cout << current_time.tv_usec << endl;
             printHelp();
@@ -118,9 +166,10 @@ void idleFunc() {
             eye = glm::vec3(Transform::translate(0, 0, direction.z/50.0) * glm::vec4(eye.x, eye.y, eye.z, 1));
             center = glm::vec3(Transform::translate(0, 0, direction.z/50.0) * glm::vec4(center.x, center.y, center.z, 1));
         }
-        glutPostRedisplay();
         gettimeofday(&time_register_key, NULL);
     }
+    handleAnimation();
+    glutPostRedisplay();
 }
 
 void specialKey(int key,int x,int y) {
@@ -176,6 +225,13 @@ void init() {
     shininesscol = glGetUniformLocation(shaderprogram,"shininess") ;
     
     gettimeofday(&time_register_key, NULL);
+    anim_state = "none";
+    gettimeofday(&train_one_loop,NULL);
+    train_one_counter = 32; // train 1 has 32 objects
+    gettimeofday(&train_two_loop,NULL);
+    train_two_counter = 32; // train 2 has 32 objects
+    
+    char_position = vec3(0.0,0.0,0.0);
 }
 
 int main(int argc, char* argv[]) {

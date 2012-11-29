@@ -28,7 +28,8 @@
 #include <deque>
 #include <stack>
 #include <GL/glut.h>
-#include "Transform.h" 
+#include "Transform.h"
+#include <sys/time.h>
 
 using namespace std ;
 #include "variables.h" 
@@ -174,6 +175,8 @@ void readfile(const char * filename) {
                             if (cmd == "sphere") obj -> type = sphere ; 
                             else if (cmd == "cube") obj -> type = cube ; 
                             else if (cmd == "teapot") obj -> type = teapot ;
+                            obj -> animation_state = anim_state;
+                            gettimeofday(&(obj -> timeUpdate), NULL);
                         }
                         ++numobjects ; 
                     }
@@ -199,6 +202,8 @@ void readfile(const char * filename) {
                             obj -> outerRadius = values[1];
                             obj -> slices = values[2];
                             obj -> loops = values[3];
+                            obj -> animation_state = anim_state;
+                            gettimeofday(&(obj -> timeUpdate), NULL);
                         }
                         ++numobjects ;
                     }
@@ -225,9 +230,64 @@ void readfile(const char * filename) {
                             obj -> size = values[2];
                             obj -> slices = values[3];
                             obj -> stacks = values[4];
+                            obj -> animation_state = anim_state;
+                            gettimeofday(&(obj -> timeUpdate), NULL);
                         }
                         ++numobjects ;
                     }
+                }
+                
+                else if (cmd == "smooth_cube" || cmd == "train_wheel" || cmd == "train_head" || cmd == "train_connect") {
+                    if (numobjects == maxobjects) // No more objects
+                        cerr << "Reached Maximum Number of Objects " << numobjects << " Will ignore further objects\n" ;
+                    else {
+                        validinput = readvals(s, 0, values);
+                        if (validinput) {
+                            object *obj = &(objects[numobjects]);
+                            for (i = 0; i < 4; i++) {
+                                (obj -> ambient)[i] = ambient[i];
+                                (obj -> diffuse)[i] = diffuse[i];
+                                (obj -> specular)[i] = specular[i];
+                                (obj -> emission)[i] = specular[i];
+                            }
+                            obj -> type = modelobj;
+                            obj -> shininess = shininess;
+                            obj -> transform = transfstack.top();
+                            obj -> animation_state = anim_state;
+                            gettimeofday(&(obj -> timeUpdate), NULL);
+                        
+                            if (cmd == "smooth_cube") {
+                                obj -> name = ((std::string)("smooth_cube"));
+                                obj -> file_path = ((std::string)("images/shapes/smooth_cube.obj"));
+                                obj -> shape_sides = 4;
+                            }
+                            if (cmd == "train_wheel") {
+                                obj -> name = ((std::string)("train_wheel"));
+                                obj -> file_path = ((std::string)("images/train/train_wheel.obj"));
+                                obj -> shape_sides = 4;
+                                obj -> direction = glm::vec3 ( obj->transform * glm::vec4 (-1.0, 0.0, 0.0, 0.0)); // Model of wheel begins direction (-1, 0, 0).
+                                obj -> position = glm::vec3 ( obj->transform * glm::vec4 (0.0, 0.0, 0.0, 1.0)); // Model of wheel begins position (0, 0, 0).
+                            }
+                            if (cmd == "train_head") {
+                                obj -> name = ((std::string)("train_head"));
+                                obj -> file_path = ((std::string)("images/train/train_head.obj"));
+                                obj -> shape_sides = 4;
+                            }
+                            if (cmd == "train_connect") {
+                                obj -> name = ((std::string)("train_connect"));
+                                obj -> file_path = ((std::string)("images/train/train_connect.obj"));
+                                obj -> shape_sides = 4;
+                            }
+                            ++numobjects;
+                            ++num_obj_models;
+                        }
+                    }
+                }
+                
+                else if (cmd == "animation_state") {
+                    std::string value;
+                    s >> value;
+                    anim_state = value;
                 }
 
                 else if (cmd == "translate") {

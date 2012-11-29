@@ -5,7 +5,9 @@
 
 // This is the basic include file for the global variables in the program.  
 // Since all files need access to it, we define EXTERN as either blank or 
-// extern, depending on if included in the main program or not.  
+// extern, depending on if included in the main program or not.
+
+#include <sys/time.h>
 
 #ifdef MAINPROGRAM 
 #define EXTERN 
@@ -69,7 +71,13 @@ EXTERN struct object {
   GLint slices; // Disk/cylinder slices
   GLint loops; // Disk loops
   GLint stacks; // Cylinder stacks
+  std::string animation_state;
+  struct timeval timeUpdate;
+  glm::vec3 direction; // Only used for objects which require direction for animation.
+  glm::vec3 position; // Only used for objects which require position for animation.
 } objects[maxobjects] ;
+
+EXTERN std::string anim_state;
 
 // Variables to set uniform params for lighting fragment shader 
 EXTERN GLuint lightcol ; 
@@ -86,4 +94,6 @@ EXTERN GLfloat backgroundColor[4];
 
 const int max_obj_models = 40; // per scene.
 EXTERN int num_obj_models;
+
+EXTERN glm::vec3 char_position;
 

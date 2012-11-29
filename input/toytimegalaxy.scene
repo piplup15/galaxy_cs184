@@ -1,15 +1,19 @@
 size 960 640
-camera 0 -2 1 0 0 0 0 0 1 45.0
+camera 0 -4 2 0 0 0 0 0 1 45.0
 
 backgroundColor 0.2 0.2 0.2 1
 
-light 0 0 1 1 1 1 1 1
-light 0 4.375 1 1 1 0.8 0.1 1
-light 0 8.625 1 1 1 1 1 1
+light 0 0 1 0 1 1 1 1
+light 0 4.5 1 0 1 0.8 0.1 1
+light 0 8.75 1 0 1 1 1 1
 
-# STAGE 1 ---- PART 1
+animation_state none
 
-# ---- Entry Platform -----
+# STAGE 1  ----------------------------------------------------- PART 1
+
+
+
+# ---- ENTRY PLATFORM -----
 pushTransform
     ambient 0.2 0.5 0.8 1
     diffuse 0.1 0.1 0.1 1
@@ -24,36 +28,65 @@ pushTransform
     diffuse 0.5 0.2 0.2 1
     specular 0 0 0 1
     shininess 4
-    translate 0 0 -0.225
-    scale 1.75 1.75 0.4
+    translate 0 0 -0.275
+    scale 1.75 1.75 0.5
     cube 1
 popTransform
 
 
 
-# ----- Train Tracks -----
+# ----- TRAIN TRACKS -----
 pushTransform
-    ambient 0.4 0.4 0.2 1
-    diffuse 0.7 0.5 0.1 1
+    ambient 0.35 0.35 0.2 1
+    diffuse 0.5 0.3 0.1 1
     specular 0 0 0 1
     shininess 4
-    translate 0 4.375 -0.425
-    disk 2.75 3.5 80 80
+    translate 0 4.5 -0.625
+    disk 2.7 3.5 80 80
     translate 0 0 0.1
-    disk 2.75 3.5 80 80
+    disk 2.7 3.5 80 80
     translate 0 0 -0.1
-    cylinder 2.75 2.75 0.1 80 80
+    cylinder 2.7 2.7 0.1 80 80
     cylinder 3.5 3.5 0.1 80 80
 popTransform
 
+pushTransform
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.2 0.2 0.2 1
+    shininess 4
+    translate 0 4.5 -0.524
+    disk 2.8 2.83 80 80
+    translate 0 0 0.02
+    disk 2.8 2.83 80 80
+    translate 0 0 -0.02
+    cylinder 2.8 2.8 0.02 80 80
+    cylinder 2.83 2.83 0.02 80 80
+popTransform
 
-# ----- Second Platform -------
+pushTransform
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.2 0.2 0.2 1
+    shininess 4
+    translate 0 4.5 -0.524
+    disk 3.33 3.36 80 80
+    translate 0 0 0.02
+    disk 3.33 3.36 80 80
+    translate 0 0 -0.02
+    cylinder 3.33 3.33 0.02 80 80
+    cylinder 3.36 3.36 0.02 80 80
+popTransform
+
+
+
+# ----- SECOND PLATFORM / WARP STAR 1 -------
 pushTransform
     ambient 0.5 0.3 0.3 1
     diffuse 0.2 0.1 0.1 1
     specular 0.1 0.1 0.1 1
     shininess 4
-    translate 0 8.625 0
+    translate 0 8.75 -0.15
     scale 1.5 1.5 0.05
     cube 1
 popTransform
@@ -63,7 +96,600 @@ pushTransform
     diffuse 0.1 0.2 0.1 1
     specular 0.1 0.1 0.1 1
     shininess 4
-    translate 0 8.625 -0.225
+    translate 0 8.75 -0.375
     scale 1.25 1.25 0.4
     cube 1
-popTransform    
+popTransform
+
+
+
+# ----- TRAIN 1 (LOOP) ------
+animation_state train_one_loop
+
+pushTransform
+    ambient 0.1 0.6 0.1 1
+    diffuse 0.1 0.2 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate -0.345 1.43 -0.47
+    scale 1.13 0.35 0.3
+    rotate 0 0 1 90
+    rotate 0 1 0 180
+    train_head
+popTransform
+
+pushTransform
+    ambient 0.1 0.1 0.6 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate -0.35 1.43 -0.2
+    cylinder 0.1 0.1 0.12 50 50
+    translate 0 0 0.12
+    cylinder 0.1 0.15 0.08 50 50 
+    translate 0 0 0.08
+    disk 0.07 0.15 50 50
+    translate 0 0 -0.15
+    cylinder 0.07 0.07 0.15 50 50
+    disk 0 0.07 50 50
+popTransform
+
+pushTransform
+    ambient 0.8 0.1 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate 0.3 1.43 -0.1
+    scale 0.18 0.18 0.1
+    rotate 1 0 0 90
+    smooth_cube
+popTransform
+
+pushTransform
+    ambient 0.8 0.8 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate 0.3 1.43 -0.35
+    scale 0.18 0.18 0.1
+    rotate 1 0 0 90
+    smooth_cube
+popTransform
+
+animation_state wheel_one_loop
+pushTransform
+    ambient 0.7 0.6 0.3 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate 0.45 1.043 -0.424
+        scale 0.1 0.1 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate 0.45 1.817 -0.424
+        scale 0.1 0.1 0.1
+        train_wheel
+    popTransform
+popTransform
+
+animation_state train_one_loop
+pushTransform    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.2 0.2 0.2 1
+    shininess 4
+    pushTransform
+        translate 0.45 1.043 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate 0.45 1.817 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+popTransform
+
+animation_state wheel_one_loop
+pushTransform
+    ambient 0.7 0.6 0.3 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate -0.5 1.058 -0.424
+        scale 0.1 0.1 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate -0.5 1.802 -0.424
+        scale 0.1 0.1 0.1
+        train_wheel
+    popTransform
+popTransform
+
+animation_state train_one_loop
+pushTransform    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.2 0.2 0.2 1
+    shininess 4
+    pushTransform
+        translate -0.5 1.058 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate -0.5 1.802 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+popTransform
+
+pushTransform
+    ambient 0.8 0.8 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate 0.8 1.425 -0.13
+        scale 0.34 0.34 0.14
+        rotate 0 0 1 180
+        rotate 1 0 0 90
+        train_connect
+    popTransform
+popTransform
+
+pushTransform
+    ambient 0.2 0.5 0.7 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.1 0.1 0.1 1
+    shininess 4
+    translate 1.38 1.8 -0.15125
+    scale 0.18 0.18 0.141
+    rotate 0 0 1 33
+    rotate 1 0 0 90
+    smooth_cube
+popTransform
+
+pushTransform
+    ambient 0.2 0.5 0.7 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.1 0.1 0.1 1
+    shininess 4
+    pushTransform
+        translate 0.8 1.425 -0.28
+        scale 0.34 0.34 0.14
+        rotate 0 0 1 33
+        rotate 1 0 0 90
+        train_connect
+    popTransform
+popTransform
+
+pushTransform
+    ambient 0.8 0.8 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate 1.985 2.195 -0.15125
+    scale 0.18 0.18 0.141
+    rotate 0 0 1 33
+    rotate 1 0 0 90
+    smooth_cube
+popTransform
+
+pushTransform
+    ambient 0.8 0.8 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate 2.4 2.465 -0.115
+        scale 0.34 0.34 0.14
+        rotate 0 0 1 33
+        rotate 0 0 1 180
+        rotate 1 0 0 90
+        train_connect
+    popTransform
+    pushTransform
+        translate 2.4 2.465 -0.3275
+        scale 0.34 0.34 0.14
+        rotate 0 0 1 33
+        rotate 0 0 1 180
+        rotate 1 0 0 90
+        train_connect
+    popTransform
+popTransform
+    
+animation_state train_one_loop
+pushTransform
+    ambient 0.7 0.6 0.3 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate 1.75 2.03 -0.404
+        rotate 0 0 1 33
+        scale 0.32 0.13 0.04
+        rotate 0 1 0 180
+        smooth_cube
+    popTransform
+popTransform
+
+animation_state wheel_one_loop
+pushTransform
+    ambient 0.7 0.6 0.3 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate 1.2 1.985 -0.424
+        rotate 0 0 1 33
+        scale 0.1 0.4 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate 1.49 1.545 -0.424
+        rotate 0 0 1 33
+        scale 0.1 0.4 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate 2.27 2.055 -0.424
+        rotate 0 0 1 33
+        scale 0.1 0.4 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate 1.98 2.495 -0.424
+        rotate 0 0 1 33
+        scale 0.1 0.4 0.1
+        train_wheel
+    popTransform
+popTransform
+
+animation_state train_one_loop
+pushTransform    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.2 0.2 0.2 1
+    shininess 4
+    pushTransform
+        translate 1.155 2.06 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate 1.535 1.47 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate 2.315 1.98 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate 1.935 2.57 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+popTransform
+
+pushTransform
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    translate 0.8 1.425 -0.02
+    disk 0 0.05 40 40
+popTransform
+
+    
+# ----- Train 2 (Loop) ------
+
+animation_state train_two_loop
+
+pushTransform
+    ambient 0.1 0.6 0.1 1
+    diffuse 0.1 0.2 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate 0.345 7.57 -0.47
+    scale 1.13 0.35 0.3
+    rotate 0 0 1 90
+    rotate 0 1 0 180
+    train_head
+popTransform
+
+pushTransform
+    ambient 0.1 0.1 0.6 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate 0.35 7.57 -0.2
+    cylinder 0.1 0.1 0.12 50 50
+    translate 0 0 0.12
+    cylinder 0.1 0.15 0.08 50 50 
+    translate 0 0 0.08
+    disk 0.07 0.15 50 50
+    translate 0 0 -0.15
+    cylinder 0.07 0.07 0.15 50 50
+    disk 0 0.07 50 50
+popTransform
+
+pushTransform
+    ambient 0.8 0.1 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate -0.3 7.57 -0.1
+    scale 0.18 0.18 0.1
+    rotate 1 0 0 -90
+    smooth_cube
+popTransform
+
+pushTransform
+    ambient 0.8 0.8 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate -0.3 7.57 -0.35
+    scale 0.18 0.18 0.1
+    rotate 1 0 0 -90
+    smooth_cube
+popTransform
+
+animation_state wheel_two_loop
+pushTransform
+    ambient 0.7 0.6 0.3 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate -0.45 7.957 -0.424
+        scale 0.1 0.1 0.1
+        rotate 0 1 0 180
+        train_wheel
+    popTransform
+    pushTransform
+        translate -0.45 7.183 -0.424
+        scale 0.1 0.1 0.1
+        rotate 0 1 0 180
+        train_wheel
+    popTransform
+popTransform
+
+animation_state train_two_loop
+pushTransform    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.2 0.2 0.2 1
+    shininess 4
+    pushTransform
+        translate -0.45 7.957 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate -0.45 7.183 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+popTransform
+
+animation_state wheel_two_loop
+pushTransform
+    ambient 0.7 0.6 0.3 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate 0.5 7.924 -0.424
+        scale 0.1 0.1 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate 0.5 7.198 -0.424
+        scale 0.1 0.1 0.1
+        train_wheel
+    popTransform
+popTransform
+
+animation_state train_two_loop
+pushTransform    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.2 0.2 0.2 1
+    shininess 4
+    pushTransform
+        translate 0.5 7.924 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate 0.5 7.198 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+popTransform
+
+pushTransform
+    ambient 0.8 0.8 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate -0.8 7.575 -0.13
+        scale 0.34 0.34 0.14
+        rotate 1 0 0 90
+        train_connect
+    popTransform
+popTransform
+
+pushTransform
+    ambient 0.2 0.5 0.7 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.1 0.1 0.1 1
+    shininess 4
+    translate -1.38 7.2 -0.15125
+    scale 0.18 0.18 0.141
+    rotate 0 0 1 213
+    rotate 1 0 0 90
+    smooth_cube
+popTransform
+
+pushTransform
+    ambient 0.2 0.5 0.7 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.1 0.1 0.1 1
+    shininess 4
+    pushTransform
+        translate -0.8 7.575 -0.28
+        scale 0.34 0.34 0.14
+        rotate 0 0 1 213
+        rotate 1 0 0 90
+        train_connect
+    popTransform
+popTransform
+
+pushTransform
+    ambient 0.8 0.8 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate -1.985 6.805 -0.15125
+    scale 0.18 0.18 0.141
+    rotate 0 0 1 213
+    rotate 1 0 0 90
+    smooth_cube
+popTransform
+
+pushTransform
+    ambient 0.8 0.8 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate -2.4 6.535 -0.115
+        scale 0.34 0.34 0.14
+        rotate 0 0 1 213
+        rotate 0 0 1 180
+        rotate 1 0 0 90
+        train_connect
+    popTransform
+    pushTransform
+        translate -2.4 6.535 -0.3275
+        scale 0.34 0.34 0.14
+        rotate 0 0 1 213
+        rotate 0 0 1 180
+        rotate 1 0 0 90
+        train_connect
+    popTransform
+popTransform
+    
+animation_state train_two_loop
+pushTransform
+    ambient 0.7 0.6 0.3 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate -1.75 6.97 -0.404
+        rotate 0 0 1 213
+        scale 0.32 0.13 0.04
+        rotate 0 1 0 180
+        smooth_cube
+    popTransform
+popTransform
+
+animation_state wheel_two_loop
+pushTransform
+    ambient 0.7 0.6 0.3 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate -1.2 7.015 -0.424
+        rotate 0 0 1 213
+        scale 0.1 0.4 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate -1.49 7.455 -0.424
+        rotate 0 0 1 213
+        scale 0.1 0.4 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate -2.27 6.945 -0.424
+        rotate 0 0 1 213
+        scale 0.1 0.4 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate -1.98 6.505 -0.424
+        rotate 0 0 1 213
+        scale 0.1 0.4 0.1
+        train_wheel
+    popTransform
+popTransform
+
+animation_state train_two_loop
+pushTransform    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.2 0.2 0.2 1
+    shininess 4
+    pushTransform
+        translate -1.155 6.94 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate -1.535 7.53 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate -2.315 7.02 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate -1.935 6.43 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+popTransform
+
+pushTransform
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    translate -0.8 7.575 -0.02
+    disk 0 0.05 40 40
+popTransform
+
+
+
+
+
+# STAGE 1  ----------------------------------------------------- PART 2
+
+pushTransform
+    translate 30 100 -20
+
+    pushTransform
+        ambient 0.2 0.5 0.8 1
+        diffuse 0.1 0.1 0.1 1
+        specular 0.05 0.05 0.05 1
+        shininess 4
+        scale 0.25 0.25 0.25
+        smooth_cube
+    popTransform
+popTransform
+    
