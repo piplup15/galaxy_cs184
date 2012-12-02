@@ -76,12 +76,25 @@ EXTERN struct object {
   struct timeval timeUpdate;
   glm::vec3 direction; // Only used for objects which require direction for animation.
   glm::vec3 position; // Only used for objects which require position for animation.
+  bool test_collision;
+  std::string bounding_type;
+
+  // Bounding
+  GLfloat max_x, max_y, max_z, min_x, min_y, min_z;
+  GLfloat max_radius;
 } static_objects[maxobjects] ;
 
 EXTERN int num_dynamic_objects;
 EXTERN std::vector<object> dynamic_objects;
 
 EXTERN object * character;
+
+EXTERN glm::vec3 char_position;
+EXTERN glm::vec3 previous_char_position;
+EXTERN glm::vec3 char_velocity;
+EXTERN GLfloat max_run_velocity;
+EXTERN GLfloat jump_velocity;
+EXTERN bool is_jumping;
 
 EXTERN std::string anim_state;
 
@@ -101,5 +114,6 @@ EXTERN GLfloat backgroundColor[4];
 const int max_obj_models = 40; // per scene.
 EXTERN int num_obj_models;
 
-EXTERN glm::vec3 char_position;
+EXTERN bool test_collision;
+
 

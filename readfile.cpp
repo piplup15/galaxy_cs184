@@ -153,10 +153,19 @@ void readfile(const char * filename) {
                         fovy = values[9];
                     }
                 }
+                else if (cmd == "test_collision") {
+                    std::string value;
+                    s >> value;
+                    if (value == "true") {
+                        test_collision = true;
+                    } else {
+                        test_collision = false;
+                    }
+                }
 
                 // I've left the code for loading objects in the skeleton, so 
                 // you can get a sense of how this works.  
-                else if (cmd == "sphere" || cmd == "cube" || cmd == "teapot") {
+                else if (cmd == "sphere" || cmd == "cube") {
                     if (num_static_objects == maxobjects) // No more objects 
                         cerr << "Reached Maximum Number of Objects " << num_static_objects << " Will ignore further objects\n" ; 
                     else {
@@ -172,9 +181,17 @@ void readfile(const char * filename) {
                             }
                             obj -> shininess = shininess ; 
                             obj -> transform = transfstack.top() ;
-                            if (cmd == "sphere") obj -> type = sphere ; 
-                            else if (cmd == "cube") obj -> type = cube ; 
-                            else if (cmd == "teapot") obj -> type = teapot ;
+                            obj -> test_collision = test_collision;
+                            if (cmd == "sphere") {
+                                obj -> type = sphere ; 
+                                obj -> bounding_type = "none";
+                            }
+                            else if (cmd == "cube") {
+                                obj -> type = cube ;
+                                obj -> bounding_type = "square";
+                                obj->max_x = obj-> max_y = obj->max_z = 0.5;
+                                obj->min_x = obj-> min_y = obj->min_z = -0.5;
+                            } 
                             obj -> animation_state = anim_state;
                             gettimeofday(&(obj -> timeUpdate), NULL);
                         }
@@ -203,6 +220,8 @@ void readfile(const char * filename) {
                             obj -> slices = values[2];
                             obj -> loops = values[3];
                             obj -> animation_state = anim_state;
+                            obj -> test_collision = test_collision;
+                            obj -> bounding_type = "circle";
                             gettimeofday(&(obj -> timeUpdate), NULL);
                         }
                         ++num_static_objects ;
@@ -231,6 +250,8 @@ void readfile(const char * filename) {
                             obj -> slices = values[3];
                             obj -> stacks = values[4];
                             obj -> animation_state = anim_state;
+                            obj -> test_collision = test_collision;
+                            obj -> bounding_type = "circle";
                             gettimeofday(&(obj -> timeUpdate), NULL);
                         }
                         ++num_static_objects ;
@@ -254,12 +275,18 @@ void readfile(const char * filename) {
                             obj -> shininess = shininess;
                             obj -> transform = transfstack.top();
                             obj -> animation_state = anim_state;
+                            obj -> test_collision = test_collision;
                             gettimeofday(&(obj -> timeUpdate), NULL);
                         
                             if (cmd == "smooth_cube") {
                                 obj -> name = ((std::string)("smooth_cube"));
                                 obj -> file_path = ((std::string)("images/shapes/smooth_cube.obj"));
                                 obj -> shape_sides = 4;
+                                obj -> bounding_type = "square";
+                                obj->max_x = obj->max_z = 2.0;
+                                obj->min_x = obj->min_z = -2.0;
+                                obj->max_y = 1.5;
+                                obj->min_y = -1.5;
                             }
                             if (cmd == "train_wheel") {
                                 obj -> name = ((std::string)("train_wheel"));
@@ -267,32 +294,30 @@ void readfile(const char * filename) {
                                 obj -> shape_sides = 4;
                                 obj -> direction = glm::vec3 ( obj->transform * glm::vec4 (-1.0, 0.0, 0.0, 0.0)); // Model of wheel begins direction (-1, 0, 0).
                                 obj -> position = glm::vec3 ( obj->transform * glm::vec4 (0.0, 0.0, 0.0, 1.0)); // Model of wheel begins position (0, 0, 0).
+                                obj -> bounding_type = "none";
                             }
                             if (cmd == "train_head") {
                                 obj -> name = ((std::string)("train_head"));
                                 obj -> file_path = ((std::string)("images/train/train_head.obj"));
                                 obj -> shape_sides = 4;
+                                obj -> bounding_type = "train_head";
                             }
                             if (cmd == "train_connect") {
                                 obj -> name = ((std::string)("train_connect"));
                                 obj -> file_path = ((std::string)("images/train/train_connect.obj"));
                                 obj -> shape_sides = 4;
+                                obj -> bounding_type = "square";
+                                obj->max_x = obj-> max_y = obj->max_z = 1.0;
+                                obj->min_x = obj-> min_y = obj->min_z = -1.0;
                             }
-                            /**if (cmd == "disappear_cube") {
-                                obj -> name = ((std::string)("disappear_cube"));
-                                obj -> file_path = ((std::string)("images/shapes/disappear_cube.obj"));
-                                obj -> shape_sides = 4;
-                            }**/
                             if (cmd == "poison_cube") {
                                 obj -> name = ((std::string)("poison_cube"));
                                 obj -> file_path = ((std::string)("images/shapes/poison_cube.obj"));
                                 obj -> shape_sides = 4;
+                                obj -> bounding_type = "square";
+                                obj->max_x = obj-> max_y = obj->max_z = 0.5;
+                                obj->min_x = obj-> min_y = obj->min_z = -0.5;
                             }
-                            /**if (cmd == "purple_coin") {
-                                obj -> name = ((std::string)("purple_coin"));
-                                obj -> file_path = ((std::string)("images/shapes/coin.obj"));
-                                obj -> shape_sides = 4;
-                            }**/
                             ++num_static_objects;
                             ++num_obj_models;
                         }
@@ -316,18 +341,23 @@ void readfile(const char * filename) {
                             obj -> shininess = shininess;
                             obj -> transform = transfstack.top();
                             obj -> animation_state = anim_state;
+                            obj -> test_collision = test_collision;
                             gettimeofday(&(obj -> timeUpdate), NULL);                        
                             if (cmd == "disappear_cube") {
                                 obj -> name = ((std::string)("disappear_cube"));
                                 obj -> file_path = ((std::string)("images/shapes/disappear_cube.obj"));
                                 obj -> shape_sides = 4;
                                 obj -> position = glm::vec3 ( obj->transform * glm::vec4 (0.0, 0.0, 0.0, 1.0)); // Model of cube begins position (0, 0, 0).
+                                obj -> bounding_type = "square";
+                                obj->max_x = obj-> max_y = obj->max_z = 0.5;
+                                obj->min_x = obj-> min_y = obj->min_z = -0.5;
                             }
                             if (cmd == "purple_coin") {
                                 obj -> name = ((std::string)("purple_coin"));
                                 obj -> file_path = ((std::string)("images/shapes/coin.obj"));
                                 obj -> shape_sides = 4;
                                 obj -> position = glm::vec3 ( obj->transform * glm::vec4 (0.0, 0.0, 0.0, 1.0)); // Model of cube begins position (0, 0, 0).
+                                obj -> bounding_type = "square";
                             }
                             dynamic_objects.push_back(*obj);
                         }
@@ -350,6 +380,11 @@ void readfile(const char * filename) {
                         obj -> animation_state = anim_state;
                         gettimeofday(&(obj -> timeUpdate), NULL);
                         character = obj;
+                        char_position = glm::vec3(0.0, 0.0, 0.025);
+                        previous_char_position = glm::vec3(char_position.x, char_position.y, char_position.z);
+                        obj-> max_x = obj-> max_y = obj->max_z = 0.05;
+                        obj-> min_x = obj-> min_y = obj->min_z = -0.05;
+                        obj-> max_radius = 0.06;
                     }
                     ++num_static_objects ; 
                 }

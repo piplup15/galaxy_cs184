@@ -11,7 +11,9 @@ animation_state none
 
 # STAGE 1  ----------------------------------------------------- PART 1
 
+
 # ---- CHARACTER (TEMP) ----
+test_collision false
 pushTransform
     ambient 0.1 0.1 0.1 1
     diffuse 0.1 0.1 0.1 1
@@ -25,6 +27,7 @@ popTransform
 
 
 # ---- ENTRY PLATFORM -----
+test_collision true
 pushTransform
     ambient 0.2 0.5 0.8 1
     diffuse 0.1 0.1 0.1 1
@@ -34,6 +37,7 @@ pushTransform
     cube 1
 popTransform
 
+test_collision false
 pushTransform
     ambient 0.6 0.25 0.25 1
     diffuse 0.5 0.2 0.2 1
@@ -47,6 +51,7 @@ popTransform
 
 
 # ----- TRAIN TRACKS -----
+test_collision false
 pushTransform
     ambient 0.35 0.35 0.2 1
     diffuse 0.5 0.3 0.1 1
@@ -92,6 +97,7 @@ popTransform
 
 
 # ----- SECOND PLATFORM / WARP STAR 1 -------
+test_collision true
 pushTransform
     ambient 0.5 0.3 0.3 1
     diffuse 0.2 0.1 0.1 1
@@ -102,6 +108,7 @@ pushTransform
     cube 1
 popTransform
 
+test_collision false
 pushTransform
     ambient 0.3 0.6 0.3 1
     diffuse 0.1 0.2 0.1 1
@@ -117,6 +124,7 @@ popTransform
 # ----- TRAIN 1 (LOOP) ------
 animation_state train_one_loop
 
+test_collision true
 pushTransform
     ambient 0.1 0.6 0.1 1
     diffuse 0.1 0.2 0.1 1
@@ -156,6 +164,7 @@ pushTransform
     smooth_cube
 popTransform
 
+test_collision false
 pushTransform
     ambient 0.8 0.8 0.1 1
     diffuse 0.1 0.1 0.1 1
@@ -239,6 +248,7 @@ pushTransform
     popTransform
 popTransform
 
+test_collision true
 pushTransform
     ambient 0.8 0.8 0.1 1
     diffuse 0.1 0.1 0.1 1
@@ -304,6 +314,8 @@ pushTransform
         rotate 1 0 0 90
         train_connect
     popTransform
+    
+    test_collision false
     pushTransform
         translate 2.4 2.465 -0.3275
         scale 0.34 0.34 0.14
@@ -402,6 +414,7 @@ popTransform
 # ----- Train 2 (Loop) ------
 
 animation_state train_two_loop
+test_collision true
 
 pushTransform
     ambient 0.1 0.6 0.1 1
@@ -442,6 +455,7 @@ pushTransform
     smooth_cube
 popTransform
 
+test_collision false
 pushTransform
     ambient 0.8 0.8 0.1 1
     diffuse 0.1 0.1 0.1 1
@@ -527,6 +541,7 @@ pushTransform
     popTransform
 popTransform
 
+test_collision true
 pushTransform
     ambient 0.8 0.8 0.1 1
     diffuse 0.1 0.1 0.1 1
@@ -591,6 +606,8 @@ pushTransform
         rotate 1 0 0 90
         train_connect
     popTransform
+    
+    test_collision false
     pushTransform
         translate -2.4 6.535 -0.3275
         scale 0.34 0.34 0.14
@@ -690,6 +707,7 @@ popTransform
 
 # STAGE 1  ----------------------------------------------------- PART 2
 
+test_collision true
 animation_state none
 pushTransform
     translate 30 100 -20.1
@@ -8458,5 +8476,9 @@ pushTransform
         purple_coin
     popTransform
     
-    
 popTransform
+
+translate -2 0 -2
+rotate -1 0 0 90
+scale 0.15 0.15 0.15
+smooth_cube 
