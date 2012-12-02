@@ -78,10 +78,17 @@ EXTERN struct object {
   glm::vec3 position; // Only used for objects which require position for animation.
   bool test_collision;
   std::string bounding_type;
+    
+  glm::vec3 scale_size;
 
   // Bounding
   GLfloat max_x, max_y, max_z, min_x, min_y, min_z;
   GLfloat max_radius;
+    
+  // Disappear Cube
+  bool disappear;
+  GLfloat fraction_left;
+    
 } static_objects[maxobjects] ;
 
 EXTERN int num_dynamic_objects;
@@ -115,5 +122,6 @@ const int max_obj_models = 40; // per scene.
 EXTERN int num_obj_models;
 
 EXTERN bool test_collision;
+EXTERN std::vector<int> disappear_cube_indices;
 
 

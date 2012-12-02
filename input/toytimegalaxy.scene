@@ -275,6 +275,7 @@ pushTransform
     smooth_cube
 popTransform
 
+test_collision false
 pushTransform
     ambient 0.2 0.5 0.7 1
     diffuse 0.1 0.1 0.1 1
@@ -289,6 +290,7 @@ pushTransform
     popTransform
 popTransform
 
+test_collision true
 pushTransform
     ambient 0.8 0.8 0.1 1
     diffuse 0.1 0.1 0.1 1
@@ -567,6 +569,7 @@ pushTransform
     smooth_cube
 popTransform
 
+test_collision false
 pushTransform
     ambient 0.2 0.5 0.7 1
     diffuse 0.1 0.1 0.1 1
@@ -581,6 +584,7 @@ pushTransform
     popTransform
 popTransform
 
+test_collision true
 pushTransform
     ambient 0.8 0.8 0.1 1
     diffuse 0.1 0.1 0.1 1
@@ -850,6 +854,7 @@ pushTransform
     popTransform
     
     # ---------- LUIGI'S LEFT LEG FRAMES ----------------------
+    test_collision false
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
     specular 0.3 0.3 0.3 1
@@ -1195,6 +1200,7 @@ pushTransform
     popTransform
     
     # ------------------------ LUIGI'S LEFT ARM -----------------------
+    test_collision true
     ambient 0.8 0.7 0.5 1
     diffuse 0.05 0.05 0.05 1
     specular 0.05 0.05 0.05 1
@@ -1463,6 +1469,7 @@ pushTransform
     popTransform
     
     # ---------- LUIGI'S LEFT ARM FRAMES ----------------------
+    test_collision false
     
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -2302,6 +2309,7 @@ pushTransform
     popTransform
     
     # ------------------------ LUIGI'S LEFT EAR -----------------------
+    test_collision true
     ambient 0.8 0.7 0.5 1
     diffuse 0.05 0.05 0.05 1
     specular 0.05 0.05 0.05 1
@@ -2442,6 +2450,7 @@ pushTransform
     popTransform
     
     # ---------- LUIGI'S LEFT EAR FRAMES ----------------------
+    test_collision false
     
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -2865,6 +2874,7 @@ pushTransform
     popTransform
     
     # ------------------------ LUIGI'S CHEEK -----------------------
+    test_collision true
     
     ambient 0.8 0.7 0.5 1
     diffuse 0.05 0.05 0.05 1
@@ -3096,6 +3106,7 @@ pushTransform
     popTransform
     
     # ---------- LUIGI'S CHEEK FRAMES ----------------------
+    test_collision false
     
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -3831,6 +3842,7 @@ pushTransform
     popTransform
     
     # ------------------------ LUIGI'S EYE/MOUTH -----------------------
+    test_collision true
     
     ambient 0.15 0.6 0.15 1
     diffuse 0.05 0.05 0.05 1
@@ -3950,6 +3962,7 @@ pushTransform
     popTransform
     
     # ---------- LUIGI'S EYE/MOUTH FRAMES ----------------------
+    test_collision false
     
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -4321,6 +4334,7 @@ pushTransform
     popTransform
     
     # ------------------------ LUIGI'S NOSE/STACHE -----------------------
+    test_collision true
     
     ambient 0.8 0.7 0.5 1
     diffuse 0.05 0.05 0.05 1
@@ -4424,6 +4438,7 @@ pushTransform
     popTransform
     
     # ---------- LUIGI'S NOSE/STACHE FRAMES ----------------------
+    test_collision false
     
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -4743,6 +4758,7 @@ pushTransform
     popTransform
     
     # ---------- LUIGI'S RIGHT ARM ----------------------
+    test_collision true
     
     ambient 0.15 0.6 0.15 1
     diffuse 0.05 0.05 0.05 1
@@ -5004,6 +5020,7 @@ pushTransform
     popTransform
     
     # ---------- LUIGI'S RIGHT ARM FRAMES ----------------------
+    test_collision false
     
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -5818,6 +5835,7 @@ pushTransform
     popTransform
     
     # ---------- LUIGI'S TORSO ----------------------
+    test_collision true
     
     ambient 0.15 0.6 0.15 1
     diffuse 0.05 0.05 0.05 1
@@ -5962,6 +5980,7 @@ pushTransform
 
 
 # ---------- LUIGI'S TORSO ----------------------
+    test_collision false
 
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -6411,6 +6430,7 @@ pushTransform
     popTransform
     
     # ---------- LUIGI'S BUTTONS ----------------------
+    test_collision true
 
     ambient 0.8 0.7 0.5 1
     diffuse 0.05 0.05 0.05 1
@@ -6482,6 +6502,7 @@ pushTransform
     popTransform
     
     # ---------- LUIGI'S BUTTONS FRAMES ----------------------
+    test_collision false
     
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -6697,6 +6718,7 @@ pushTransform
     popTransform
     
     # ---------- LUIGI'S RIGHT LEG ----------------------
+    test_collision true
     
     ambient 0.15 0.6 0.15 1
     diffuse 0.05 0.05 0.05 1
@@ -6792,6 +6814,7 @@ pushTransform
     popTransform
     
     # ---------- LUIGI'S RIGHT LEG FRAMES ----------------------
+    test_collision false
     
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -7085,6 +7108,7 @@ pushTransform
     popTransform
     
     # ---------- LUIGI'S POISON SPOTS (OVERALLS, CAP) ----------------------
+    test_collision true
     
     ambient 0.1 0.3 0.25 1
     diffuse 0.05 0.05 0.05 1
@@ -8478,7 +8502,3 @@ pushTransform
     
 popTransform
 
-translate -2 0 -2
-rotate -1 0 0 90
-scale 0.15 0.15 0.15
-smooth_cube 

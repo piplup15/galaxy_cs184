@@ -73,6 +73,8 @@ void readfile(const char * filename) {
         // This is done using standard STL Templates 
         stack <mat4> transfstack ; 
         transfstack.push(mat4(1.0)) ;  // identity
+        stack <glm::vec3> scalestack;
+        scalestack.push(glm::vec3(1.0,1.0,1.0));
 
         getline (in, str) ; 
         while (in) {
@@ -172,7 +174,8 @@ void readfile(const char * filename) {
                         validinput = readvals(s, 1, values) ; 
                         if (validinput) {
                             object * obj = &(static_objects[num_static_objects]) ; 
-                            obj -> size = values[0] ; 
+                            obj -> size = values[0] ;
+                            obj -> scale_size = scalestack.top();
                             for (i = 0 ; i < 4 ; i++) {
                                 (obj -> ambient)[i] = ambient[i] ; 
                                 (obj -> diffuse)[i] = diffuse[i] ; 
@@ -189,8 +192,8 @@ void readfile(const char * filename) {
                             else if (cmd == "cube") {
                                 obj -> type = cube ;
                                 obj -> bounding_type = "square";
-                                obj->max_x = obj-> max_y = obj->max_z = 0.5;
-                                obj->min_x = obj-> min_y = obj->min_z = -0.5;
+                                obj->max_x = obj-> max_y = obj->max_z = values[0]*0.5;
+                                obj->min_x = obj-> min_y = obj->min_z = -values[0]*0.5;
                             } 
                             obj -> animation_state = anim_state;
                             gettimeofday(&(obj -> timeUpdate), NULL);
@@ -221,6 +224,7 @@ void readfile(const char * filename) {
                             obj -> loops = values[3];
                             obj -> animation_state = anim_state;
                             obj -> test_collision = test_collision;
+                            obj -> scale_size = scalestack.top();
                             obj -> bounding_type = "circle";
                             gettimeofday(&(obj -> timeUpdate), NULL);
                         }
@@ -251,6 +255,7 @@ void readfile(const char * filename) {
                             obj -> stacks = values[4];
                             obj -> animation_state = anim_state;
                             obj -> test_collision = test_collision;
+                            obj -> scale_size = scalestack.top();
                             obj -> bounding_type = "circle";
                             gettimeofday(&(obj -> timeUpdate), NULL);
                         }
@@ -276,6 +281,7 @@ void readfile(const char * filename) {
                             obj -> transform = transfstack.top();
                             obj -> animation_state = anim_state;
                             obj -> test_collision = test_collision;
+                            obj -> scale_size = scalestack.top();
                             gettimeofday(&(obj -> timeUpdate), NULL);
                         
                             if (cmd == "smooth_cube") {
@@ -342,6 +348,7 @@ void readfile(const char * filename) {
                             obj -> transform = transfstack.top();
                             obj -> animation_state = anim_state;
                             obj -> test_collision = test_collision;
+                            obj -> scale_size = scalestack.top();
                             gettimeofday(&(obj -> timeUpdate), NULL);                        
                             if (cmd == "disappear_cube") {
                                 obj -> name = ((std::string)("disappear_cube"));
@@ -351,12 +358,14 @@ void readfile(const char * filename) {
                                 obj -> bounding_type = "square";
                                 obj->max_x = obj-> max_y = obj->max_z = 0.5;
                                 obj->min_x = obj-> min_y = obj->min_z = -0.5;
+                                obj->disappear = false;
+                                obj->fraction_left = 1.0;
                             }
                             if (cmd == "purple_coin") {
                                 obj -> name = ((std::string)("purple_coin"));
                                 obj -> file_path = ((std::string)("images/shapes/coin.obj"));
                                 obj -> shape_sides = 4;
-                                obj -> position = glm::vec3 ( obj->transform * glm::vec4 (0.0, 0.0, 0.0, 1.0)); // Model of cube begins position (0, 0, 0).
+                                obj -> position = glm::vec3 ( obj->transform * glm::vec4 (0.0, 0.0, 0.0, 1.0)); // Model of coin begins position (0, 0, 0).
                                 obj -> bounding_type = "square";
                             }
                             dynamic_objects.push_back(*obj);
@@ -378,6 +387,8 @@ void readfile(const char * filename) {
                         obj -> transform = transfstack.top() ;
                         obj -> type = cube;
                         obj -> animation_state = anim_state;
+                        obj -> test_collision = test_collision;
+                        obj -> scale_size = scalestack.top();
                         gettimeofday(&(obj -> timeUpdate), NULL);
                         character = obj;
                         char_position = glm::vec3(0.0, 0.0, 0.025);
@@ -406,6 +417,7 @@ void readfile(const char * filename) {
                     validinput = readvals(s,3,values) ; 
                     if (validinput) {
                         transfstack.top() = transfstack.top() * Transform::scale(values[0], values[1], values[2]);
+                        scalestack.top() = glm::vec3(scalestack.top().x * values[0], scalestack.top().y * values[1], scalestack.top().z * values[2]);
                     }
                 }
                 else if (cmd == "rotate") {
@@ -417,12 +429,17 @@ void readfile(const char * filename) {
                 }
         
                 // I include the basic push/pop code for matrix stacks
-                else if (cmd == "pushTransform") 
+                else if (cmd == "pushTransform") {
                     transfstack.push(transfstack.top()) ; 
+                    scalestack.push(scalestack.top());
+                }
                 else if (cmd == "popTransform") {
                     if (transfstack.size() <= 1) 
                         cerr << "Stack has no elements.  Cannot Pop\n" ; 
                     else transfstack.pop() ; 
+                    if (scalestack.size() <= 1)
+                        cerr << "Stack has no elements. Cannot Pop\n";
+                    else scalestack.pop();
                 }
         
                 else {

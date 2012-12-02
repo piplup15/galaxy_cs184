@@ -56,6 +56,10 @@ void handleCharacterGravity();
 void updateCharacterGravity();
 bool objectTopCollision(object * obj, bool & updateGravity);
 
+// Disappearing cubes
+GLfloat rate_disappear;
+void handleDisappearCube();
+
 
 // Very basic code to read a ppm file
 // And then set up buffers for texture coordinates
@@ -189,6 +193,9 @@ void handleAnimation ( ) {
         }
     }
     
+    // DISAPPEARING CUBE ANIMATION
+    handleDisappearCube();
+    
     // PURPLE COIN ANIMATION
     for (std::vector<object>::iterator it = dynamic_objects.begin(); it != dynamic_objects.end(); ++it) {
         object * obj = &(*it);
@@ -210,7 +217,7 @@ bool objectTopCollision(object * obj, bool & updateGravity) {
         glm::vec3 transformed_char_position = glm::vec3(glm::inverse(obj->transform) * glm::vec4(char_position.x, char_position.y, char_position.z, 1.0));
         glm::vec3 transformed_char_normal = glm::normalize(glm::vec3(glm::inverse(glm::transpose(glm::inverse(obj->transform))) * glm::vec4(0.0, 0.0, 1.0, 0.0)));
         if (approx_equals(transformed_char_normal.x, 1.0, 0.001)) {
-            if (approx_equals(transformed_char_position.x, obj->max_x, obj->max_x/3.0) || (transformed_old_char_position.x >= obj->max_x && transformed_char_position.x <= obj->max_x)) {
+            if (approx_equals(transformed_char_position.x, obj->max_x,  obj->max_x/20.0/obj->scale_size.x) || (transformed_old_char_position.x >= obj->max_x && transformed_char_position.x <= obj->max_x)) {
                 if (transformed_char_position.y >= (obj->min_y + character->min_y) && transformed_char_position.y <= (obj->max_y + character->max_y) && transformed_char_position.z >= (obj->min_z + character->min_z) && transformed_char_position.z <= (obj->max_z + character->max_z)) {
                     if (obj->animation_state == "train_one_loop") {
                         on_train_one = true;
@@ -230,7 +237,7 @@ bool objectTopCollision(object * obj, bool & updateGravity) {
                 }
             }
         } else if (approx_equals(transformed_char_normal.y, 1.0, 0.001)) {
-            if (approx_equals(transformed_char_position.y, obj->max_y, obj->max_y/3.0) || (transformed_old_char_position.y >= obj->max_y && transformed_char_position.y <= obj->max_y)) {
+            if (approx_equals(transformed_char_position.y, obj->max_y, obj->max_y/20.0/obj->scale_size.y) || (transformed_old_char_position.y >= obj->max_y && transformed_char_position.y <= obj->max_y)) {
                 if (transformed_char_position.x >= (obj->min_x + character->min_x) && transformed_char_position.x <= (obj->max_x + character->max_x) && transformed_char_position.z >= (obj->min_z + character->min_z) && transformed_char_position.z <= (obj->max_z + character->max_z)) {
                     if (obj->animation_state == "train_one_loop") {
                         on_train_one = true;
@@ -250,7 +257,7 @@ bool objectTopCollision(object * obj, bool & updateGravity) {
                 }
             }
         } else if (approx_equals(transformed_char_normal.z, 1.0, 0.001)) {
-            if ( approx_equals(transformed_char_position.z, obj->max_z, obj->max_z/3.0) || (transformed_old_char_position.z >= obj->max_z && transformed_char_position.z <= obj->max_z)){
+            if ( approx_equals(transformed_char_position.z, obj->max_z, obj->max_z/20.0/obj->scale_size.z) || (transformed_old_char_position.z >= obj->max_z && transformed_char_position.z <= obj->max_z)){
                 if (transformed_char_position.x >= (obj->min_x + character->min_x) && transformed_char_position.x <= (obj->max_x + character->max_x) && transformed_char_position.y >= (obj->min_y + character->min_y) && transformed_char_position.y <= (obj->max_y + character->max_y)) {
                     if (obj->animation_state == "train_one_loop") {
                         on_train_one = true;
@@ -270,7 +277,7 @@ bool objectTopCollision(object * obj, bool & updateGravity) {
                 }
             }
         } else if (approx_equals(transformed_char_normal.x, -1.0, 0.001)) {
-            if (approx_equals(transformed_char_position.x, obj->min_x, obj->max_x/3.0) || (transformed_old_char_position.x <= obj->min_x && transformed_char_position.x >= obj->min_x)) {
+            if (approx_equals(transformed_char_position.x, obj->min_x, obj->max_x/20.0/obj->scale_size.x) || (transformed_old_char_position.x <= obj->min_x && transformed_char_position.x >= obj->min_x)) {
                 if (transformed_char_position.y >= (obj->min_y + character->min_y) && transformed_char_position.y <= (obj->max_y + character->max_y) && transformed_char_position.z >= (obj->min_z + character->min_z) && transformed_char_position.z <= (obj->max_z + character->max_z)) {
                     if (obj->animation_state == "train_one_loop") {
                         on_train_one = true;
@@ -290,7 +297,7 @@ bool objectTopCollision(object * obj, bool & updateGravity) {
                 }
             }
         } else if (approx_equals(transformed_char_normal.y, -1.0, 0.001)) {
-            if (approx_equals(transformed_char_position.y, obj->min_y, obj->max_y/3.0) || (transformed_old_char_position.y <= obj->min_y && transformed_char_position.y >= obj->min_y)) {
+            if (approx_equals(transformed_char_position.y, obj->min_y, obj->max_y/20.0/obj->scale_size.y) || (transformed_old_char_position.y <= obj->min_y && transformed_char_position.y >= obj->min_y)) {
                 if (transformed_char_position.x >= (obj->min_x + character->min_x) && transformed_char_position.x <= (obj->max_x + character->max_x) && transformed_char_position.z >= (obj->min_z + character->min_z) && transformed_char_position.z <= (obj->max_z + character->max_z)) {
                     if (obj->animation_state == "train_one_loop") {
                         on_train_one = true;
@@ -310,7 +317,7 @@ bool objectTopCollision(object * obj, bool & updateGravity) {
                 }
             }
         } else if (approx_equals(transformed_char_normal.z, -1.0, 0.001)) {
-            if (approx_equals(transformed_char_position.z, obj->min_z, obj->max_z/3.0) || (transformed_old_char_position.z <= obj->min_z && transformed_char_position.z >= obj->min_z)) {
+            if (approx_equals(transformed_char_position.z, obj->min_z, obj->max_z/20.0/obj->scale_size.z) || (transformed_old_char_position.z <= obj->min_z && transformed_char_position.z >= obj->min_z)) {
                 if (transformed_char_position.x >= (obj->min_x + character->min_x) && transformed_char_position.x <= (obj->max_x + character->max_x) && transformed_char_position.y >= (obj->min_y + character->min_y) && transformed_char_position.y <= (obj->max_y + character->max_y)) {
                     if (obj->animation_state == "train_one_loop") {
                         on_train_one = true;
@@ -334,6 +341,25 @@ bool objectTopCollision(object * obj, bool & updateGravity) {
     return false;
 }
 
+void handleDisappearCube() {
+    int index = 0;
+    for (std::vector<object>::iterator it = dynamic_objects.begin() ; it != dynamic_objects.end(); ++it) {
+        object * obj = &(*it);
+        if (obj->name == "disappear_cube" && obj->disappear == true) {
+            obj->transform = Transform::translate(obj->position.x, obj->position.y, obj->position.z) * Transform::scale(1-rate_disappear, 1-rate_disappear, 1.0) * Transform::translate(-obj->position.x, -obj->position.y, -obj->position.z) * obj->transform;
+            obj->fraction_left = obj->fraction_left * (1 - rate_disappear);
+            if (obj->fraction_left < 0.1) {
+                disappear_cube_indices.push_back(index);
+            }
+        }
+        index++;
+    }
+    for (std::vector<int>::iterator index_it = disappear_cube_indices.end()-1; index_it != disappear_cube_indices.begin()-1; --index_it) {
+        dynamic_objects.erase(dynamic_objects.begin() + (int)(*index_it));
+        disappear_cube_indices = std::vector<int>();
+    }
+}
+
 void handleCharacterGravity () {
     bool updateGravity = true;
     struct timeval current_time;
@@ -348,12 +374,12 @@ void handleCharacterGravity () {
             }
         }
         
-        if (updateGravity) {
-            for (std::vector<object>::iterator it = dynamic_objects.begin(); it != dynamic_objects.end(); ++it) {
-                object * obj = &(*it);
-                if (obj->test_collision) {
-                    if (objectTopCollision(obj, updateGravity)) {
-                        break;
+        for (std::vector<object>::iterator it = dynamic_objects.begin(); it != dynamic_objects.end(); ++it) {
+            object * obj = &(*it);
+            if (obj->test_collision) {
+                if (objectTopCollision(obj, updateGravity)) {
+                    if (obj->name == "disappear_cube" && obj->disappear == false) {
+                        obj->disappear = true;
                     }
                 }
             }
@@ -412,7 +438,7 @@ void keyUp (unsigned char key, int x, int y) {
 void idleFunc() {
     struct timeval current_time;
     gettimeofday(&current_time, NULL);
-    cout << char_position.x << " , " << char_position.y << " , " << char_position.z << endl;
+    //cout << char_position.x << " , " << char_position.y << " , " << char_position.z << endl;
     if ((current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000.0 && !keyboard_locked) {
         if (key_states['w']) { // forward movement
             glm::vec3 direction = glm::normalize(glm::vec3(center.x - eye.x, center.y - eye.y, 0));
@@ -569,6 +595,9 @@ void init() {
     on_train_two = false;
     
     test_collision = false;
+    
+    rate_disappear = 0.005;
+    disappear_cube_indices = std::vector<int>();
 }
 
 int main(int argc, char* argv[]) {
