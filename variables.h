@@ -123,5 +123,8 @@ EXTERN int num_obj_models;
 
 EXTERN bool test_collision;
 EXTERN std::vector<int> disappear_cube_indices;
+EXTERN std::vector<int> coin_indices;
+
+EXTERN GLfloat coin_radius;
 
 

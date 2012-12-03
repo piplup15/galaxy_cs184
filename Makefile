@@ -1,4 +1,4 @@
-CC = g++
+CC = g++ -O2
 ifeq ($(shell sw_vers 2>/dev/null | grep Mac | awk '{ print $$2}'),Mac)
 CFLAGS = -g -DGL_GLEXT_PROTOTYPES -DOSX
 INCFLAGS = -I./glm-0.9.2.7 -I/usr/X11/include -I./include/

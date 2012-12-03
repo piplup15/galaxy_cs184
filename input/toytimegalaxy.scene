@@ -1,7 +1,7 @@
 size 960 640
-camera 0 -4 2 0 0 0 0 0 1 45.0
+camera 0 -4.5 2.5 0 0 0 0 0 1 45.0
 
-backgroundColor 0.2 0.2 0.2 1
+backgroundColor 0.3 0.3 0.3 1
 
 light 0 0 1 0 1 1 1 1
 light 0 4.5 1 1 1 1 1 1
@@ -50,7 +50,7 @@ popTransform
 
 
 
-# ----- TRAIN TRACKS -----
+# ----- TRAIN TRACKS 1 -----
 test_collision false
 pushTransform
     ambient 0.35 0.35 0.2 1
@@ -94,6 +94,50 @@ pushTransform
     cylinder 3.36 3.36 0.02 80 80
 popTransform
 
+# -------TRAIN TRACKS 2 -------
+
+pushTransform
+    ambient 0.35 0.35 0.2 1
+    diffuse 0.5 0.3 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate 0 11.5 -0.625
+    disk 2.7 3.5 80 80
+    translate 0 0 0.1
+    disk 2.7 3.5 80 80
+    translate 0 0 -0.1
+    cylinder 2.7 2.7 0.1 80 80
+    cylinder 3.5 3.5 0.1 80 80
+popTransform
+
+pushTransform
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.2 0.2 0.2 1
+    shininess 4
+    translate 0 11.5 -0.524
+    disk 2.8 2.83 80 80
+    translate 0 0 0.02
+    disk 2.8 2.83 80 80
+    translate 0 0 -0.02
+    cylinder 2.8 2.8 0.02 80 80
+    cylinder 2.83 2.83 0.02 80 80
+popTransform
+
+pushTransform
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.2 0.2 0.2 1
+    shininess 4
+    translate 0 11.5 -0.524
+    disk 3.33 3.36 80 80
+    translate 0 0 0.02
+    disk 3.33 3.36 80 80
+    translate 0 0 -0.02
+    cylinder 3.33 3.33 0.02 80 80
+    cylinder 3.36 3.36 0.02 80 80
+popTransform
+
 
 
 # ----- SECOND PLATFORM / WARP STAR 1 -------
@@ -103,7 +147,7 @@ pushTransform
     diffuse 0.2 0.1 0.1 1
     specular 0.1 0.1 0.1 1
     shininess 4
-    translate 0 8.75 -0.15
+    translate 0 15.75 -0.15
     scale 1.5 1.5 0.05
     cube 1
 popTransform
@@ -114,7 +158,7 @@ pushTransform
     diffuse 0.1 0.2 0.1 1
     specular 0.1 0.1 0.1 1
     shininess 4
-    translate 0 8.75 -0.375
+    translate 0 15.75 -0.375
     scale 1.25 1.25 0.4
     cube 1
 popTransform
@@ -708,23 +752,2942 @@ popTransform
 
 
 
+# ----- TRAIN 3 (LOOP) ------
+
+translate 0 7 0
+
+animation_state train_three_loop
+test_collision true
+pushTransform
+    ambient 0.1 0.6 0.1 1
+    diffuse 0.1 0.2 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate -0.345 1.43 -0.47
+    scale 1.13 0.35 0.3
+    rotate 0 0 1 90
+    rotate 0 1 0 180
+    train_head
+popTransform
+
+pushTransform
+    ambient 0.1 0.1 0.6 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate -0.35 1.43 -0.2
+    cylinder 0.1 0.1 0.12 50 50
+    translate 0 0 0.12
+    cylinder 0.1 0.15 0.08 50 50 
+    translate 0 0 0.08
+    disk 0.07 0.15 50 50
+    translate 0 0 -0.15
+    cylinder 0.07 0.07 0.15 50 50
+    disk 0 0.07 50 50
+popTransform
+
+pushTransform
+    ambient 0.8 0.1 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate 0.3 1.43 -0.1
+    scale 0.18 0.18 0.1
+    rotate 1 0 0 90
+    smooth_cube
+popTransform
+
+test_collision false
+pushTransform
+    ambient 0.8 0.8 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate 0.3 1.43 -0.35
+    scale 0.18 0.18 0.1
+    rotate 1 0 0 90
+    smooth_cube
+popTransform
+
+animation_state wheel_three_loop
+pushTransform
+    ambient 0.7 0.6 0.3 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate 0.45 1.043 -0.424
+        scale 0.1 0.1 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate 0.45 1.817 -0.424
+        scale 0.1 0.1 0.1
+        train_wheel
+    popTransform
+popTransform
+
+animation_state train_three_loop
+pushTransform    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.2 0.2 0.2 1
+    shininess 4
+    pushTransform
+        translate 0.45 1.043 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate 0.45 1.817 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+popTransform
+
+animation_state wheel_three_loop
+pushTransform
+    ambient 0.7 0.6 0.3 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate -0.5 1.058 -0.424
+        scale 0.1 0.1 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate -0.5 1.802 -0.424
+        scale 0.1 0.1 0.1
+        train_wheel
+    popTransform
+popTransform
+
+animation_state train_three_loop
+pushTransform    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.2 0.2 0.2 1
+    shininess 4
+    pushTransform
+        translate -0.5 1.058 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate -0.5 1.802 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+popTransform
+
+test_collision true
+pushTransform
+    ambient 0.8 0.8 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate 0.8 1.425 -0.13
+        scale 0.34 0.34 0.14
+        rotate 0 0 1 180
+        rotate 1 0 0 90
+        train_connect
+    popTransform
+popTransform
+
+pushTransform
+    ambient 0.2 0.5 0.7 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.1 0.1 0.1 1
+    shininess 4
+    translate 1.38 1.8 -0.15125
+    scale 0.18 0.18 0.141
+    rotate 0 0 1 33
+    rotate 1 0 0 90
+    smooth_cube
+popTransform
+
+test_collision false
+pushTransform
+    ambient 0.2 0.5 0.7 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.1 0.1 0.1 1
+    shininess 4
+    pushTransform
+        translate 0.8 1.425 -0.28
+        scale 0.34 0.34 0.14
+        rotate 0 0 1 33
+        rotate 1 0 0 90
+        train_connect
+    popTransform
+popTransform
+
+test_collision true
+pushTransform
+    ambient 0.8 0.8 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate 1.985 2.195 -0.15125
+    scale 0.18 0.18 0.141
+    rotate 0 0 1 33
+    rotate 1 0 0 90
+    smooth_cube
+popTransform
+
+pushTransform
+    ambient 0.8 0.8 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate 2.4 2.465 -0.115
+        scale 0.34 0.34 0.14
+        rotate 0 0 1 33
+        rotate 0 0 1 180
+        rotate 1 0 0 90
+        train_connect
+    popTransform
+    
+    test_collision false
+    pushTransform
+        translate 2.4 2.465 -0.3275
+        scale 0.34 0.34 0.14
+        rotate 0 0 1 33
+        rotate 0 0 1 180
+        rotate 1 0 0 90
+        train_connect
+    popTransform
+popTransform
+    
+animation_state train_three_loop
+pushTransform
+    ambient 0.7 0.6 0.3 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate 1.75 2.03 -0.404
+        rotate 0 0 1 33
+        scale 0.32 0.13 0.04
+        rotate 0 1 0 180
+        smooth_cube
+    popTransform
+popTransform
+
+animation_state wheel_three_loop
+pushTransform
+    ambient 0.7 0.6 0.3 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate 1.2 1.985 -0.424
+        rotate 0 0 1 33
+        scale 0.1 0.4 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate 1.49 1.545 -0.424
+        rotate 0 0 1 33
+        scale 0.1 0.4 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate 2.27 2.055 -0.424
+        rotate 0 0 1 33
+        scale 0.1 0.4 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate 1.98 2.495 -0.424
+        rotate 0 0 1 33
+        scale 0.1 0.4 0.1
+        train_wheel
+    popTransform
+popTransform
+
+animation_state train_three_loop
+pushTransform    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.2 0.2 0.2 1
+    shininess 4
+    pushTransform
+        translate 1.155 2.06 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate 1.535 1.47 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate 2.315 1.98 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate 1.935 2.57 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+popTransform
+
+pushTransform
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    translate 0.8 1.425 -0.02
+    disk 0 0.05 40 40
+popTransform
+
+    
+# ----- Train 4 (Loop) ------
+
+animation_state train_four_loop
+test_collision true
+
+pushTransform
+    ambient 0.1 0.6 0.1 1
+    diffuse 0.1 0.2 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate 0.345 7.57 -0.47
+    scale 1.13 0.35 0.3
+    rotate 0 0 1 90
+    rotate 0 1 0 180
+    train_head
+popTransform
+
+pushTransform
+    ambient 0.1 0.1 0.6 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate 0.35 7.57 -0.2
+    cylinder 0.1 0.1 0.12 50 50
+    translate 0 0 0.12
+    cylinder 0.1 0.15 0.08 50 50 
+    translate 0 0 0.08
+    disk 0.07 0.15 50 50
+    translate 0 0 -0.15
+    cylinder 0.07 0.07 0.15 50 50
+    disk 0 0.07 50 50
+popTransform
+
+pushTransform
+    ambient 0.8 0.1 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate -0.3 7.57 -0.1
+    scale 0.18 0.18 0.1
+    rotate 1 0 0 -90
+    smooth_cube
+popTransform
+
+test_collision false
+pushTransform
+    ambient 0.8 0.8 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate -0.3 7.57 -0.35
+    scale 0.18 0.18 0.1
+    rotate 1 0 0 -90
+    smooth_cube
+popTransform
+
+animation_state wheel_four_loop
+pushTransform
+    ambient 0.7 0.6 0.3 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate -0.45 7.957 -0.424
+        scale 0.1 0.1 0.1
+        rotate 0 1 0 180
+        train_wheel
+    popTransform
+    pushTransform
+        translate -0.45 7.183 -0.424
+        scale 0.1 0.1 0.1
+        rotate 0 1 0 180
+        train_wheel
+    popTransform
+popTransform
+
+animation_state train_four_loop
+pushTransform    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.2 0.2 0.2 1
+    shininess 4
+    pushTransform
+        translate -0.45 7.957 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate -0.45 7.183 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+popTransform
+
+animation_state wheel_four_loop
+pushTransform
+    ambient 0.7 0.6 0.3 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate 0.5 7.924 -0.424
+        scale 0.1 0.1 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate 0.5 7.198 -0.424
+        scale 0.1 0.1 0.1
+        train_wheel
+    popTransform
+popTransform
+
+animation_state train_four_loop
+pushTransform    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.2 0.2 0.2 1
+    shininess 4
+    pushTransform
+        translate 0.5 7.924 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate 0.5 7.198 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+popTransform
+
+test_collision true
+pushTransform
+    ambient 0.8 0.8 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate -0.8 7.575 -0.13
+        scale 0.34 0.34 0.14
+        rotate 1 0 0 90
+        train_connect
+    popTransform
+popTransform
+
+pushTransform
+    ambient 0.2 0.5 0.7 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.1 0.1 0.1 1
+    shininess 4
+    translate -1.38 7.2 -0.15125
+    scale 0.18 0.18 0.141
+    rotate 0 0 1 213
+    rotate 1 0 0 90
+    smooth_cube
+popTransform
+
+test_collision false
+pushTransform
+    ambient 0.2 0.5 0.7 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.1 0.1 0.1 1
+    shininess 4
+    pushTransform
+        translate -0.8 7.575 -0.28
+        scale 0.34 0.34 0.14
+        rotate 0 0 1 213
+        rotate 1 0 0 90
+        train_connect
+    popTransform
+popTransform
+
+test_collision true
+pushTransform
+    ambient 0.8 0.8 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    translate -1.985 6.805 -0.15125
+    scale 0.18 0.18 0.141
+    rotate 0 0 1 213
+    rotate 1 0 0 90
+    smooth_cube
+popTransform
+
+pushTransform
+    ambient 0.8 0.8 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate -2.4 6.535 -0.115
+        scale 0.34 0.34 0.14
+        rotate 0 0 1 213
+        rotate 0 0 1 180
+        rotate 1 0 0 90
+        train_connect
+    popTransform
+    
+    test_collision false
+    pushTransform
+        translate -2.4 6.535 -0.3275
+        scale 0.34 0.34 0.14
+        rotate 0 0 1 213
+        rotate 0 0 1 180
+        rotate 1 0 0 90
+        train_connect
+    popTransform
+popTransform
+    
+animation_state train_four_loop
+pushTransform
+    ambient 0.7 0.6 0.3 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate -1.75 6.97 -0.404
+        rotate 0 0 1 213
+        scale 0.32 0.13 0.04
+        rotate 0 1 0 180
+        smooth_cube
+    popTransform
+popTransform
+
+animation_state wheel_four_loop
+pushTransform
+    ambient 0.7 0.6 0.3 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0 0 0 1
+    shininess 4
+    pushTransform
+        translate -1.2 7.015 -0.424
+        rotate 0 0 1 213
+        scale 0.1 0.4 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate -1.49 7.455 -0.424
+        rotate 0 0 1 213
+        scale 0.1 0.4 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate -2.27 6.945 -0.424
+        rotate 0 0 1 213
+        scale 0.1 0.4 0.1
+        train_wheel
+    popTransform
+    pushTransform
+        translate -1.98 6.505 -0.424
+        rotate 0 0 1 213
+        scale 0.1 0.4 0.1
+        train_wheel
+    popTransform
+popTransform
+
+animation_state train_four_loop
+pushTransform    
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.2 0.2 0.2 1
+    specular 0.2 0.2 0.2 1
+    shininess 4
+    pushTransform
+        translate -1.155 6.94 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate -1.535 7.53 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate -2.315 7.02 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+    pushTransform
+        translate -1.935 6.43 -0.424
+        scale 0.04 0.04 0.04
+        sphere 1
+    popTransform
+popTransform
+
+pushTransform
+    ambient 0.2 0.2 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    translate -0.8 7.575 -0.02
+    disk 0 0.05 40 40
+popTransform
+
+translate 0 -7 0
+
+
+
+
 
 # STAGE 1  ----------------------------------------------------- PART 2
+# PIKACHU
 
 test_collision true
 animation_state none
 pushTransform
-    translate 30 100 -20.1
+    translate 0 150 9.9
+    
+    # --------------------------- ROW 1
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
     pushTransform
-        ambient 0.2 0.5 0.8 1
-        diffuse 0.1 0.1 0.1 1
-        specular 0.05 0.05 0.05 1
-        shininess 4
-        scale 0.25 0.25 0.05
+        scale 0.125 0.125 0.15
         translate 0 0 -1.25
-        rotate 1 0 0 -90 
+        rotate 1 0 0 90 
         smooth_cube
     popTransform
+    
+    ambient 0.65 0.5 0.05 1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 0.5 0 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 1 0 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 1.5 0 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 2.0 0 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 2.5 0 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 3 0 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 3.5 0 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 4 0 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 4.5 0 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 2
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 0 -0.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.4 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 0.5 -0.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 1 -0.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 1.5 -0.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 2 -0.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 2.5 -0.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 3 -0.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 3.5 -0.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 4 -0.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.65 0.5 0.05 1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 4.5 -0.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5 -0.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5.5 -0.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6 -0.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6.5 -0.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 3
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 0 -1 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 0.5 -1 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 1 -1 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 1.5 -1 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 2 -1 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 2.5 -1 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 3 -1 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 3.5 -1 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 4 -1 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 4.5 -1 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5 -1 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.4 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 5.5 -1 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6 -1 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6.5 -1 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.65 0.5 0.05 1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7 -1 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 4
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 0 -1.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 0.5 -1.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 1 -1.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 1.5 -1.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 2 -1.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 2.5 -1.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 3 -1.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 3.5 -1.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 4 -1.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+
+    ambient 0.8 0.8 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    
+    pushTransform
+        translate 4.5 -1.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5 -1.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5.5 -1.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6 -1.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6.5 -1.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.4 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7 -1.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7.5 -1.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 5
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 0 -2 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 0.5 -2 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 1 -2 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 1.5 -2 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 2 -2 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 2.5 -2 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 3 -2 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 3.5 -2 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 4 -2 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 4.5 -2 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5 -2 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5.5 -2 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 6 -2 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6.5 -2 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7 -2 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 6
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 0 -2.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 0.5 -2.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 1 -2.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 1.5 -2.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 2 -2.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 2.5 -2.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 3 -2.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 3.5 -2.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 4 -2.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 4.5 -2.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 5 -2.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5.5 -2.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6 -2.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 6.5 -2.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 7
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 0.5 -3 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 1 -3 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 1.5 -3 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 2 -3 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 2.5 -3 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 3 -3 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 3.5 -3 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 4 -3 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 4.5 -3 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 5 -3 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5.5 -3 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6 -3 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 6.5 -3 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 7 -3 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 8
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 0.5 -3.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 1 -3.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 1.5 -3.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 2 -3.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 2.5 -3.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 4 -3.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 4.5 -3.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5 -3.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5.5 -3.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6 -3.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+
+    ambient 0.8 0.8 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 6.5 -3.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 7 -3.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7.5 -3.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 9
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 0.5 -4 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 1 -4 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 1.5 -4 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 4 -4 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 4.5 -4 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5 -4 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5.5 -4 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6 -4 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6.5 -4 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 7 -4 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7.5 -4 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 8 -4 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 8.5 -4 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 10
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 1 -4.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 4.5 -4.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5 -4.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5.5 -4.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4    
+    pushTransform
+        translate 6 -4.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6.5 -4.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 7 -4.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 7.5 -4.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 8 -4.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 8.5 -4.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 9 -4.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 11
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 6 -5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6.5 -5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 7 -5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7.5 -5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 8 -5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 8.5 -5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 9 -5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 9.5 -5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 12
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7.5 -5.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 8 -5.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 8.5 -5.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 9 -5.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 9.5 -5.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 13
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7 -6 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7.5 -6 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 8 -6 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 8.5 -6 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 9 -6 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 14
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 6 -6.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6.5 -6.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.65 0.5 0.05 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7 -6.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 7.5 -6.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 8 -6.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 8.5 -6.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 15
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 5.5 -7 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 6 -7 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6.5 -7 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 7 -7 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7.5 -7 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 8 -7 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 16
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 6 -7.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 6.5 -7.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7 -7.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 11.5 -7.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 12 -7.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 17
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 6.5 -8 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7 -8 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7.5 -8 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 10 -8 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 10.5 -8 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 11 -8 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.1 0.1 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 11.5 -8 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 12 -8 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 18
+    ambient 0.65 0.5 0.05 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 4.5 -8.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5 -8.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 5.5 -8.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6 -8.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 6.5 -8.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 7 -8.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 7.5 -8.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 8 -8.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 9.5 -8.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.1 0.1 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 10 -8.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 10.5 -8.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 11 -8.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 11.5 -8.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 12 -8.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 19
+    ambient 0.65 0.5 0.05 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 3 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 3.5 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 4 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 4.5 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.4 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 5 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5.5 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 6.5 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 7 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 7.5 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 8 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 8.5 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 9 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 9.5 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.1 0.1 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 10 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 10.5 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 11 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 11.5 -9 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 20
+    ambient 0.65 0.5 0.05 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 2 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 2.5 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 3 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 3.5 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 4 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 4.5 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.65 0.5 0.05 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 5.5 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 6.5 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.65 0.5 0.05 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7.5 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 8 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 8.5 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 9 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 9.5 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.1 0.1 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 10 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 10.5 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 11 -9.5 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    # ----------------------------------------------- ROW 21
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 1.5 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 2 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 2.5 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 3 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.4 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 3.5 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 4 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 4.5 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 5 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 5.5 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 6 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.65 0.5 0.05 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 6.5 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.3 0.2 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.65 0.5 0.05 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 7.5 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.8 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 8 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 8.5 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 9 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 9.5 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0.8 0.7 0.2 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 10 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    pushTransform
+        translate 10.5 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
+    ambient 0 0 0 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.05 0.05 0.05 1
+    shininess 4
+    pushTransform
+        translate 11 -10 0
+        scale 0.125 0.125 0.15
+        translate 0 0 -1.25
+        rotate 1 0 0 90 
+        smooth_cube
+    popTransform
+    
 popTransform
 
 
@@ -7766,677 +10729,771 @@ pushTransform
         poison_cube
     popTransform
     
-    #  ------- Purple Coins on Luigi
+    #  ------- blue Coins on Luigi
     
-    ambient 0.4 0 0.4 1
+    test_collision false
+    
+    ambient 0.2 0 0.7 1
     diffuse 0.1 0.1 0.1 1
-    specular 0.05 0.05 0.05 1
+    specular 0.1 0.1 0.1 1
     shininess 4
     
     translate 0 -0.02 0.2
     
-    # Purple Coin 1
+    # blue Coin 1
     pushTransform
         translate 0.5 2.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 2
+    # blue Coin 2
     pushTransform
         translate 1.5 2.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 3
+    # blue Coin 3
     pushTransform
         translate 2.5 2.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 4
+    # blue Coin 4
     pushTransform
         translate 3.5 2.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 5
+    # blue Coin 5
     pushTransform
         translate 1.5 3.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 6
+    # blue Coin 6
     pushTransform
         translate 2.5 3.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 7
+    # blue Coin 7
     pushTransform
         translate 4.5 3.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 8
+    # blue Coin 8
     pushTransform
         translate 3.5 4.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
     -----------------------
     
-    # Purple Coin 9
+    # blue Coin 9
     pushTransform
         translate 0.5 5.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 10
+    # blue Coin 10
     pushTransform
         translate -0.5 6.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 11
+    # blue Coin 11
     pushTransform
         translate 0.5 6.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 12
+    # blue Coin 12
     pushTransform
         translate 1.5 6.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 13
+    # blue Coin 13
     pushTransform
         translate -1.5 7.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 14
+    # blue Coin 14
     pushTransform
         translate 0.5 7.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
     ------------------------
     
-    # Purple Coin 15
+    # blue Coin 15
     pushTransform
         translate 5.5 6.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 16
+    # blue Coin 16
     pushTransform
         translate 1.5 7.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 17
+    # blue Coin 17
     pushTransform
         translate 3.5 7.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 18
+    # blue Coin 18
     pushTransform
         translate 1.5 8.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 19
+    # blue Coin 19
     pushTransform
         translate 3.5 8.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 20
+    # blue Coin 20
     pushTransform
         translate 0.5 9.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 21
+    # blue Coin 21
     pushTransform
         translate 2.5 9.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 22
+    # blue Coin 22
     pushTransform
         translate 4.5 9.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 23
+    # blue Coin 23
     pushTransform
         translate 1.5 10.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 24
+    # blue Coin 24
     pushTransform
         translate 3.5 10.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
     ---------------------
     
-    # Purple Coin 25
+    # blue Coin 25
     pushTransform
         translate 3.5 12.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 26
+    # blue Coin 26
     pushTransform
         translate 4.5 13.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 27
+    # blue Coin 27
     pushTransform
         translate 3.5 14.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 28
+    # blue Coin 28
     pushTransform
         translate 5.5 14.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 29
+    # blue Coin 29
     pushTransform
         translate 4.5 15.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 30
+    # blue Coin 30
     pushTransform
         translate 5.5 16.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
     -------------------
     
-    # Purple Coin 31
+    # blue Coin 31
     pushTransform
         translate 6.5 11.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 32
+    # blue Coin 32
     pushTransform
         translate 10.5 11.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 33
+    # blue Coin 33
     pushTransform
         translate 12.5 11.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 34
+    # blue Coin 34
     pushTransform
         translate 5.5 12.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 35
+    # blue Coin 35
     pushTransform
         translate 7.5 12.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 36
+    # blue Coin 36
     pushTransform
         translate 8.5 12.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 37
+    # blue Coin 37
     pushTransform
         translate 10.5 13.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 38
+    # blue Coin 38
     pushTransform
         translate 6.5 15.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 39
+    # blue Coin 39
     pushTransform
         translate 8.5 15.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 40
+    # blue Coin 40
     pushTransform
         translate 7.5 16.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 41
+    # blue Coin 41
     pushTransform
         translate 9.5 16.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
     -----------------
     
-    # Purple Coin 42
+    # blue Coin 42
     pushTransform
         translate 14.5 11.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 43
+    # blue Coin 43
     pushTransform
         translate 15.5 11.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 44
+    # blue Coin 44
     pushTransform
         translate 11.5 12.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 45
+    # blue Coin 45
     pushTransform
         translate 13.5 12.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 46
+    # blue Coin 46
     pushTransform
         translate 15.5 12.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 47
+    # blue Coin 47
     pushTransform
         translate 12.5 13.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 48
+    # blue Coin 48
     pushTransform
         translate 10.5 15.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
     ----------------
     
-    # Purple Coin 49
+    # blue Coin 49
     pushTransform
         translate 14.5 13.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 50
+    # blue Coin 50
     pushTransform
         translate 16.5 13.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 51
+    # blue Coin 51
     pushTransform
         translate 11.5 14.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 52
+    # blue Coin 52
     pushTransform
         translate 13.5 14.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 53
+    # blue Coin 53
     pushTransform
         translate 12.5 15.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 54
+    # blue Coin 54
     pushTransform
         translate 11.5 16.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
     ----------------------
     
-    # Purple Coin 55
+    # blue Coin 55
     pushTransform
         translate 18.5 13.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 56
+    # blue Coin 56
     pushTransform
         translate 15.5 14.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 57
+    # blue Coin 57
     pushTransform
         translate 17.5 14.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 58
+    # blue Coin 58
     pushTransform
         translate 14.5 15.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 59
+    # blue Coin 59
     pushTransform
         translate 16.5 15.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 60
+    # blue Coin 60
     pushTransform
         translate 18.5 15.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 61
+    # blue Coin 61
     pushTransform
         translate 15.5 16.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 62
+    # blue Coin 62
     pushTransform
         translate 17.5 16.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 63
+    # blue Coin 63
     pushTransform
         translate 16.5 17.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 64
+    # blue Coin 64
     pushTransform
         translate 18.5 17.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 65
+    # blue Coin 65
     pushTransform
         translate 17.5 18.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 66
+    # blue Coin 66
     pushTransform
         translate 16.5 19.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 67
+    # blue Coin 67
     pushTransform
         translate 18.5 19.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 68
+    # blue Coin 68
     pushTransform
         translate 15.5 20.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 69
+    # blue Coin 69
     pushTransform
         translate 17.5 20.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
     ----------------
     
-    # Purple Coin 70
+    # blue Coin 70
     pushTransform
         translate 8.5 8.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 71
+    # blue Coin 71
     pushTransform
         translate 10.5 8.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 72
+    # blue Coin 72
     pushTransform
         translate 12.5 8.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 73
+    # blue Coin 73
     pushTransform
         translate 13.5 9.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
     --------------------
     
-    # Purple Coin 74
+    # blue Coin 74
     pushTransform
         translate 7.5 5.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 75
+    # blue Coin 75
     pushTransform
         translate 8.5 5.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 76
+    # blue Coin 76
     pushTransform
         translate 12.5 5.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 77
+    # blue Coin 77
     pushTransform
         translate 13.5 5.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 78
+    # blue Coin 78
     pushTransform
         translate 7.5 6.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 79
+    # blue Coin 79
     pushTransform
         translate 8.5 6.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 80
+    # blue Coin 80
     pushTransform
         translate 12.5 6.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 81
+    # blue Coin 81
     pushTransform
         translate 13.5 6.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
     -----------------
     
-    # Purple Coin 82
+    # blue Coin 82
     pushTransform
         translate 16.5 3.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 83
+    # blue Coin 83
     pushTransform
         translate 17.5 3.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 84
+    # blue Coin 84
     pushTransform
         translate 16.5 4.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 85
+    # blue Coin 85
     pushTransform
         translate 17.5 4.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 86
+    # blue Coin 86
     pushTransform
         translate 16.5 5.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 87
+    # blue Coin 87
     pushTransform
         translate 17.5 5.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 88
+    # blue Coin 88
     pushTransform
         translate 16.5 6.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 89
+    # blue Coin 89
     pushTransform
         translate 17.5 6.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 90
+    # blue Coin 90
     pushTransform
         translate 15.5 7.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 91
+    # blue Coin 91
     pushTransform
         translate 16.5 7.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 92
+    # blue Coin 92
     pushTransform
         translate 17.5 7.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
     -----------------------
@@ -8444,61 +11501,68 @@ pushTransform
     
     translate 0 0 0.2
     
-    # Purple Coin 93
+    # blue Coin 93
     pushTransform
         translate 7.5 7.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 94
+    # blue Coin 94
     pushTransform
         translate 7.5 8.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 95
+    # blue Coin 95
     pushTransform
         translate 10.0 5.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 96
+    # blue Coin 96
     pushTransform
         translate 10.5 5.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 97
+    # blue Coin 97
     pushTransform
         translate 11.0 5.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 98
+    # blue Coin 98
     pushTransform
         translate 10.0 6.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 99
+    # blue Coin 99
     pushTransform
         translate 10.5 6.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
-    # Purple Coin 100
+    # blue Coin 100
     pushTransform
         translate 11.0 6.5 0
         scale 0.12 0.08 0.12
-        purple_coin
+        translate 0 -0.25 0
+        blue_coin
     popTransform
     
 popTransform
-

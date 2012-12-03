@@ -330,7 +330,7 @@ void readfile(const char * filename) {
                     }
                 }
                 
-                else if (cmd == "disappear_cube" || cmd == "purple_coin") {
+                else if (cmd == "disappear_cube" || cmd == "blue_coin") {
                     if (num_dynamic_objects == maxobjects) // No more objects
                         cerr << "Reached Maximum Number of Objects " << num_dynamic_objects << " Will ignore further objects\n" ;
                     else {
@@ -361,12 +361,14 @@ void readfile(const char * filename) {
                                 obj->disappear = false;
                                 obj->fraction_left = 1.0;
                             }
-                            if (cmd == "purple_coin") {
-                                obj -> name = ((std::string)("purple_coin"));
+                            if (cmd == "blue_coin") {
+                                obj -> name = ((std::string)("blue_coin"));
                                 obj -> file_path = ((std::string)("images/shapes/coin.obj"));
                                 obj -> shape_sides = 4;
                                 obj -> position = glm::vec3 ( obj->transform * glm::vec4 (0.0, 0.0, 0.0, 1.0)); // Model of coin begins position (0, 0, 0).
                                 obj -> bounding_type = "square";
+                                obj->max_x = obj-> max_y = obj->max_z = 1.0;
+                                obj->min_x = obj-> min_y = obj->min_z = -1.0;
                             }
                             dynamic_objects.push_back(*obj);
                         }
@@ -395,7 +397,7 @@ void readfile(const char * filename) {
                         previous_char_position = glm::vec3(char_position.x, char_position.y, char_position.z);
                         obj-> max_x = obj-> max_y = obj->max_z = 0.05;
                         obj-> min_x = obj-> min_y = obj->min_z = -0.05;
-                        obj-> max_radius = 0.06;
+                        obj-> max_radius = 0.09;
                     }
                     ++num_static_objects ; 
                 }

@@ -32,19 +32,21 @@ bool * key_states = new bool[256];
 bool keyboard_locked;
 
 // Animation Variables
-struct timeval time_register_key, train_one_loop, train_two_loop, purple_coin_time, char_animation_time;
-int train_one_counter, train_two_counter, purple_coin_counter;
+struct timeval time_register_key, train_one_loop, train_two_loop, train_three_loop, train_four_loop, blue_coin_time, char_animation_time;
+int train_one_counter, train_two_counter, train_three_counter, train_four_counter, blue_coin_counter;
 
 // Warp Star Variables
 GLfloat first_warp_star_t_val;
 bool first_warp_star;
 
 // Menu Variables
-int num_purple_coins_collected;
+int num_blue_coins_collected;
 
 // Collision Variables
 bool on_train_one;
 bool on_train_two;
+bool on_train_three;
+bool on_train_four;
 
 void display(void) ;  // prototype for display function.
 void loadTex(const char * filename, GLubyte textureLocation[256][256][3]);
@@ -59,6 +61,10 @@ bool objectTopCollision(object * obj, bool & updateGravity);
 // Disappearing cubes
 GLfloat rate_disappear;
 void handleDisappearCube();
+
+// Coin Collision 
+GLfloat distBetweenTwoPoints(glm::vec3 p1, glm::vec3 p2);
+void handleCoinCollision();
 
 
 // Very basic code to read a ppm file
@@ -86,11 +92,11 @@ bool approx_equals(float val1, float val2, float approximate) {
     return abs(val1 - val2) <= approximate;
 }
 
-// First Warp Star: Initial Position: (0, 9, 0.2), Final Position: (30, 100, -20), Control Point: (60, 50, 50)
+// First Warp Star: Initial Position: (0, 16, 0.2), Final Position: (30, 100, -20), Control Point: (60, 50, 50)
 void handleFirstWarpStar() {
-    glm::vec3 point1 = glm::vec3(0.0, 9.0, 0.2);
-    glm::vec3 point2 = glm::vec3(60.0, 50.0, 50.0);
-    glm::vec3 point3 = glm::vec3(30.0, 100.0, -20.0);
+    glm::vec3 point1 = glm::vec3(0.0, 16.0, 0.2);
+    glm::vec3 point2 = glm::vec3(0.0, 100.0, 100.0);
+    glm::vec3 point3 = glm::vec3(0.0, 150.0, 10.0);
     //glm::vec3 point3 = glm::vec3(-50.0, 70.0, -60.0);
     glm::vec3 result = glm::vec3(0.0,0.0,0.0);
     evaluateQuadraticBezierCurve(result, point1, point2, point3, first_warp_star_t_val);
@@ -141,10 +147,18 @@ void handleAnimation ( ) {
         train_two_counter = 32;
         gettimeofday(&train_two_loop, NULL);
     }
+    if ((current_time.tv_sec - train_three_loop.tv_sec) * 1000000.0 + (current_time.tv_usec - train_three_loop.tv_usec) > 30000.0) {
+        train_three_counter = 32;
+        gettimeofday(&train_three_loop, NULL);
+    }
+    if ((current_time.tv_sec - train_four_loop.tv_sec) * 1000000.0 + (current_time.tv_usec - train_four_loop.tv_usec) > 30000.0) {
+        train_four_counter = 32;
+        gettimeofday(&train_four_loop, NULL);
+    }
     
-    if ((current_time.tv_sec - purple_coin_time.tv_sec) * 1000000.0 + (current_time.tv_usec - purple_coin_time.tv_usec) > 30000.0) {
-        purple_coin_counter = 100 - num_purple_coins_collected;
-        gettimeofday(&purple_coin_time, NULL);
+    if ((current_time.tv_sec - blue_coin_time.tv_sec) * 1000000.0 + (current_time.tv_usec - blue_coin_time.tv_usec) > 30000.0) {
+        blue_coin_counter = 100 - num_blue_coins_collected;
+        gettimeofday(&blue_coin_time, NULL);
     }
     
     // TRAIN ANIMATION
@@ -152,6 +166,13 @@ void handleAnimation ( ) {
         char_position = glm::vec3(Transform::translate(0.0, 4.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -4.5, 0.0) * glm::vec4(char_position.x, char_position.y, char_position.z, 1.0));
         center = glm::vec3(Transform::translate(0.0, 4.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -4.5, 0.0) * glm::vec4(center.x, center.y, center.z, 1.0));
         character->transform = Transform::translate(char_position.x, char_position.y, char_position.z) * glm::mat4(Transform::rotate(0.4, glm::vec3(0.0,0.0,1.0)))* Transform::translate(-char_position.x, -char_position.y, -char_position.z) * Transform::translate(0.0, 4.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -4.5, 0.0) * character->transform;
+        eye = center + eyeinit;
+        previous_char_position = char_position;
+    }
+    if ((train_three_counter != 0 && on_train_three) || (train_four_counter != 0 && on_train_four)) {
+        char_position = glm::vec3(Transform::translate(0.0, 11.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -11.5, 0.0) * glm::vec4(char_position.x, char_position.y, char_position.z, 1.0));
+        center = glm::vec3(Transform::translate(0.0, 11.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -11.5, 0.0) * glm::vec4(center.x, center.y, center.z, 1.0));
+        character->transform = Transform::translate(char_position.x, char_position.y, char_position.z) * glm::mat4(Transform::rotate(0.4, glm::vec3(0.0,0.0,1.0)))* Transform::translate(-char_position.x, -char_position.y, -char_position.z) * Transform::translate(0.0, 11.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -11.5, 0.0) * character->transform;
         eye = center + eyeinit;
         previous_char_position = char_position;
     }
@@ -191,24 +212,83 @@ void handleAnimation ( ) {
                 train_two_counter--;
             }
         }
+        if (obj -> animation_state == "train_three_loop") {
+            if (train_three_counter != 0) {
+                obj->transform = Transform::translate(0.0, 11.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -11.5, 0.0) * obj->transform;
+                gettimeofday(&(obj->timeUpdate), NULL);
+                train_three_counter--;
+            }
+        } else if (obj -> animation_state == "wheel_three_loop") {
+            if (train_three_counter != 0) {
+                obj->transform = Transform::translate(obj->position.x, obj->position.y, obj->position.z) * glm::mat4(Transform::rotate(5.0, glm::normalize(glm::cross(glm::vec3(0.0,0.0,1.0), obj->direction)))) * Transform::translate(-obj->position.x, -obj->position.y, -obj->position.z) * obj->transform;
+                obj->transform = Transform::translate(0.0, 11.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -11.5, 0.0) * obj->transform;
+                
+                obj->direction = glm::vec3(glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * glm::vec4(obj->direction.x, obj->direction.y, obj->direction.z, 0.0));
+                obj->position = glm::vec3(obj->transform * glm::vec4(0.0, 0.0, 0.0, 1.0));
+                gettimeofday(&(obj->timeUpdate), NULL);
+                train_three_counter--;
+            }
+        }
+        if (obj -> animation_state == "train_four_loop") {
+            if (train_four_counter != 0) {
+                obj->transform = Transform::translate(0.0, 11.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -11.5, 0.0) * obj->transform; 
+                gettimeofday(&(obj->timeUpdate), NULL);
+                train_four_counter--;
+            }
+        } else if (obj -> animation_state == "wheel_four_loop") {
+            if (train_four_counter != 0) {
+                obj->transform = Transform::translate(obj->position.x, obj->position.y, obj->position.z) * glm::mat4(Transform::rotate(5.0, glm::normalize(glm::cross(glm::vec3(0.0,0.0,1.0), obj->direction)))) * Transform::translate(-obj->position.x, -obj->position.y, -obj->position.z) * obj->transform;
+                obj->transform = Transform::translate(0.0, 11.5, 0.0) * glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(0.0, -11.5, 0.0) * obj->transform;
+                obj->direction = glm::vec3(glm::mat4(Transform::rotate(-0.4, glm::vec3(0.0, 0.0, 1.0))) * glm::vec4(obj->direction.x, obj->direction.y, obj->direction.z, 0.0));
+                obj->position = glm::vec3(obj->transform * glm::vec4(0.0, 0.0, 0.0, 1.0));
+                gettimeofday(&(obj->timeUpdate), NULL);
+                train_four_counter--;
+            }
+        }
     }
     
     // DISAPPEARING CUBE ANIMATION
     handleDisappearCube();
     
-    // PURPLE COIN ANIMATION
+    // blue COIN ANIMATION
     for (std::vector<object>::iterator it = dynamic_objects.begin(); it != dynamic_objects.end(); ++it) {
         object * obj = &(*it);
-        if (obj -> name == "purple_coin") {
-            //cout << purple_coin_counter << endl;
-            if (purple_coin_counter != 0) {
-                obj->transform = Transform::translate(obj->position.x, obj->position.y, obj->position.z) * glm::mat4(Transform::rotate(8.0, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(-obj->position.x, -obj->position.y, -obj->position.z) * obj->transform;
+        if (obj -> name == "blue_coin") {
+            if (blue_coin_counter != 0) {
+                obj->transform = Transform::translate(obj->position.x, obj->position.y, obj->position.z) * glm::mat4(Transform::rotate(10.0, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(-obj->position.x, -obj->position.y, -obj->position.z) * obj->transform;
                 obj->position = glm::vec3(obj->transform * glm::vec4(0.0, 0.0, 0.0, 1.0));
                 gettimeofday(&(obj->timeUpdate), NULL);
-                purple_coin_counter--;
+                blue_coin_counter--;
             }
         }
     }
+    
+    // COLLISION TEST - blue COINS
+    handleCoinCollision();
+    
+    
+}
+
+GLfloat distBetweenTwoPoints(glm::vec3 p1, glm::vec3 p2) {
+    return sqrt((p2.x - p1.x)*(p2.x - p1.x) + (p2.y - p1.y)*(p2.y - p1.y) + (p2.z - p1.z)*(p2.z - p1.z));
+}
+
+void handleCoinCollision() {
+    int index = 0;
+    for (std::vector<object>::iterator it = dynamic_objects.begin(); it != dynamic_objects.end(); ++it) {
+        object * obj = &(*it);
+        if (obj -> name == "blue_coin") {
+            if (distBetweenTwoPoints(char_position + glm::vec3(0.0, 0.0, (character->max_z - character->min_z)/2.0), obj->position) <= (coin_radius + character->max_radius)) {
+                coin_indices.push_back(index);
+                num_blue_coins_collected++;
+            }
+        }
+        index++;
+    }
+    for (std::vector<int>::iterator index_it = coin_indices.end()-1; index_it != coin_indices.begin()-1; --index_it) {
+        dynamic_objects.erase(dynamic_objects.begin() + (int)(*index_it));
+    }
+    coin_indices = std::vector<int>();
 }
 
 bool objectTopCollision(object * obj, bool & updateGravity) {
@@ -223,6 +303,10 @@ bool objectTopCollision(object * obj, bool & updateGravity) {
                         on_train_one = true;
                     } else if (obj->animation_state == "train_two_loop") {
                         on_train_two = true;
+                    } else if (obj->animation_state == "train_three_loop") {
+                        on_train_three = true;
+                    } else if (obj->animation_state == "train_four_loop") {
+                        on_train_four = true;
                     }
                     updateGravity = false;
                     is_jumping = false;
@@ -243,6 +327,10 @@ bool objectTopCollision(object * obj, bool & updateGravity) {
                         on_train_one = true;
                     } else if (obj->animation_state == "train_two_loop") {
                         on_train_two = true;
+                    } else if (obj->animation_state == "train_three_loop") {
+                        on_train_three = true;
+                    } else if (obj->animation_state == "train_four_loop") {
+                        on_train_four = true;
                     }
                     updateGravity = false;
                     is_jumping = false;
@@ -263,6 +351,10 @@ bool objectTopCollision(object * obj, bool & updateGravity) {
                         on_train_one = true;
                     } else if (obj->animation_state == "train_two_loop") {
                         on_train_two = true;
+                    } else if (obj->animation_state == "train_three_loop") {
+                        on_train_three = true;
+                    } else if (obj->animation_state == "train_four_loop") {
+                        on_train_four = true;
                     }
                     updateGravity = false;
                     is_jumping = false;
@@ -283,6 +375,10 @@ bool objectTopCollision(object * obj, bool & updateGravity) {
                         on_train_one = true;
                     } else if (obj->animation_state == "train_two_loop") {
                         on_train_two = true;
+                    } else if (obj->animation_state == "train_three_loop") {
+                        on_train_three = true;
+                    } else if (obj->animation_state == "train_four_loop") {
+                        on_train_four = true;
                     }
                     updateGravity = false;
                     is_jumping = false;
@@ -303,6 +399,10 @@ bool objectTopCollision(object * obj, bool & updateGravity) {
                         on_train_one = true;
                     } else if (obj->animation_state == "train_two_loop") {
                         on_train_two = true;
+                    } else if (obj->animation_state == "train_three_loop") {
+                        on_train_three = true;
+                    } else if (obj->animation_state == "train_four_loop") {
+                        on_train_four = true;
                     }
                     updateGravity = false;
                     is_jumping = false;
@@ -323,6 +423,10 @@ bool objectTopCollision(object * obj, bool & updateGravity) {
                         on_train_one = true;
                     } else if (obj->animation_state == "train_two_loop") {
                         on_train_two = true;
+                    } else if (obj->animation_state == "train_three_loop") {
+                        on_train_three = true;
+                    } else if (obj->animation_state == "train_four_loop") {
+                        on_train_four = true;
                     }
                     updateGravity = false;
                     is_jumping = false;
@@ -356,8 +460,8 @@ void handleDisappearCube() {
     }
     for (std::vector<int>::iterator index_it = disappear_cube_indices.end()-1; index_it != disappear_cube_indices.begin()-1; --index_it) {
         dynamic_objects.erase(dynamic_objects.begin() + (int)(*index_it));
-        disappear_cube_indices = std::vector<int>();
     }
+    disappear_cube_indices = std::vector<int>();
 }
 
 void handleCharacterGravity () {
@@ -389,6 +493,8 @@ void handleCharacterGravity () {
             is_jumping = true;
             on_train_one = false;
             on_train_two = false;
+            on_train_three = false;
+            on_train_four = false;
             if (char_velocity.z > -0.5) {
                 char_velocity.z -= 0.008;
             }
@@ -438,7 +544,7 @@ void keyUp (unsigned char key, int x, int y) {
 void idleFunc() {
     struct timeval current_time;
     gettimeofday(&current_time, NULL);
-    //cout << char_position.x << " , " << char_position.y << " , " << char_position.z << endl;
+    cout << char_position.x << " , " << char_position.y << " , " << char_position.z << endl;
     if ((current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000.0 && !keyboard_locked) {
         if (key_states['w']) { // forward movement
             glm::vec3 direction = glm::normalize(glm::vec3(center.x - eye.x, center.y - eye.y, 0));
@@ -468,34 +574,22 @@ void idleFunc() {
             character -> transform = Transform::translate(direction.x/25.0, direction.y/25.0, 0) * character->transform;
             char_position = glm::vec3(Transform::translate(direction.x/25.0, direction.y/25.0, 0) * glm::vec4(char_position.x, char_position.y, char_position.z, 1));
         }
-        if (key_states['l']) { // up movement
-            glm::vec3 direction = glm::normalize(glm::vec3(0, 0, -1));
-            eye = glm::vec3(Transform::translate(0, 0, direction.z/25.0) * glm::vec4(eye.x, eye.y, eye.z, 1));
-            center = glm::vec3(Transform::translate(0, 0, direction.z/25.0) * glm::vec4(center.x, center.y, center.z, 1));
-            character -> transform = Transform::translate(0, 0, direction.z/25.0) * character->transform;
-            char_position = glm::vec3(Transform::translate(0, 0, direction.z/25.0) * glm::vec4(char_position.x, char_position.y, char_position.z, 1));
-        }
-        if (key_states['o']) { // down movement
-            glm::vec3 direction = glm::normalize(glm::vec3(0, 0, 1));
-            eye = glm::vec3(Transform::translate(0, 0, direction.z/25.0) * glm::vec4(eye.x, eye.y, eye.z, 1));
-            center = glm::vec3(Transform::translate(0, 0, direction.z/25.0) * glm::vec4(center.x, center.y, center.z, 1));
-            character -> transform = Transform::translate(0, 0, direction.z/25.0) * character->transform;
-            char_position = glm::vec3(Transform::translate(0, 0, direction.z/25.0) * glm::vec4(char_position.x, char_position.y, char_position.z, 1));
-        }
         if (key_states[' ']) { // space, jump
             if (!is_jumping) {
                 char_velocity.z = jump_velocity;
                 is_jumping = true;
                 on_train_one = false;
                 on_train_two = false;
+                on_train_three = false;
+                on_train_four = false;
                 updateCharacterGravity();
             }
         }
-        if (char_position.x >= -0.05 && char_position.x <= 0.05 && char_position.y >= 8.95 && char_position.y <= 9.05 && char_position.z >= -0.2 && char_position.z <= 0.2) {
-            character->transform = Transform::translate(-char_position.x, 9.0 - char_position.y, 0.2 - char_position.z) * character->transform;
-            char_position = glm::vec3(0.0, 9.0, 0.2);
-            eye = glm::vec3(Transform::translate(-char_position.x, 9.0 - char_position.y, 0.2 - char_position.z) * glm::vec4(eye.x, eye.y, eye.z, 1.0));
-            center = glm::vec3(0.0, 9.0, 0.2);
+        if (char_position.x >= -0.1 && char_position.x <= 0.1 && char_position.y >= 15.9 && char_position.y <= 16.1 && char_position.z >= -0.2 && char_position.z <= 0.2) {
+            character->transform = Transform::translate(-char_position.x, 16.0 - char_position.y, 0.2 - char_position.z) * character->transform;
+            char_position = glm::vec3(0.0, 16.0, 0.2);
+            eye = glm::vec3(Transform::translate(-char_position.x, 16.0 - char_position.y, 0.2 - char_position.z) * glm::vec4(eye.x, eye.y, eye.z, 1.0));
+            center = glm::vec3(0.0, 16.0, 0.2);
             keyboard_locked = true;
             first_warp_star = true;
         }
@@ -571,8 +665,12 @@ void init() {
     train_one_counter = 32; // train 1 has 32 objects
     gettimeofday(&train_two_loop,NULL);
     train_two_counter = 32; // train 2 has 32 objects
-    gettimeofday(&purple_coin_time,NULL);
-    purple_coin_counter = 100; // initially 100 purple coins
+    gettimeofday(&train_three_loop,NULL);
+    train_three_counter = 32; // train 3 has 32 objects
+    gettimeofday(&train_four_loop,NULL);
+    train_four_counter = 32; // train 4 has 32 objects
+    gettimeofday(&blue_coin_time,NULL);
+    blue_coin_counter = 100; // initially 100 blue coins
     gettimeofday(&char_animation_time,NULL);
     keyboard_locked = false;
     
@@ -589,15 +687,20 @@ void init() {
     num_dynamic_objects = 0;
     dynamic_objects = std::vector<object>();
     
-    num_purple_coins_collected = 0;
+    num_blue_coins_collected = 0;
     
     on_train_one = false;
     on_train_two = false;
+    on_train_three = false;
+    on_train_four = false;
     
     test_collision = false;
     
     rate_disappear = 0.005;
     disappear_cube_indices = std::vector<int>();
+    coin_indices = std::vector<int>();
+    
+    coin_radius = 0.12;
 }
 
 int main(int argc, char* argv[]) {
