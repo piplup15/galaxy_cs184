@@ -95,8 +95,8 @@ bool approx_equals(float val1, float val2, float approximate) {
 // First Warp Star: Initial Position: (0, 16, 0.2), Final Position: (30, 100, -20), Control Point: (60, 50, 50)
 void handleFirstWarpStar() {
     glm::vec3 point1 = glm::vec3(0.0, 16.0, 0.2);
-    glm::vec3 point2 = glm::vec3(0.0, 100.0, 100.0);
-    glm::vec3 point3 = glm::vec3(0.0, 150.0, 10.0);
+    glm::vec3 point2 = glm::vec3(0.0, 150.0, 100.0);
+    glm::vec3 point3 = glm::vec3(-5.0, 130.0, -300.0);
     //glm::vec3 point3 = glm::vec3(-50.0, 70.0, -60.0);
     glm::vec3 result = glm::vec3(0.0,0.0,0.0);
     evaluateQuadraticBezierCurve(result, point1, point2, point3, first_warp_star_t_val);
@@ -544,7 +544,7 @@ void keyUp (unsigned char key, int x, int y) {
 void idleFunc() {
     struct timeval current_time;
     gettimeofday(&current_time, NULL);
-    cout << char_position.x << " , " << char_position.y << " , " << char_position.z << endl;
+    //cout << char_position.x << " , " << char_position.y << " , " << char_position.z << endl;
     if ((current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000.0 && !keyboard_locked) {
         if (key_states['w']) { // forward movement
             glm::vec3 direction = glm::normalize(glm::vec3(center.x - eye.x, center.y - eye.y, 0));
