@@ -291,8 +291,8 @@ void readfile(const char * filename) {
                                 obj -> bounding_type = "square";
                                 obj->max_x = obj->max_z = 2.0;
                                 obj->min_x = obj->min_z = -2.0;
-                                obj->max_y = 1.5;
-                                obj->min_y = -1.5;
+                                obj->max_y = 1.25;
+                                obj->min_y = -1.25;
                             }
                             if (cmd == "train_wheel") {
                                 obj -> name = ((std::string)("train_wheel"));
@@ -377,7 +377,7 @@ void readfile(const char * filename) {
                 else if (cmd == "character") {
                     validinput = readvals(s, 0, values) ; 
                     if (validinput) {
-                        object * obj = &(static_objects[num_static_objects]) ; 
+                        object * obj = new object(); 
                         obj -> size = 1; 
                         for (i = 0 ; i < 4 ; i++) {
                             (obj -> ambient)[i] = ambient[i] ; 
@@ -387,7 +387,7 @@ void readfile(const char * filename) {
                         }
                         obj -> shininess = shininess ; 
                         obj -> transform = transfstack.top() ;
-                        obj -> type = cube;
+                        obj -> type = char_obj;
                         obj -> animation_state = anim_state;
                         obj -> test_collision = test_collision;
                         obj -> scale_size = scalestack.top();
@@ -399,7 +399,6 @@ void readfile(const char * filename) {
                         obj-> min_x = obj-> min_y = obj->min_z = -0.05;
                         obj-> max_radius = 0.09;
                     }
-                    ++num_static_objects ; 
                 }
                 
                 else if (cmd == "animation_state") {

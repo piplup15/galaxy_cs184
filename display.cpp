@@ -181,5 +181,130 @@ void display() {
         glDisableClientState(GL_VERTEX_ARRAY);
         glDisableClientState(GL_NORMAL_ARRAY);
     }
+    
+    
+    
+    
+    // CHARACTER
+    GLUquadricObj * quad_obj = gluNewQuadric();
+    
+    // Body
+    GLfloat body_ambient[4] = {0.3,0.3,0.8,1};
+    GLfloat body_diffuse[4] = {0.1,0.1,0.1,1};
+    GLfloat body_specular[4] = {0.15,0.15,0.2,1};
+    GLfloat body_shininess = 2;
+    
+    glUniform4fv(ambientcol, 1, body_ambient);
+    glUniform4fv(diffusecol, 1, body_diffuse);
+    glUniform4fv(specularcol, 1, body_specular);
+    glUniform1f(shininesscol, body_shininess);
+    
+    glLoadMatrixf(&(mv * character->transform)[0][0]);
+    glutSolidSphere(0.1, 40, 40);
+    
+    // Ears
+    GLfloat ear_ambient[4] = {0.3,0.3,0.8,1};
+    GLfloat ear_diffuse[4] = {0.1,0.1,0.1,1};
+    GLfloat ear_specular[4] = {0.15,0.15,0.2,1};
+    GLfloat ear_shininess = 4;
+    
+    glUniform4fv(ambientcol, 1, ear_ambient);
+    glUniform4fv(diffusecol, 1, ear_diffuse);
+    glUniform4fv(specularcol, 1, ear_specular);
+    glUniform1f(shininesscol, ear_shininess);
+    
+    glLoadMatrixf(&(mv * character->transform * Transform::translate(-0.07, -0.02, 0.07) * glm::mat4(Transform::rotate(90, glm::vec3(-1, 0, 0))))[0][0]);
+    gluCylinder(quad_obj, 0.05, 0.05, 0.04, 40, 40);
+    glLoadMatrixf(&(mv * character->transform * Transform::translate(-0.07, -0.02, 0.07) * glm::mat4(Transform::rotate(90, glm::vec3(-1, 0, 0))))[0][0]);
+    gluDisk(quad_obj, 0, 0.05, 40, 40);
+    glLoadMatrixf(&(mv * character->transform * Transform::translate(-0.07, 0.02, 0.07) * glm::mat4(Transform::rotate(90, glm::vec3(-1, 0, 0))))[0][0]);
+    gluDisk(quad_obj, 0, 0.05, 40, 40);
+
+    glLoadMatrixf(&(mv * character->transform * Transform::translate(0.07, -0.02, 0.07) * glm::mat4(Transform::rotate(90, glm::vec3(-1, 0, 0))))[0][0]);
+    gluCylinder(quad_obj, 0.05, 0.05, 0.04, 40, 40);
+    glLoadMatrixf(&(mv * character->transform * Transform::translate(0.07, -0.02, 0.07) * glm::mat4(Transform::rotate(90, glm::vec3(-1, 0, 0))))[0][0]);
+    gluDisk(quad_obj, 0, 0.05, 40, 40);
+    glLoadMatrixf(&(mv * character->transform * Transform::translate(0.07, 0.02, 0.07) * glm::mat4(Transform::rotate(90, glm::vec3(-1, 0, 0))))[0][0]);
+    gluDisk(quad_obj, 0, 0.05, 40, 40);
+    
+    // Feet
+    GLfloat foot_ambient[4] = {0.3,0.3,0.8,1};
+    GLfloat foot_diffuse[4] = {0.1,0.1,0.1,1};
+    GLfloat foot_specular[4] = {0.15,0.15,0.2,1};
+    GLfloat foot_shininess = 2;
+    
+    glUniform4fv(ambientcol, 1, foot_ambient);
+    glUniform4fv(diffusecol, 1, foot_diffuse);
+    glUniform4fv(specularcol, 1, foot_specular);
+    glUniform1f(shininesscol, foot_shininess);
+    
+    glLoadMatrixf(&(mv * character->transform * glm::mat4(Transform::rotate(char_feet_rotation, glm::vec3(-1, 0, 0))) * Transform::translate(0.05, 0.015, -0.095) * Transform::scale(0.3, 0.5, 0.3))[0][0]);
+    glutSolidSphere(0.1, 40, 40);
+    
+    glLoadMatrixf(&(mv * character->transform * glm::mat4(Transform::rotate(-char_feet_rotation, glm::vec3(-1, 0, 0))) * Transform::translate(-0.05, 0.015, -0.095) * Transform::scale(0.3, 0.5, 0.3))[0][0]);
+    glutSolidSphere(0.1, 40, 40);
+    
+    // Tail
+    GLfloat tail_ambient[4] = {0,0,0,1};
+    GLfloat tail_diffuse[4] = {0.1,0.1,0.1,1};
+    GLfloat tail_specular[4] = {0.05,0.05,0.05,1};
+    GLfloat tail_shininess = 2;
+    
+    glUniform4fv(ambientcol, 1, tail_ambient);
+    glUniform4fv(diffusecol, 1, tail_diffuse);
+    glUniform4fv(specularcol, 1, tail_specular);
+    glUniform1f(shininesscol, tail_shininess);
+    
+    glLoadMatrixf(&(mv * character->transform * Transform::translate(0, -0.0707, -0.0707) * glm::mat4(Transform::rotate(char_tail_rotation, glm::vec3(0, 0.8660254, 0.5))) * Transform::translate(0, 0.0707, 0.0707) * Transform::translate(0, -0.08, -0.08) * glm::mat4(Transform::rotate(60, glm::vec3(-1, 0, 0))) * Transform::translate(0, 0, -0.03))[0][0]);
+    gluCylinder(quad_obj, 0.01, 0.01, 0.06, 40, 40);
+    
+    glLoadMatrixf(&(mv * character->transform * Transform::translate(0, -0.0707, -0.0707) * glm::mat4(Transform::rotate(char_tail_rotation, glm::vec3(0, 0.8660254, 0.5))) * Transform::translate(0, 0.0707, 0.0707) * Transform::translate(0, -0.106, -0.095))[0][0]);
+    glutSolidSphere(0.01, 40, 40);
+    
+    glLoadMatrixf(&(mv * character->transform * Transform::translate(0, -0.0707, -0.0707) * glm::mat4(Transform::rotate(char_tail_rotation, glm::vec3(0, 0.8660254, 0.5))) * Transform::translate(0, 0.0707, 0.0707) * Transform::translate(0, -0.12, -0.07) * glm::mat4(Transform::rotate(150, glm::vec3(-1, 0, 0))) * Transform::translate(0, 0, -0.03))[0][0]);
+    gluCylinder(quad_obj, 0.01, 0.01, 0.06, 40, 40);
+    
+    glLoadMatrixf(&(mv * character->transform * Transform::translate(0, -0.0707, -0.0707) * glm::mat4(Transform::rotate(char_tail_rotation, glm::vec3(0, 0.8660254, 0.5))) * Transform::translate(0, 0.0707, 0.0707) * Transform::translate(0, -0.134, -0.045))[0][0]);
+    glutSolidSphere(0.01, 40, 40);
+    
+    glLoadMatrixf(&(mv * character->transform * Transform::translate(0, -0.0707, -0.0707) * glm::mat4(Transform::rotate(char_tail_rotation, glm::vec3(0, 0.8660254, 0.5))) * Transform::translate(0, 0.0707, 0.0707) * Transform::translate(0, -0.1484, -0.04888) * glm::mat4(Transform::rotate(75, glm::vec3(-1, 0, 0))) * Transform::translate(0, 0, -0.015))[0][0]);
+    gluCylinder(quad_obj, 0.01, 0.01, 0.03, 40, 40);
+    
+    glLoadMatrixf(&(mv * character->transform * Transform::translate(0, -0.0707, -0.0707) * glm::mat4(Transform::rotate(char_tail_rotation, glm::vec3(0, 0.8660254, 0.5))) * Transform::translate(0, 0.0707, 0.0707) * Transform::translate(0, -0.1628, -0.05276))[0][0]);
+    glutSolidSphere(0.01, 40, 40);
+    
+    glLoadMatrixf(&(mv * character->transform * Transform::translate(0, -0.0707, -0.0707) * glm::mat4(Transform::rotate(char_tail_rotation, glm::vec3(0, 0.8660254, 0.5))) * Transform::translate(0, 0.0707, 0.0707) * Transform::translate(0, -0.17056, -0.01991) * glm::mat4(Transform::rotate(165, glm::vec3(-1, 0, 0))) * Transform::translate(0, 0, -0.03))[0][0]);
+    gluCylinder(quad_obj, 0.01, 0.01, 0.06, 40, 40);
+    
+    GLfloat tail_ball_ambient[4] = {0.3,0.3,0.8,1};
+    GLfloat tail_ball_diffuse[4] = {0.1,0.1,0.1,1};
+    GLfloat tail_ball_specular[4] = {0.3,0.3,0.3,1};
+    GLfloat tail_ball_shininess = 2;
+    
+    glUniform4fv(ambientcol, 1, tail_ball_ambient);
+    glUniform4fv(diffusecol, 1, tail_ball_diffuse);
+    glUniform4fv(specularcol, 1, tail_ball_specular);
+    glUniform1f(shininesscol, tail_ball_shininess);
+    
+    glLoadMatrixf(&(mv * character->transform * Transform::translate(0, -0.0707, -0.0707) * glm::mat4(Transform::rotate(char_tail_rotation, glm::vec3(0, 0.8660254, 0.5))) * Transform::translate(0, 0.0707, 0.0707) * Transform::translate(0, -0.182212, 0.023545))[0][0]);
+    glutSolidSphere(0.05, 40, 40);
+    
+    // Eye
+    GLfloat eye_ambient[4] = {0,0,0,1};
+    GLfloat eye_diffuse[4] = {0.1,0.1,0.1,1};
+    GLfloat eye_specular[4] = {0.05,0.05,0.05,1};
+    GLfloat eye_shininess = 2;
+    
+    glUniform4fv(ambientcol, 1, eye_ambient);
+    glUniform4fv(diffusecol, 1, eye_diffuse);
+    glUniform4fv(specularcol, 1, eye_specular);
+    glUniform1f(shininesscol, eye_shininess);
+    
+    glLoadMatrixf(&(mv * character->transform * glm::mat4(Transform::rotate(110, glm::vec3(1,0,0))) * Transform::translate(0.03, 0, -0.083) * Transform::scale(0.15, 0.25, 0.15))[0][0]);
+    glutSolidSphere(0.1, 40, 40);
+    
+    glLoadMatrixf(&(mv * character->transform * glm::mat4(Transform::rotate(110, glm::vec3(1,0,0))) * Transform::translate(-0.03, 0, -0.083) * Transform::scale(0.15, 0.25, 0.15))[0][0]);
+    glutSolidSphere(0.1, 40, 40);
+    
     glutSwapBuffers();
 }

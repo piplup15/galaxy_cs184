@@ -31,7 +31,7 @@ EXTERN float mousey ;
  
 EXTERN GLuint vertexshader, fragmentshader, shaderprogram ; // shaders
 static enum {view, translate, scale} transop ; // which operation to transform 
-enum shape {cube, sphere, teapot, disk, cylinder, modelobj} ;
+enum shape {cube, sphere, teapot, disk, cylinder, modelobj, char_obj} ;
 EXTERN float sx, sy ; // the scale in x and y 
 EXTERN float tx, ty ; // the translation in x and y
 
@@ -102,6 +102,12 @@ EXTERN glm::vec3 char_velocity;
 EXTERN GLfloat max_run_velocity;
 EXTERN GLfloat jump_velocity;
 EXTERN bool is_jumping;
+
+EXTERN int char_tail_rotation;
+EXTERN int char_tail_rotation_amount;
+EXTERN int char_feet_rotation;
+EXTERN int char_feet_rotation_amount;
+EXTERN glm::vec3 char_direction;
 
 EXTERN std::string anim_state;
 

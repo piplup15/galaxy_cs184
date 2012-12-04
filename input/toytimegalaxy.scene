@@ -1,11 +1,9 @@
 size 960 640
-camera 0 -4.5 2.5 0 0 0 0 0 1 45.0
+camera 0 -3 2 0 0 0 0 0 1 45.0
 
 backgroundColor 0.3 0.3 0.3 1
 
 light 0 0 1 0 1 1 1 1
-light 0 4.5 1 1 1 1 1 1
-
 
 animation_state none
 
@@ -15,12 +13,7 @@ animation_state none
 # ---- CHARACTER (TEMP) ----
 test_collision false
 pushTransform
-    ambient 0.1 0.1 0.1 1
-    diffuse 0.1 0.1 0.1 1
-    specular 0.1 0.1 0.1 1
-    shininess 4
-    translate 0 0 0.125
-    scale 0.2 0.2 0.2
+    translate 0 0 0.15
     character 1
 popTransform
     
@@ -29,9 +22,9 @@ popTransform
 # ---- ENTRY PLATFORM -----
 test_collision true
 pushTransform
-    ambient 0.2 0.5 0.8 1
+    ambient 0.5 0.5 0.5 1
     diffuse 0.1 0.1 0.1 1
-    specular 0.1 0.1 0.1 1
+    specular 0.5 0.5 0.5 1
     shininess 4
     scale 2 2 0.05
     cube 1
@@ -143,9 +136,9 @@ popTransform
 # ----- SECOND PLATFORM / WARP STAR 1 -------
 test_collision true
 pushTransform
-    ambient 0.5 0.3 0.3 1
+    ambient 0.6 0.6 0.2 1
     diffuse 0.2 0.1 0.1 1
-    specular 0.1 0.1 0.1 1
+    specular 0.5 0.5 0.5 1
     shininess 4
     translate 0 15.75 -0.15
     scale 1.5 1.5 0.05
@@ -299,7 +292,7 @@ pushTransform
     specular 0 0 0 1
     shininess 4
     pushTransform
-        translate 0.8 1.425 -0.13
+        translate 0.8 1.425 -0.12
         scale 0.34 0.34 0.14
         rotate 0 0 1 180
         rotate 1 0 0 90
@@ -326,7 +319,7 @@ pushTransform
     specular 0.1 0.1 0.1 1
     shininess 4
     pushTransform
-        translate 0.8 1.425 -0.28
+        translate 0.8 1.425 -0.27
         scale 0.34 0.34 0.14
         rotate 0 0 1 33
         rotate 1 0 0 90
@@ -594,7 +587,7 @@ pushTransform
     specular 0 0 0 1
     shininess 4
     pushTransform
-        translate -0.8 7.575 -0.13
+        translate -0.8 7.575 -0.12
         scale 0.34 0.34 0.14
         rotate 1 0 0 90
         train_connect
@@ -620,7 +613,7 @@ pushTransform
     specular 0.1 0.1 0.1 1
     shininess 4
     pushTransform
-        translate -0.8 7.575 -0.28
+        translate -0.8 7.575 -0.27
         scale 0.34 0.34 0.14
         rotate 0 0 1 213
         rotate 1 0 0 90
@@ -888,7 +881,7 @@ pushTransform
     specular 0 0 0 1
     shininess 4
     pushTransform
-        translate 0.8 1.425 -0.13
+        translate 0.8 1.425 -0.12
         scale 0.34 0.34 0.14
         rotate 0 0 1 180
         rotate 1 0 0 90
@@ -915,7 +908,7 @@ pushTransform
     specular 0.1 0.1 0.1 1
     shininess 4
     pushTransform
-        translate 0.8 1.425 -0.28
+        translate 0.8 1.425 -0.27
         scale 0.34 0.34 0.14
         rotate 0 0 1 33
         rotate 1 0 0 90
@@ -1183,7 +1176,7 @@ pushTransform
     specular 0 0 0 1
     shininess 4
     pushTransform
-        translate -0.8 7.575 -0.13
+        translate -0.8 7.575 -0.12
         scale 0.34 0.34 0.14
         rotate 1 0 0 90
         train_connect
@@ -1209,7 +1202,7 @@ pushTransform
     specular 0.1 0.1 0.1 1
     shininess 4
     pushTransform
-        translate -0.8 7.575 -0.28
+        translate -0.8 7.575 -0.27
         scale 0.34 0.34 0.14
         rotate 0 0 1 213
         rotate 1 0 0 90
@@ -1346,12 +1339,16 @@ translate 0 -7 0
 
 
 # STAGE 1  ----------------------------------------------------- PART 2
-# PIKACHU
+# PATH OF POKEBALLS
+test_collision false
+animation_state none
 
+
+# PIKACHU
 test_collision true
 animation_state none
 pushTransform
-    translate 0 150 -300.1
+    translate 5 150 -300.1
     
     # --------------------------- ROW 1
     ambient 0.8 0.7 0.11 1
