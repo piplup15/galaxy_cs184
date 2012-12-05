@@ -107,7 +107,8 @@ EXTERN int char_tail_rotation;
 EXTERN int char_tail_rotation_amount;
 EXTERN int char_feet_rotation;
 EXTERN int char_feet_rotation_amount;
-EXTERN glm::vec3 char_direction;
+EXTERN glm::vec3 char_direction_relative;
+EXTERN glm::vec3 char_direction_absolute;
 
 EXTERN std::string anim_state;
 
@@ -132,5 +133,7 @@ EXTERN std::vector<int> disappear_cube_indices;
 EXTERN std::vector<int> coin_indices;
 
 EXTERN GLfloat coin_radius;
+
+EXTERN bool hide_tail;
 
 

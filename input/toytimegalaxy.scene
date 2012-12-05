@@ -46,7 +46,7 @@ popTransform
 # ----- TRAIN TRACKS 1 -----
 test_collision false
 pushTransform
-    ambient 0.35 0.35 0.2 1
+    ambient 0.5 0.5 0.2 1
     diffuse 0.5 0.3 0.1 1
     specular 0 0 0 1
     shininess 4
@@ -90,7 +90,7 @@ popTransform
 # -------TRAIN TRACKS 2 -------
 
 pushTransform
-    ambient 0.35 0.35 0.2 1
+    ambient 0.5 0.5 0.2 1
     diffuse 0.5 0.3 0.1 1
     specular 0 0 0 1
     shininess 4
@@ -133,15 +133,27 @@ popTransform
 
 
 
-# ----- SECOND PLATFORM / WARP STAR 1 -------
+# ----- SECOND PLATFORM  -------
 test_collision true
+
+# Button
+pushTransform
+    ambient 0.1 0.1 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.7 0.7 0.7 1
+    shininess 4
+    translate 0 15.6 -0.14
+    scale 0.3 0.3 0.05
+    cannon_cube
+popTransform
+
 pushTransform
     ambient 0.6 0.6 0.2 1
     diffuse 0.2 0.1 0.1 1
     specular 0.5 0.5 0.5 1
     shininess 4
-    translate 0 15.75 -0.15
-    scale 1.5 1.5 0.05
+    translate 0 16.5 -0.15
+    scale 3 3 0.05
     cube 1
 popTransform
 
@@ -151,11 +163,62 @@ pushTransform
     diffuse 0.1 0.2 0.1 1
     specular 0.1 0.1 0.1 1
     shininess 4
-    translate 0 15.75 -0.375
-    scale 1.25 1.25 0.4
+    translate 0 16.5 -0.375
+    scale 2.5 2.5 0.4
     cube 1
 popTransform
 
+# ------ CANNON 1 ----------
+test_collision true
+
+ambient 0.1 0.1 0.1 1
+diffuse 0.1 0.1 0.1 1
+specular 0.4 0.4 0.4 1
+shininess 4
+
+pushTransform
+    translate 0 17 -0.11
+    scale 0.5 0.5 0.05
+    cube 1
+popTransform
+
+pushTransform
+    translate 0 17 -0.085
+    cylinder 0.08 0.08 0.12 80 80
+popTransform
+
+pushTransform
+    translate 0 17 0.2
+    sphere 0.27
+popTransform
+
+animation_state cannon_one
+pushTransform
+    translate 0 17 0.2
+    rotate -1 0 0 75
+    cylinder 0.27 0.27 1.2 40 40
+popTransform
+
+pushTransform
+    translate 0 17 0.2
+    rotate -1 0 0 75
+    translate 0 0 1.2
+    disk 0.22 0.27 40 40
+popTransform
+
+pushTransform
+    translate 0 17 0.2
+    rotate -1 0 0 75
+    translate 0 0 0.45
+    cylinder 0.22 0.22 0.75 40 40
+popTransform
+
+pushTransform
+    translate 0 17 0.2
+    rotate -1 0 0 75
+    translate 0 0 0.8
+    disk 0.22 0.27 40 40
+popTransform
 
 
 # ----- TRAIN 1 (LOOP) ------
@@ -1348,7 +1411,60 @@ animation_state none
 test_collision true
 animation_state none
 pushTransform
-    translate 5 150 -300.1
+    translate 0 130 -300.1
+    
+    # CANNON 2
+    ambient 0.1 0.1 0.1 1
+    diffuse 0.1 0.1 0.1 1
+    specular 0.4 0.4 0.4 1
+    shininess 4
+    pushTransform
+        translate -4.5 -11.5 0.0
+        pushTransform
+            cylinder 0.08 0.08 0.12 80 80
+        popTransform
+
+        translate 0 0 0.35
+        pushTransform
+            sphere 0.27
+        popTransform
+
+        animation_state cannon_two
+        pushTransform
+            rotate 0 -1 0 75
+            cylinder 0.27 0.27 1.2 40 40
+        popTransform
+
+        pushTransform
+            rotate 0 -1 0 75
+            translate 0 0 1.2
+            disk 0.22 0.27 40 40
+        popTransform
+
+        pushTransform
+            rotate 0 -1 0 75
+            translate 0 0 0.45
+            cylinder 0.22 0.22 0.75 40 40
+        popTransform
+
+        pushTransform
+            rotate 0 -1 0 75
+            translate 0 0 0.8
+            disk 0.22 0.27 40 40
+        popTransform
+    popTransform
+    
+    # Button
+    pushTransform
+        ambient 0.1 0.1 0.1 1
+        diffuse 0.1 0.1 0.1 1
+        specular 0.7 0.7 0.7 1
+        shininess 4
+        translate -3 -11.5 0.0
+        scale 0.3 0.3 0.05
+        cannon_cube
+    popTransform
+        
     
     # --------------------------- ROW 1
     ambient 0.8 0.7 0.11 1

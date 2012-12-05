@@ -36,9 +36,29 @@ struct timeval time_register_key, train_one_loop, train_two_loop, train_three_lo
 int train_one_counter, train_two_counter, train_three_counter, train_four_counter, blue_coin_counter;
 void calculateCharDirection();
 
-// Warp Star Variables
-GLfloat first_warp_star_t_val;
-bool first_warp_star;
+// Cannon Variables
+GLfloat first_cannon_t_val;
+bool first_cannon;
+GLfloat first_cannon_angle;
+int first_cannon_countdown;
+GLfloat first_cannon_landing_rotation;
+/**
+ Stage 1: Marill walks to center of platform.
+ Stage 2: Adjust eye to correct position.
+ Stage 3: Lower Cannon
+ Stage 4: Marill hops into cannon
+ Stage 5: Raise Cannon
+ Stage 6: Adjust eye
+ Stage 7: Fire
+ **/
+int first_cannon_stage;
+
+GLfloat second_cannon_t_val;
+bool second_cannon;
+GLfloat second_cannon_angle;
+int second_cannon_countdown;
+GLfloat second_cannon_landing_rotation;
+int second_cannon_stage;
 
 // Menu Variables
 int num_blue_coins_collected;
@@ -52,7 +72,7 @@ bool on_train_four;
 void display(void) ;  // prototype for display function.
 void loadTex(const char * filename, GLubyte textureLocation[256][256][3]);
 void evaluateQuadraticBezierCurve(glm::vec3 & result, glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, GLfloat t);
-void handleFirstWarpStar();
+void handleFirstCannon();
 
 // Simple Physics Engine - Handle Jumps & Collisions with Floor
 void handleCharacterGravity();
@@ -93,31 +113,207 @@ bool approx_equals(float val1, float val2, float approximate) {
     return abs(val1 - val2) <= approximate;
 }
 
-// First Warp Star: Initial Position: (0, 16, 0.2), Final Position: (0, 130, -300), Control Point: (0, 150, 100)
-void handleFirstWarpStar() {
-    glm::vec3 point1 = glm::vec3(0.0, 16.0, 0.2);
-    glm::vec3 point2 = glm::vec3(0.0, 150.0, 100.0);
-    glm::vec3 point3 = glm::vec3(0.0, 130.0, -300.0);
-    //glm::vec3 point3 = glm::vec3(-50.0, 70.0, -60.0);
-    glm::vec3 result = glm::vec3(0.0,0.0,0.0);
-    evaluateQuadraticBezierCurve(result, point1, point2, point3, first_warp_star_t_val);
-    character->transform = Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * character->transform;
-    eye = glm::vec3(Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * glm::vec4(eye.x, eye.y, eye.z, 1.0));
-    center = glm::vec3(Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * glm::vec4(center.x, center.y, center.z, 1.0));
-    char_position = glm::vec3(Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * glm::vec4(char_position.x, char_position.y, char_position.z, 1.0));
-    //cout << first_warp_star_t_val << endl;
-    if (approx_equals(first_warp_star_t_val, 1.000, 0.001)) {
-        character->transform = Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * character->transform;
-        eye = glm::vec3(Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * glm::vec4(eye.x, eye.y, eye.z, 1.0));
-        center = glm::vec3(Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * glm::vec4(center.x, center.y, center.z, 1.0));
-        glm::vec3(Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * glm::vec4(char_position.x, char_position.y, char_position.z, 1.0));
-        keyboard_locked = false;
-        first_warp_star = false;
-        previous_char_position = glm::vec3(char_position.x, char_position.y, char_position.z);
-        char_velocity.z = 0;
-        return;
+// First Cannon: Initial Position: (0, 17, 0.2), Final Position: (0, 130, -300), Control Point: (0, 150, 100)
+void handleFirstCannon() {
+    if (first_cannon_stage == 1) {
+        GLfloat start_degrees;
+        if (char_direction_relative.x == -1.0 && char_direction_relative.y == -1.0) {
+            start_degrees = 225;
+        }
+        if (char_direction_relative.x == -1.0 && char_direction_relative.y == 0.0) {
+            start_degrees = 180;
+        }
+        if (char_direction_relative.x == -1.0 && char_direction_relative.y == 1.0) {
+            start_degrees = 135;
+        }
+        if (char_direction_relative.x == 0.0 && char_direction_relative.y == -1.0) {
+            start_degrees = 270;
+        }
+        if (char_direction_relative.x == 0.0 && char_direction_relative.y == 1.0) {
+            start_degrees = 90;
+        }
+        if (char_direction_relative.x == 1.0 && char_direction_relative.y == -1.0) {
+            start_degrees = 315;
+        }
+        if (char_direction_relative.x == 1.0 && char_direction_relative.y == 0.0) {
+            start_degrees = 0;
+        }
+        if (char_direction_relative.x == 1.0 && char_direction_relative.y == 1.0) {
+            start_degrees = 45;
+        }
+        character->transform = Transform::translate(char_position.x, char_position.y, char_position.z) * glm::mat4(Transform::rotate(90-start_degrees, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(-char_position.x, -char_position.y, -char_position.z) * character->transform;
+        GLfloat rot_amount = acos (glm::dot(glm::normalize(glm::vec3(char_direction_absolute.x, char_direction_absolute.y, char_direction_absolute.z)), glm::vec3(0.0, 1.0, 0.0))) * 180.0 / 3.14159265;
+        if (char_direction_absolute.x < 0) {
+            character->transform = Transform::translate(char_position.x, char_position.y, char_position.z) * glm::mat4(Transform::rotate(-rot_amount, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(-char_position.x, -char_position.y, -char_position.z) * character->transform;
+        } else {
+            character->transform = Transform::translate(char_position.x, char_position.y, char_position.z) * glm::mat4(Transform::rotate(rot_amount, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(-char_position.x, -char_position.y, -char_position.z) * character->transform;
+        }
+        char_direction_absolute = glm::vec3(0.0, 0.0, 0.0);
+        char_direction_relative = glm::vec3(0.0, 1.0, 0.0);
+        character->transform = Transform::translate(-char_position.x, 15.6 - char_position.y, 0.0) * character->transform;
+        char_position = glm::vec3(0.0, 15.6, char_position.z);
+        center = glm::vec3(0.0, 15.6, char_position.z);
+        eye = center + eyeinit;
+        char_feet_rotation = 0;
+        char_feet_rotation_amount = 5;
+        first_cannon_stage++;
+    } else if (first_cannon_stage == 2) {
+        GLfloat rot_value = acos (glm::dot(glm::normalize(glm::vec3(eyeinit.x, eyeinit.y, 0.0)), glm::vec3(-1.0, 0.0, 0.0))) * 180.0 / 3.14159265;
+        if (eyeinit.y < 0) {
+            if (rot_value < 2) {
+                eyeinit = Transform::rotate(-rot_value, glm::vec3(0.0, 0.0, 1.0)) * eyeinit;
+                eye = eyeinit + center;
+                first_cannon_stage++;
+                return;
+            } else {
+                eyeinit = Transform::rotate(-2.0, glm::vec3(0.0, 0.0, 1.0)) * eyeinit;
+                eye = eyeinit + center;
+            }
+        } else if (eyeinit.y > 0) {
+            if (rot_value < 2) {
+                eyeinit = Transform::rotate(rot_value, glm::vec3(0.0, 0.0, 1.0)) * eyeinit;
+                eye = eyeinit + center;
+                first_cannon_stage++;
+                return;
+            } else {
+                eyeinit = Transform::rotate(2.0, glm::vec3(0.0, 0.0, 1.0)) * eyeinit;
+                eye = eyeinit + center;
+            }
+        } else {
+            eyeinit = Transform::rotate(-2.0, glm::vec3(0.0, 0.0, 1.0)) * eyeinit;
+            eye = eyeinit + center;
+        }
+    } else if (first_cannon_stage == 3) {
+        for (int i = 0; i < num_static_objects; i++) {
+            object * obj = &(static_objects[i]);
+            if (obj -> animation_state == "cannon_one") {
+                if (first_cannon_angle >= 2.0) {
+                    obj->transform = Transform::translate(0, 17, 0.2) * glm::mat4(Transform::rotate(2.0, glm::vec3(1,0,0))) * Transform::translate(0, -17, -0.2) * obj->transform;
+                } else {
+                    obj->transform = Transform::translate(0, 17, 0.2) * glm::mat4(Transform::rotate(first_cannon_angle, glm::vec3(1,0,0))) * Transform::translate(0, -17, -0.2) * obj->transform;
+                }
+            }
+        }
+        if (first_cannon_angle >= 2.0) {
+            first_cannon_angle -= 2.0;
+        } else {
+            first_cannon_angle = 0.0;
+        }
+        if (approx_equals(first_cannon_angle, 0.0, 0.001)) {
+            first_cannon_stage++;
+        }
+    } else if (first_cannon_stage == 4) {
+        glm::vec3 point1 = glm::vec3(0.0, 15.6, char_position.z);
+        glm::vec3 point2 = glm::vec3(0.0, 15.6, 0.2);
+        glm::vec3 point3 = glm::vec3(0.0, 17, 0.2);
+        glm::vec3 result = glm::vec3(0.0,0.0,0.0);
+        evaluateQuadraticBezierCurve(result, point1, point2, point3, first_cannon_t_val);
+        character->transform = Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * character->transform;
+        eye = glm::vec3(Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * glm::vec4(eye.x, eye.y, eye.z, 1.0));
+        center = glm::vec3(Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * glm::vec4(center.x, center.y, center.z, 1.0));
+        char_position = glm::vec3(Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * glm::vec4(char_position.x, char_position.y, char_position.z, 1.0));
+        if (approx_equals(first_cannon_t_val, 1.000, 0.001)) {
+            character->transform = Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * character->transform;
+            eye = glm::vec3(Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * glm::vec4(eye.x, eye.y, eye.z, 1.0));
+            center = glm::vec3(Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * glm::vec4(center.x, center.y, center.z, 1.0));
+            glm::vec3(Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * glm::vec4(char_position.x, char_position.y, char_position.z, 1.0));
+            previous_char_position = glm::vec3(char_position.x, char_position.y, char_position.z);
+            char_velocity.z = 0;
+            first_cannon_t_val = 0.0;
+            first_cannon_stage++;
+            hide_tail = true;
+            return;
+        }
+        first_cannon_t_val += 0.05;
+    } else if (first_cannon_stage == 5) {
+        glm::vec3 point1 = glm::vec3(0.0, 17.0, 0.2);
+        glm::vec3 point2 = glm::vec3(0.0, 150.0, 100.0);
+        glm::vec3 point3 = glm::vec3(0.0, 130.0, -300.0);
+        glm::vec3 result = glm::vec3(0.0,0.0,0.0);
+        evaluateQuadraticBezierCurve(result, point1, point2, point3, 0.004);
+        glm::vec3 dir = result - glm::vec3(0.0, 17.0, 0.2);
+        GLfloat rot_value = acos (glm::dot(glm::normalize(glm::vec3(dir.x, dir.y, dir.z)), glm::vec3(0.0, -1.0, 0.0))) * 180.0 / 3.14159265;
+        for (int i = 0; i < num_static_objects; i++) {
+            object * obj = &(static_objects[i]);
+            if (obj -> animation_state == "cannon_one") {
+                if (first_cannon_angle <= (rot_value - 2.0) ) {
+                    obj->transform = Transform::translate(0, 17, 0.2) * glm::mat4(Transform::rotate(2.0, glm::vec3(-1,0,0))) * Transform::translate(0, -17, -0.2) * obj->transform;
+                } else {
+                    obj->transform = Transform::translate(0, 17, 0.2) * glm::mat4(Transform::rotate(rot_value - first_cannon_angle, glm::vec3(-1,0,0))) * Transform::translate(0, -17, -0.2) * obj->transform;
+                }
+            }
+        }
+        if (first_cannon_angle <= (rot_value - 2.0)) {
+            first_cannon_angle += 2.0;
+        } else {
+            first_cannon_angle = rot_value;
+        }
+        if (approx_equals(first_cannon_angle, rot_value, 0.001)) {
+            first_cannon_stage++;
+        }
+    } else if (first_cannon_stage == 6) {
+        glm::vec3 axis = glm::normalize(glm::cross(eyeinit, glm::vec3(0, -1.0, 0.05)));
+        GLfloat rot_value = acos (glm::dot(glm::normalize(glm::vec3(eyeinit.x, eyeinit.y, eyeinit.z)), glm::normalize(glm::vec3(0.0, -1.0, 0.05)))) * 180.0 / 3.14159265;
+        if (rot_value < 2) {
+            eyeinit = Transform::rotate(rot_value, axis) * eyeinit;
+            eye = eyeinit + center;
+            first_cannon_stage++;
+            return;
+        } else {
+            eyeinit = Transform::rotate(2.0, axis) * eyeinit;
+            eye = eyeinit + center;
+        }
     }
-    first_warp_star_t_val += 0.004;
+    else if (first_cannon_stage == 7) {
+        if (first_cannon_countdown != 0) {
+            first_cannon_countdown--;
+        } else {
+            hide_tail = false;
+            glm::vec3 point1 = glm::vec3(0.0, 17.0, 0.2);
+            glm::vec3 point2 = glm::vec3(0.0, 150.0, 100.0);
+            glm::vec3 point3 = glm::vec3(0.0, 130.0, -300.0);
+            //glm::vec3 point3 = glm::vec3(-50.0, 70.0, -60.0);
+            glm::vec3 result = glm::vec3(0.0,0.0,0.0);
+            evaluateQuadraticBezierCurve(result, point1, point2, point3, first_cannon_t_val);
+            character->transform = Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * character->transform;
+            eye = glm::vec3(Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * glm::vec4(eye.x, eye.y, eye.z, 1.0));
+            center = glm::vec3(Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * glm::vec4(center.x, center.y, center.z, 1.0));
+            char_position = glm::vec3(Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * glm::vec4(char_position.x, char_position.y, char_position.z, 1.0));
+            if (first_cannon_t_val != 0.0 ){
+                character->transform = Transform::translate(char_position.x, char_position.y, char_position.z) * glm::mat4(Transform::rotate(360.0/25.0, glm::vec3(-1, 0, 0))) * Transform::translate(-char_position.x, -char_position.y, -char_position.z) * character->transform;
+            }
+            if (first_cannon_t_val < 0.5) {
+                eyeinit = Transform::rotate((85 - acos(glm::dot(glm::normalize(eyeinit), glm::vec3(0.0, -1.0, 0.0))) * 180.0/3.14159265)/8.0, glm::vec3(-1.0, 0.0, 0.0)) * eyeinit;
+                eye = center + eyeinit;
+            } else if (approx_equals(first_cannon_t_val,0.9,0.001)) {
+                first_cannon_landing_rotation = acos(glm::dot(glm::normalize(glm::vec3(eyeinit.x, eyeinit.y, eyeinit.z)), glm::normalize(glm::vec3(-1.0, 1.0, 1.0)))) * 180.0 / 3.14159265;
+            } else if (first_cannon_t_val > 0.9) {
+                glm::vec3 axis = glm::normalize(glm::cross(eyeinit, glm::vec3(-1.0, 1.0, 1.0)));
+                eyeinit = Transform::rotate(first_cannon_landing_rotation/25.0, axis) * eyeinit;
+                eye = center + eyeinit;
+            }
+            if (approx_equals(first_cannon_t_val, 1.000, 0.001)) {
+                character->transform = Transform::translate(char_position.x, char_position.y, char_position.z) * glm::mat4(Transform::rotate(-135, glm::vec3(0.0, 0.0, 1.0))) * Transform::translate(-char_position.x, -char_position.y, -char_position.z) *character->transform;
+                character->transform = Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * character->transform;
+                eye = glm::vec3(Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * glm::vec4(eye.x, eye.y, eye.z, 1.0));
+                center = glm::vec3(Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * glm::vec4(center.x, center.y, center.z, 1.0));
+                glm::vec3(Transform::translate(point3.x - char_position.x, point3.y - char_position.y, point3.z - char_position.z) * glm::vec4(char_position.x, char_position.y, char_position.z, 1.0));
+                keyboard_locked = false;
+                first_cannon = false;
+                previous_char_position = glm::vec3(char_position.x, char_position.y, char_position.z);
+                char_velocity.z = 0;
+                first_cannon_t_val = 0;
+                return;
+            }
+            first_cannon_t_val += 0.004;
+        }
+    }
+}
+
+
+// Second Cannon: Initial Position: (-4.5, -11.5, 0.2), Final Position: (0, 130, -300), Control Point: (0, 150, 100)
+void handleSecondCannon() {
+
 }
 
 
@@ -551,7 +747,7 @@ void keyUp (unsigned char key, int x, int y) {
 void idleFunc() {
     struct timeval current_time;
     gettimeofday(&current_time, NULL);
-    //cout << char_position.x << " , " << char_position.y << " , " << char_position.z << endl;
+    cout << char_position.x << " -- " << char_position.y << " -- " << char_position.z << endl;
     if ((current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000.0 && !keyboard_locked) {
         if (key_states['w']) { // forward movement
             glm::vec3 direction = glm::normalize(glm::vec3(center.x - eye.x, center.y - eye.y, 0));
@@ -619,20 +815,24 @@ void idleFunc() {
                 updateCharacterGravity();
             }
         }
-        if (char_position.x >= -0.1 && char_position.x <= 0.1 && char_position.y >= 15.9 && char_position.y <= 16.1 && char_position.z >= -0.2 && char_position.z <= 0.2) {
-            character->transform = Transform::translate(-char_position.x, 16.0 - char_position.y, 0.2 - char_position.z) * character->transform;
-            char_position = glm::vec3(0.0, 16.0, 0.2);
-            eye = glm::vec3(Transform::translate(-char_position.x, 16.0 - char_position.y, 0.2 - char_position.z) * glm::vec4(eye.x, eye.y, eye.z, 1.0));
-            center = glm::vec3(0.0, 16.0, 0.2);
+        if (char_position.x >= -0.15 && char_position.x <= 0.15 && char_position.y >= 15.45 && char_position.y <= 15.75 && !is_jumping) {
             keyboard_locked = true;
-            first_warp_star = true;
+            first_cannon = true;
+        }
+        if (char_position.x >= -4.65 && char_position.x <= -4.35 && char_position.y >= 119.85 && char_position.y <= 120.15 && !is_jumping) {
+            keyboard_locked = true;
+            second_cannon = true;
         }
         gettimeofday(&time_register_key, NULL);
         
     }
     
-    if (first_warp_star && (current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000.0) {
-        handleFirstWarpStar();
+    if (first_cannon && (current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000.0) {
+        handleFirstCannon();
+        gettimeofday(&time_register_key, NULL);
+    }
+    if (second_cannon && (current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000.0) {
+        handleSecondCannon();
         gettimeofday(&time_register_key, NULL);
     }
     handleAnimation();
@@ -643,93 +843,89 @@ void idleFunc() {
 }
 
 void specialKey(int key,int x,int y) {
-	switch(key) {
-		case 100: //left
-            eyeinit = Transform::rotate(-amount, upinit) * eyeinit;
-            eye = eyeinit + center;
-            character->transform = Transform::translate(char_position.x, char_position.y, char_position.z) * glm::mat4(Transform::rotate(-amount, upinit)) * Transform::translate(-char_position.x, -char_position.y, -char_position.z) *character->transform;
-			break;
-		case 101: //up
-			eyeinit = Transform::rotate(amount, glm::cross(eyeinit, upinit)) * eyeinit;
-            eye = eyeinit + center;
-			break;
-		case 102: //right
-			eyeinit = Transform::rotate(amount, upinit) * eyeinit;
-            eye = eyeinit + center;
-            character->transform = Transform::translate(char_position.x, char_position.y, char_position.z) * glm::mat4(Transform::rotate(amount, upinit)) * Transform::translate(-char_position.x, -char_position.y, -char_position.z) *character->transform;
-			break;
-		case 103: //down
-			eyeinit = Transform::rotate(-amount, glm::cross(eyeinit, upinit)) * eyeinit;
-            eye = eyeinit + center;
-			break;
-	}
+    if (!keyboard_locked) {
+        switch(key) {
+            case 100: //left
+                eyeinit = Transform::rotate(-amount, upinit) * eyeinit;
+                eye = eyeinit + center;
+                character->transform = Transform::translate(char_position.x, char_position.y, char_position.z) * glm::mat4(Transform::rotate(-amount, upinit)) * Transform::translate(-char_position.x, -char_position.y, -char_position.z) *character->transform;
+                char_direction_absolute = Transform::rotate(-amount, upinit) * char_direction_absolute;
+                break;
+            case 102: //right
+                eyeinit = Transform::rotate(amount, upinit) * eyeinit;
+                eye = eyeinit + center;
+                character->transform = Transform::translate(char_position.x, char_position.y, char_position.z) * glm::mat4(Transform::rotate(amount, upinit)) * Transform::translate(-char_position.x, -char_position.y, -char_position.z) *character->transform;
+                char_direction_absolute = Transform::rotate(amount,upinit) * char_direction_absolute;
+                break;
+        }
+    }
 	glutPostRedisplay();
 }
 
 void calculateCharDirection() {
     if (!is_jumping) {
         GLfloat start_degrees, final_degrees;
-        if (char_direction.x == -1.0 && char_direction.y == -1.0) {
+        if (char_direction_relative.x == -1.0 && char_direction_relative.y == -1.0) {
             start_degrees = 225;
         }
-        if (char_direction.x == -1.0 && char_direction.y == 0.0) {
+        if (char_direction_relative.x == -1.0 && char_direction_relative.y == 0.0) {
             start_degrees = 180;
         }
-        if (char_direction.x == -1.0 && char_direction.y == 1.0) {
+        if (char_direction_relative.x == -1.0 && char_direction_relative.y == 1.0) {
             start_degrees = 135;
         }
-        if (char_direction.x == 0.0 && char_direction.y == -1.0) {
+        if (char_direction_relative.x == 0.0 && char_direction_relative.y == -1.0) {
             start_degrees = 270;
         }
-        if (char_direction.x == 0.0 && char_direction.y == 1.0) {
+        if (char_direction_relative.x == 0.0 && char_direction_relative.y == 1.0) {
             start_degrees = 90;
         }
-        if (char_direction.x == 1.0 && char_direction.y == -1.0) {
+        if (char_direction_relative.x == 1.0 && char_direction_relative.y == -1.0) {
             start_degrees = 315;
         }
-        if (char_direction.x == 1.0 && char_direction.y == 0.0) {
+        if (char_direction_relative.x == 1.0 && char_direction_relative.y == 0.0) {
             start_degrees = 0;
         }
-        if (char_direction.x == 1.0 && char_direction.y == 1.0) {
+        if (char_direction_relative.x == 1.0 && char_direction_relative.y == 1.0) {
             start_degrees = 45;
         }
     
         if (key_states['w'] && key_states['a'] && key_states['s']) {
             final_degrees = 180;
-            char_direction = glm::vec3(-1.0, 0.0, 0.0);
+            char_direction_relative = glm::vec3(-1.0, 0.0, 0.0);
         } else if (key_states['w'] && key_states['a'] && key_states['d']) {
             final_degrees = 90;
-            char_direction = glm::vec3(0.0, 1.0, 0.0);
+            char_direction_relative = glm::vec3(0.0, 1.0, 0.0);
         } else if (key_states['w'] && key_states['s'] && key_states['d']) {
             final_degrees = 0;
-            char_direction = glm::vec3(1.0, 0.0, 0.0);
+            char_direction_relative = glm::vec3(1.0, 0.0, 0.0);
         } else if (key_states['a'] && key_states['s'] && key_states['d']) {
             final_degrees = 270;
-            char_direction = glm::vec3(0.0, -1.0, 0.0);
+            char_direction_relative = glm::vec3(0.0, -1.0, 0.0);
         } else if (key_states['w'] && key_states['a']) {
             final_degrees = 135;
-            char_direction = glm::vec3(-1.0, 1.0, 0.0);
+            char_direction_relative = glm::vec3(-1.0, 1.0, 0.0);
         } else if (key_states['w'] && key_states['d']) {
             final_degrees = 45;
-            char_direction = glm::vec3(1.0, 1.0, 0.0);
+            char_direction_relative = glm::vec3(1.0, 1.0, 0.0);
         } else if (key_states['a'] && key_states['s']) {
             final_degrees = 225;
-            char_direction = glm::vec3(-1.0, -1.0, 0.0);
+            char_direction_relative = glm::vec3(-1.0, -1.0, 0.0);
         } else if (key_states['d'] && key_states['s']) {
             final_degrees = 315;
-            char_direction = glm::vec3(1.0, -1.0, 0.0);
+            char_direction_relative = glm::vec3(1.0, -1.0, 0.0);
         } else if (key_states['w']) {
             final_degrees = 90;
-            char_direction = glm::vec3(0.0, 1.0, 0.0);
+            char_direction_relative = glm::vec3(0.0, 1.0, 0.0);
         } else if (key_states['a']) {
             final_degrees = 180;
-            char_direction = glm::vec3(-1.0, 0.0, 0.0);
+            char_direction_relative = glm::vec3(-1.0, 0.0, 0.0);
         } else if (key_states['s']) {
             final_degrees = 270;
-            char_direction = glm::vec3(0.0, -1.0, 0.0);
+            char_direction_relative = glm::vec3(0.0, -1.0, 0.0);
         } else if (key_states['d']) {
             final_degrees = 0;
-            char_direction = glm::vec3(1.0, 0.0, 0.0);
+            char_direction_relative = glm::vec3(1.0, 0.0, 0.0);
         } else {
             return;
         }
@@ -783,13 +979,11 @@ void init() {
     gettimeofday(&char_animation_time,NULL);
     keyboard_locked = false;
     
-    first_warp_star_t_val = 0.0;
-    
     char_position = vec3(0.0,0.0,0.0);
     previous_char_position = vec3(0.0,0.0,0.0);
     char_velocity = vec3(0.0,0.0,0.0);
     max_run_velocity = 0.04;
-    jump_velocity = 0.08;
+    jump_velocity = 0.1;
     is_jumping = false;
     
     num_static_objects = 0;
@@ -816,14 +1010,31 @@ void init() {
     char_tail_rotation = 0;
     char_tail_rotation_amount = 5;
     
-    char_direction = glm::vec3(0.0,1.0,0.0);
+    char_direction_relative = glm::vec3(0.0,1.0,0.0);
+    char_direction_absolute = glm::vec3(0.0,1.0,0.0);
+    
+    first_cannon = false;
+    first_cannon_t_val = 0.0;
+    first_cannon_stage = 1;
+    first_cannon_angle = 165;
+    first_cannon_countdown = 50;
+    first_cannon_landing_rotation = 0;
+    
+    second_cannon = false;
+    second_cannon_t_val = 0.0;
+    second_cannon_stage = 1;
+    second_cannon_angle = 165;
+    second_cannon_countdown = 50;
+    second_cannon_landing_rotation = 0;
+    
+    hide_tail = false;
 }
 
 int main(int argc, char* argv[]) {
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-	glutCreateWindow("HW6: Super Mario Galaxy: Toy Time Galaxy");
+	glutCreateWindow("HW6: Nintendo Galaxy - Pikachu and Luigi");
 	init();
     readfile("input/toytimegalaxy.scene") ; 
 	glutDisplayFunc(display);

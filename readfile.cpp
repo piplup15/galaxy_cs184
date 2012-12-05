@@ -263,7 +263,7 @@ void readfile(const char * filename) {
                     }
                 }
                 
-                else if (cmd == "smooth_cube" || cmd == "train_wheel" || cmd == "train_head" || cmd == "train_connect" || cmd == "poison_cube") {
+                else if (cmd == "smooth_cube" || cmd == "train_wheel" || cmd == "train_head" || cmd == "train_connect" || cmd == "poison_cube" || cmd == "cannon_cube") {
                     if (num_static_objects == maxobjects) // No more objects
                         cerr << "Reached Maximum Number of Objects " << num_static_objects << " Will ignore further objects\n" ;
                     else {
@@ -318,12 +318,21 @@ void readfile(const char * filename) {
                             }
                             if (cmd == "poison_cube") {
                                 obj -> name = ((std::string)("poison_cube"));
-                                obj -> file_path = ((std::string)("images/shapes/poison_cube.obj"));
+                                obj -> file_path = ((std::string)("images/shapes/cube.obj"));
                                 obj -> shape_sides = 4;
                                 obj -> bounding_type = "square";
                                 obj->max_x = obj-> max_y = obj->max_z = 0.5;
                                 obj->min_x = obj-> min_y = obj->min_z = -0.5;
                             }
+                            if (cmd == "cannon_cube") {
+                                obj -> name = ((std::string)("cannon_cube"));
+                                obj -> file_path = ((std::string)("images/shapes/cube.obj"));
+                                obj -> shape_sides = 4;
+                                obj -> bounding_type = "square";
+                                obj->max_x = obj-> max_y = obj->max_z = 0.5;
+                                obj->min_x = obj-> min_y = obj->min_z = -0.5;
+                            }
+                            
                             ++num_static_objects;
                             ++num_obj_models;
                         }
