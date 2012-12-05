@@ -1454,6 +1454,7 @@ pushTransform
         popTransform
     popTransform
     
+    animation_state none
     # Button
     pushTransform
         ambient 0.1 0.1 0.1 1
@@ -17726,7 +17727,7 @@ pushTransform
     -----------------------
     
     
-    translate 0 0 0.2
+    translate 0 0 0.35
     
     # blue Coin 93
     pushTransform

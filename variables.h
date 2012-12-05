@@ -135,5 +135,8 @@ EXTERN std::vector<int> coin_indices;
 EXTERN GLfloat coin_radius;
 
 EXTERN bool hide_tail;
-
+EXTERN bool north_south_multiplier;
+EXTERN bool east_west_multiplier;
+EXTERN bool northwest_southeast_multiplier;
+EXTERN bool northeast_southwest_multiplier;
 
