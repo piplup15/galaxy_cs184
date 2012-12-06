@@ -77,6 +77,7 @@ bool on_train_four;
 
 void display(void) ;  // prototype for display function.
 void loadTex(const char * filename, GLubyte textureLocation[256][256][3]);
+void initTextures(const char * filename);
 void evaluateQuadraticBezierCurve(glm::vec3 & result, glm::vec3 p1, glm::vec3 p2, glm::vec3 p3, GLfloat t);
 void handleFirstCannon();
 
@@ -107,6 +108,11 @@ void loadTex (const char * filename, GLubyte textureLocation[256][256][3]) {
 			for (k = 0 ; k < 3 ; k++)
 				fscanf(fp,"%c",&(textureLocation[i][j][k])) ;
 	fclose(fp) ;  
+}
+
+/* Loads necessary textures */
+void initTextures(){
+
 }
 
 void evaluateQuadraticBezierCurve(glm::vec3 & result, glm::vec3 point1, glm::vec3 point2, glm::vec3 point3, GLfloat t) {
@@ -1346,6 +1352,13 @@ void init() {
     hide_tail = false;
     
     north_south_multiplier = east_west_multiplier = northwest_southeast_multiplier = northeast_southwest_multiplier = false;
+
+    //Texture variables init
+    currentTexIndex = 0;
+
+    textureOn = true;
+    isTex = glGetUniformLocation(shaderprogram,"isTex") ;
+    isBump = glGetUniformLocation(shaderprogram,"isBump") ;
 }
 
 int main(int argc, char* argv[]) {

@@ -140,3 +140,11 @@ EXTERN bool east_west_multiplier;
 EXTERN bool northwest_southeast_multiplier;
 EXTERN bool northeast_southwest_multiplier;
 
+/* Variables used for general texture system */
+EXTERN std::vector<int> texture_indices;
+EXTERN int currentTexIndex;
+EXTERN bool isTex;
+EXTERN bool isBump;
+EXTERN bool shadeTex;
+EXTERN bool textureOn;
+
