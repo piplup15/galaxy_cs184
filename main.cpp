@@ -1359,6 +1359,7 @@ void init() {
     textureOn = true;
     isTex = glGetUniformLocation(shaderprogram,"isTex") ;
     isBump = glGetUniformLocation(shaderprogram,"isBump") ;
+    shadeTex = glGetUniformLocation(shaderprogram, "shadeTex") ;
 }
 
 int main(int argc, char* argv[]) {
