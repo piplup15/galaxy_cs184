@@ -31,7 +31,7 @@ grader.o: UCB/grader.cpp UCB/grader.h
 	$(CC) $(CFLAGS) $(INCFLAGS) -c UCB/grader.cpp
 ModelObj.o: ModelObj.cpp ModelObj.h
 	$(CC) $(CFLAGS) $(INCFLAGS) -c ModelObj.cpp
-Texture.o: Texture.cpp Texture.h
+Texture.o: Texture.cpp Texture.h variables.h
 	$(CC) $(CFLAGS) $(INCFLAGS) -c Texture.cpp
 clean: 
 	$(RM) *.o galaxy *.png

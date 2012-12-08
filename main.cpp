@@ -1360,6 +1360,17 @@ void init() {
     isTex = glGetUniformLocation(shaderprogram,"isTex") ;
     isBump = glGetUniformLocation(shaderprogram,"isBump") ;
     shadeTex = glGetUniformLocation(shaderprogram, "shadeTex") ;
+
+    for(int j = 0; j < 32; j++){
+        std::cout << "Before" << texNames[j] << std::endl;
+    }
+
+    glGenTextures(32, texNames);
+    texNumInUse = 0;
+
+    for(int i = 0; i < 32; i++){
+        std::cout << "After" << texNames[i] << std::endl;
+    }
 }
 
 int main(int argc, char* argv[]) {

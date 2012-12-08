@@ -25,6 +25,9 @@ using namespace std ;
 ModelObj list_of_models [max_obj_models]; // List containing all the models.
 int size_of_list_models = 0;
 
+//bool texSet = false;
+//Texture tex;
+
 void transformvec (const GLfloat input[4], GLfloat output[4]) {
   GLfloat modelview[16] ; // in column major order
   glGetFloatv(GL_MODELVIEW_MATRIX, modelview) ; 
@@ -37,9 +40,12 @@ void transformvec (const GLfloat input[4], GLfloat output[4]) {
 }
 
 void display() {
-    Texture tex;
-    tex.set("images/shapes/coin.mtl");
-
+    /*
+    if(!texSet){
+        tex.set("images/textures/deathbed/washington.pbm");
+        texSet = true;
+    }
+    */
 
 	glClearColor(backgroundColor[0], backgroundColor[1], backgroundColor[2], backgroundColor[3]);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -295,6 +301,25 @@ void display() {
         glLoadMatrixf(&(mv * character->transform * Transform::translate(0, -0.0707, -0.0707) * glm::mat4(Transform::rotate(char_tail_rotation, glm::vec3(0, 0.8660254, 0.5))) * Transform::translate(0, 0.0707, 0.0707) * Transform::translate(0, -0.182212, 0.023545))[0][0]);
         glutSolidSphere(0.05, 40, 40);
     }
+
+
+      //Set texture on/off in shader
+    /*
+    if(textureOn){
+        glUniform1i(isTex,1) ;
+    }else{
+        glUniform1i(isTex,0) ;
+    }
+    //Washington
+        glBindTexture (GL_TEXTURE_2D, tex.name) ; 
+        glBegin(GL_QUADS);
+            glTexCoord2f(0.0, 1.0); glVertex3f(0.0, 0.0, 0.0);
+            glTexCoord2f(1.0, 1.0); glVertex3f(100.0, 0.0, 0.0);
+            glTexCoord2f(1.0, 0.0); glVertex3f(1000.0, 1000.0, 0.0);
+            glTexCoord2f(0.0, 0.0); glVertex3f(0.0, 1000.0, 0.0);
+        glEnd();
+glUniform1i(isTex,0) ;
+*/
     
     // Eye
     GLfloat eye_ambient[4] = {0,0,0,1};

@@ -12,4 +12,8 @@ class Texture {
 
   /* Loads and stores texture and assigns the texture ID */
   bool set(const char * fileName);
+
+private:
+
+  GLuint setTexName(void);
 };

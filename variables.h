@@ -147,4 +147,6 @@ EXTERN bool isTex;
 EXTERN bool isBump;
 EXTERN bool shadeTex;
 EXTERN bool textureOn;
+EXTERN bool texNumInUse;
+EXTERN GLuint texNames[32] ;
 
