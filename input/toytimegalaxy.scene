@@ -11,6 +11,7 @@ animation_state none
 
 
 # ---- CHARACTER (TEMP) ----
+culling_state none
 test_collision false
 pushTransform
     translate 0 0 0.15
@@ -20,6 +21,7 @@ popTransform
 
 
 # ---- ENTRY PLATFORM -----
+culling_state train
 test_collision true
 pushTransform
     ambient 0.5 0.5 0.5 1
@@ -1402,12 +1404,11 @@ translate 0 -7 0
 
 
 # STAGE 1  ----------------------------------------------------- PART 2
-# PATH OF POKEBALLS
-test_collision false
-animation_state none
+
 
 
 # PIKACHU
+culling_state pikachu
 test_collision true
 animation_state none
 pushTransform
@@ -9922,8 +9923,22 @@ popTransform
 
 # STAGE 1 ------------------------------------------------------- PART 3
 animation_state none
+culling_state none
+
 pushTransform
     translate -50 70 -60.1
+    
+    pushTransform
+        ambient 0.2 0.2 0.4 1
+        diffuse 0.1 0.1 0.2 1
+        specular 0.4 0.4 0.5 1
+        shininess 4
+        translate 0 0 0.025
+        scale 0.25 0.25 0.05
+        translate 0 0 -0.5
+        victory_cube
+    popTransform
+    
     pushTransform
         ambient 0.3 0.1 0.1 1
         diffuse 0.1 0.1 0.1 1
@@ -10046,6 +10061,8 @@ pushTransform
     
     # ---------- LUIGI'S LEFT LEG FRAMES ----------------------
     test_collision false
+    culling_state luigi
+    
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
     specular 0.3 0.3 0.3 1
@@ -10392,6 +10409,8 @@ pushTransform
     
     # ------------------------ LUIGI'S LEFT ARM -----------------------
     test_collision true
+    culling_state none
+    
     ambient 0.8 0.7 0.5 1
     diffuse 0.05 0.05 0.05 1
     specular 0.05 0.05 0.05 1
@@ -10661,6 +10680,7 @@ pushTransform
     
     # ---------- LUIGI'S LEFT ARM FRAMES ----------------------
     test_collision false
+    culling_state luigi
     
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -11501,6 +11521,8 @@ pushTransform
     
     # ------------------------ LUIGI'S LEFT EAR -----------------------
     test_collision true
+    culling_state none
+    
     ambient 0.8 0.7 0.5 1
     diffuse 0.05 0.05 0.05 1
     specular 0.05 0.05 0.05 1
@@ -11642,6 +11664,7 @@ pushTransform
     
     # ---------- LUIGI'S LEFT EAR FRAMES ----------------------
     test_collision false
+    culling_state luigi
     
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -12066,6 +12089,7 @@ pushTransform
     
     # ------------------------ LUIGI'S CHEEK -----------------------
     test_collision true
+    culling_state none
     
     ambient 0.8 0.7 0.5 1
     diffuse 0.05 0.05 0.05 1
@@ -12298,6 +12322,7 @@ pushTransform
     
     # ---------- LUIGI'S CHEEK FRAMES ----------------------
     test_collision false
+    culling_state luigi
     
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -13034,6 +13059,7 @@ pushTransform
     
     # ------------------------ LUIGI'S EYE/MOUTH -----------------------
     test_collision true
+    culling_state none
     
     ambient 0.15 0.6 0.15 1
     diffuse 0.05 0.05 0.05 1
@@ -13154,6 +13180,7 @@ pushTransform
     
     # ---------- LUIGI'S EYE/MOUTH FRAMES ----------------------
     test_collision false
+    culling_state luigi
     
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -13526,6 +13553,7 @@ pushTransform
     
     # ------------------------ LUIGI'S NOSE/STACHE -----------------------
     test_collision true
+    culling_state none
     
     ambient 0.8 0.7 0.5 1
     diffuse 0.05 0.05 0.05 1
@@ -13630,6 +13658,7 @@ pushTransform
     
     # ---------- LUIGI'S NOSE/STACHE FRAMES ----------------------
     test_collision false
+    culling_state luigi
     
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -13950,6 +13979,7 @@ pushTransform
     
     # ---------- LUIGI'S RIGHT ARM ----------------------
     test_collision true
+    culling_state none
     
     ambient 0.15 0.6 0.15 1
     diffuse 0.05 0.05 0.05 1
@@ -14212,6 +14242,7 @@ pushTransform
     
     # ---------- LUIGI'S RIGHT ARM FRAMES ----------------------
     test_collision false
+    culling_state luigi
     
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -15027,6 +15058,7 @@ pushTransform
     
     # ---------- LUIGI'S TORSO ----------------------
     test_collision true
+    culling_state none
     
     ambient 0.15 0.6 0.15 1
     diffuse 0.05 0.05 0.05 1
@@ -15172,6 +15204,7 @@ pushTransform
 
 # ---------- LUIGI'S TORSO ----------------------
     test_collision false
+    culling_state luigi
 
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -15622,6 +15655,7 @@ pushTransform
     
     # ---------- LUIGI'S BUTTONS ----------------------
     test_collision true
+    culling_state none
 
     ambient 0.8 0.7 0.5 1
     diffuse 0.05 0.05 0.05 1
@@ -15694,6 +15728,7 @@ pushTransform
     
     # ---------- LUIGI'S BUTTONS FRAMES ----------------------
     test_collision false
+    culling_state luigi
     
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -15910,6 +15945,7 @@ pushTransform
     
     # ---------- LUIGI'S RIGHT LEG ----------------------
     test_collision true
+    culling_state none
     
     ambient 0.15 0.6 0.15 1
     diffuse 0.05 0.05 0.05 1
@@ -16006,6 +16042,7 @@ pushTransform
     
     # ---------- LUIGI'S RIGHT LEG FRAMES ----------------------
     test_collision false
+    culling_state luigi
     
     ambient 0.2 0.2 0.2 1
     diffuse 0.2 0.2 0.2 1
@@ -16300,6 +16337,7 @@ pushTransform
     
     # ---------- LUIGI'S POISON SPOTS (OVERALLS, CAP) ----------------------
     test_collision true
+    culling_state none
     
     ambient 0.1 0.3 0.25 1
     diffuse 0.05 0.05 0.05 1
@@ -16959,6 +16997,7 @@ pushTransform
     
     #  ------- blue Coins on Luigi
     
+    culling_state none
     test_collision false
     
     ambient 0.2 0 0.7 1

@@ -67,15 +67,18 @@ void display() {
     for (int i = 0 ; i < num_static_objects ; i++) {
         object * obj = &(static_objects[i]) ; 
 
-        {
-            mat4 result = mv * obj->transform ;
-            glLoadMatrixf(&result[0][0]);
-            glUniform4fv(ambientcol, 1, obj->ambient); 
-            glUniform4fv(diffusecol, 1, obj->diffuse);
-            glUniform4fv(specularcol, 1, obj->specular);
-            glUniform4fv(emissioncol, 1, obj->emission);
-            glUniform1f(shininesscol, obj->shininess);
-        }
+        // Culling
+        //if ((obj->culling_state == "none") || (current_stage == 0 && obj->culling_state == "train") || (current_stage == 1 && obj->culling_state == "pikachu") || (current_stage == 2 && obj->culling_state == "luigi") || char_died) {
+        if (!(current_stage == 0 && obj->culling_state == "luigi")) {
+        
+        mat4 result = mv * obj->transform ;
+        glLoadMatrixf(&result[0][0]);
+        glUniform4fv(ambientcol, 1, obj->ambient); 
+        glUniform4fv(diffusecol, 1, obj->diffuse);
+        glUniform4fv(specularcol, 1, obj->specular);
+        glUniform4fv(emissioncol, 1, obj->emission);
+        glUniform1f(shininesscol, obj->shininess);
+        
 
 
         if (obj -> type == cube) {
@@ -134,6 +137,7 @@ void display() {
             glDisableClientState(GL_VERTEX_ARRAY);
             glDisableClientState(GL_NORMAL_ARRAY);
         }
+    }
 
     }
     
@@ -307,6 +311,6 @@ void display() {
     
     glLoadMatrixf(&(mv * character->transform * glm::mat4(Transform::rotate(110, glm::vec3(1,0,0))) * Transform::translate(-0.03, 0, -0.083) * Transform::scale(0.15, 0.25, 0.15))[0][0]);
     glutSolidSphere(0.1, 40, 40);
-    
+
     glutSwapBuffers();
 }

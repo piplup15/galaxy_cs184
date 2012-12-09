@@ -89,6 +89,8 @@ EXTERN struct object {
   bool disappear;
   GLfloat fraction_left;
     
+  std::string culling_state;
+    
 } static_objects[maxobjects] ;
 
 EXTERN int num_dynamic_objects;
@@ -139,4 +141,8 @@ EXTERN bool north_south_multiplier;
 EXTERN bool east_west_multiplier;
 EXTERN bool northwest_southeast_multiplier;
 EXTERN bool northeast_southwest_multiplier;
+
+EXTERN int current_stage;
+EXTERN bool char_died;
+EXTERN std::string culling_state;
 

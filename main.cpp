@@ -287,6 +287,8 @@ void handleFirstCannon() {
             char_position = glm::vec3(Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * glm::vec4(char_position.x, char_position.y, char_position.z, 1.0));
             if (first_cannon_t_val != 0.0 ){
                 character->transform = Transform::translate(char_position.x, char_position.y, char_position.z) * glm::mat4(Transform::rotate(360.0/25.0, glm::vec3(-1, 0, 0))) * Transform::translate(-char_position.x, -char_position.y, -char_position.z) * character->transform;
+            } else {
+                current_stage++;
             }
             if (first_cannon_t_val < 0.5) {
                 eyeinit = Transform::rotate((85 - acos(glm::dot(glm::normalize(eyeinit), glm::vec3(0.0, -1.0, 0.0))) * 180.0/3.14159265)/8.0, glm::vec3(-1.0, 0.0, 0.0)) * eyeinit;
@@ -496,6 +498,8 @@ void handleSecondCannon() {
             char_position = glm::vec3(Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * glm::vec4(char_position.x, char_position.y, char_position.z, 1.0));
             if (second_cannon_t_val != 0.0 ){
                 character->transform = Transform::translate(char_position.x, char_position.y, char_position.z) * glm::mat4(Transform::rotate(360.0/25.0, glm::normalize(glm::cross(glm::vec3(0.0, 0.0, 1.0), char_direction_absolute)))) * Transform::translate(-char_position.x, -char_position.y, -char_position.z) * character->transform;
+            } else {
+                current_stage++;
             }
             if (approx_equals(second_cannon_t_val,0.9,0.001)) {
                 second_cannon_landing_rotation = acos(glm::dot(glm::normalize(glm::vec3(eyeinit.x, eyeinit.y, eyeinit.z)), glm::normalize(glm::vec3(-1.0, -1.0, 1.0)))) * 180.0 / 3.14159265;
@@ -1346,6 +1350,10 @@ void init() {
     hide_tail = false;
     
     north_south_multiplier = east_west_multiplier = northwest_southeast_multiplier = northeast_southwest_multiplier = false;
+    
+    current_stage = 0;
+    char_died = false;
+    culling_state = "none";
 }
 
 int main(int argc, char* argv[]) {

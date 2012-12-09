@@ -185,6 +185,7 @@ void readfile(const char * filename) {
                             obj -> shininess = shininess ; 
                             obj -> transform = transfstack.top() ;
                             obj -> test_collision = test_collision;
+                            obj -> culling_state = culling_state;
                             if (cmd == "sphere") {
                                 obj -> type = sphere ; 
                                 obj -> bounding_type = "none";
@@ -226,6 +227,7 @@ void readfile(const char * filename) {
                             obj -> test_collision = test_collision;
                             obj -> scale_size = scalestack.top();
                             obj -> bounding_type = "circle";
+                            obj -> culling_state = culling_state;
                             gettimeofday(&(obj -> timeUpdate), NULL);
                         }
                         ++num_static_objects ;
@@ -257,13 +259,14 @@ void readfile(const char * filename) {
                             obj -> test_collision = test_collision;
                             obj -> scale_size = scalestack.top();
                             obj -> bounding_type = "circle";
+                            obj -> culling_state = culling_state;
                             gettimeofday(&(obj -> timeUpdate), NULL);
                         }
                         ++num_static_objects ;
                     }
                 }
                 
-                else if (cmd == "smooth_cube" || cmd == "train_wheel" || cmd == "train_head" || cmd == "train_connect" || cmd == "poison_cube" || cmd == "cannon_cube") {
+                else if (cmd == "smooth_cube" || cmd == "train_wheel" || cmd == "train_head" || cmd == "train_connect" || cmd == "poison_cube" || cmd == "cannon_cube" || cmd == "victory_cube") {
                     if (num_static_objects == maxobjects) // No more objects
                         cerr << "Reached Maximum Number of Objects " << num_static_objects << " Will ignore further objects\n" ;
                     else {
@@ -282,6 +285,7 @@ void readfile(const char * filename) {
                             obj -> animation_state = anim_state;
                             obj -> test_collision = test_collision;
                             obj -> scale_size = scalestack.top();
+                            obj -> culling_state = culling_state;
                             gettimeofday(&(obj -> timeUpdate), NULL);
                         
                             if (cmd == "smooth_cube") {
@@ -332,6 +336,14 @@ void readfile(const char * filename) {
                                 obj->max_x = obj-> max_y = obj->max_z = 0.5;
                                 obj->min_x = obj-> min_y = obj->min_z = -0.5;
                             }
+                            if (cmd == "victory_cube") {
+                                obj -> name = ((std::string)("victory_cube"));
+                                obj -> file_path = ((std::string)("images/shapes/cube.obj"));
+                                obj -> shape_sides = 4;
+                                obj -> bounding_type = "square";
+                                obj->max_x = obj-> max_y = obj->max_z = 0.5;
+                                obj->min_x = obj-> min_y = obj->min_z = -0.5;
+                            }
                             
                             ++num_static_objects;
                             ++num_obj_models;
@@ -358,6 +370,7 @@ void readfile(const char * filename) {
                             obj -> animation_state = anim_state;
                             obj -> test_collision = test_collision;
                             obj -> scale_size = scalestack.top();
+                            obj -> culling_state = culling_state;
                             gettimeofday(&(obj -> timeUpdate), NULL);                        
                             if (cmd == "disappear_cube") {
                                 obj -> name = ((std::string)("disappear_cube"));
@@ -400,6 +413,7 @@ void readfile(const char * filename) {
                         obj -> animation_state = anim_state;
                         obj -> test_collision = test_collision;
                         obj -> scale_size = scalestack.top();
+                        obj -> culling_state = culling_state;
                         gettimeofday(&(obj -> timeUpdate), NULL);
                         character = obj;
                         char_position = glm::vec3(0.0, 0.0, 0.025);
@@ -414,6 +428,12 @@ void readfile(const char * filename) {
                     std::string value;
                     s >> value;
                     anim_state = value;
+                }
+                
+                else if (cmd == "culling_state") {
+                    std::string value;
+                    s >> value;
+                    culling_state = value;
                 }
 
                 else if (cmd == "translate") {
