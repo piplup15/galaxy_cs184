@@ -14,6 +14,7 @@ using namespace std ;
 #include "variables.h"
 #include "readfile.h"
 #include "ModelObj.h"
+#include "Texture.h"
 
 // New helper transformation function to transform vector by modelview 
 // May be better done using newer glm functionality.
@@ -23,6 +24,9 @@ using namespace std ;
 
 ModelObj list_of_models [max_obj_models]; // List containing all the models.
 int size_of_list_models = 0;
+
+//bool texSet = false;
+//Texture tex;
 
 void transformvec (const GLfloat input[4], GLfloat output[4]) {
   GLfloat modelview[16] ; // in column major order
@@ -36,7 +40,17 @@ void transformvec (const GLfloat input[4], GLfloat output[4]) {
 }
 
 void display() {
-	glClearColor(backgroundColor[0], backgroundColor[1], backgroundColor[2], backgroundColor[3]);
+    /*
+    if(!texSet){
+        tex.set("images/textures/deathbed/washington.pbm");
+        texSet = true;
+    }
+    */
+    if (!dont_draw){
+        glClearColor(backgroundColor[0], backgroundColor[1], backgroundColor[2], backgroundColor[3]);
+    } else {
+        glClearColor(0,0,0,1);
+    }
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glMatrixMode(GL_MODELVIEW);
@@ -45,6 +59,7 @@ void display() {
     mv = glm::transpose(mv) ; // accounting for row major
     glLoadMatrixf(&mv[0][0]) ; 
 
+    
     // Set Light and Material properties for the teapot
     // Lights are transformed by current modelview matrix. 
     // The shader can't do this globally. 
@@ -63,13 +78,13 @@ void display() {
     glUniform4fv(lightcol, numused, lightcolor);
     glUniform1i(numusedcol, numused); 
 
-
+    if (!dont_draw) {
     for (int i = 0 ; i < num_static_objects ; i++) {
         object * obj = &(static_objects[i]) ; 
 
         // Culling
-        //if ((obj->culling_state == "none") || (current_stage == 0 && obj->culling_state == "train") || (current_stage == 1 && obj->culling_state == "pikachu") || (current_stage == 2 && obj->culling_state == "luigi") || char_died) {
-        if (!(current_stage == 0 && obj->culling_state == "luigi")) {
+        if ((obj->culling_state == "none") || (current_stage == 0 && obj->culling_state == "train") || (current_stage == 1 && obj->culling_state == "pikachu") || (current_stage == 2 && obj->culling_state == "luigi") || char_died) {
+        //if (!(current_stage == 0 && obj->culling_state == "luigi")) {
         
         mat4 result = mv * obj->transform ;
         glLoadMatrixf(&result[0][0]);
@@ -293,24 +308,25 @@ void display() {
     
         glLoadMatrixf(&(mv * character->transform * Transform::translate(0, -0.0707, -0.0707) * glm::mat4(Transform::rotate(char_tail_rotation, glm::vec3(0, 0.8660254, 0.5))) * Transform::translate(0, 0.0707, 0.0707) * Transform::translate(0, -0.182212, 0.023545))[0][0]);
         glutSolidSphere(0.05, 40, 40);
+        
+        // Eye
+        GLfloat eye_ambient[4] = {0,0,0,1};
+        GLfloat eye_diffuse[4] = {0.1,0.1,0.1,1};
+        GLfloat eye_specular[4] = {0.05,0.05,0.05,1};
+        GLfloat eye_shininess = 2;
+        
+        glUniform4fv(ambientcol, 1, eye_ambient);
+        glUniform4fv(diffusecol, 1, eye_diffuse);
+        glUniform4fv(specularcol, 1, eye_specular);
+        glUniform1f(shininesscol, eye_shininess);
+        
+        glLoadMatrixf(&(mv * character->transform * glm::mat4(Transform::rotate(110, glm::vec3(1,0,0))) * Transform::translate(0.03, 0, -0.083) * Transform::scale(0.15, 0.25, 0.15))[0][0]);
+        glutSolidSphere(0.1, 40, 40);
+        
+        glLoadMatrixf(&(mv * character->transform * glm::mat4(Transform::rotate(110, glm::vec3(1,0,0))) * Transform::translate(-0.03, 0, -0.083) * Transform::scale(0.15, 0.25, 0.15))[0][0]);
+        glutSolidSphere(0.1, 40, 40);
+    }    
     }
-    
-    // Eye
-    GLfloat eye_ambient[4] = {0,0,0,1};
-    GLfloat eye_diffuse[4] = {0.1,0.1,0.1,1};
-    GLfloat eye_specular[4] = {0.05,0.05,0.05,1};
-    GLfloat eye_shininess = 2;
-    
-    glUniform4fv(ambientcol, 1, eye_ambient);
-    glUniform4fv(diffusecol, 1, eye_diffuse);
-    glUniform4fv(specularcol, 1, eye_specular);
-    glUniform1f(shininesscol, eye_shininess);
-    
-    glLoadMatrixf(&(mv * character->transform * glm::mat4(Transform::rotate(110, glm::vec3(1,0,0))) * Transform::translate(0.03, 0, -0.083) * Transform::scale(0.15, 0.25, 0.15))[0][0]);
-    glutSolidSphere(0.1, 40, 40);
-    
-    glLoadMatrixf(&(mv * character->transform * glm::mat4(Transform::rotate(110, glm::vec3(1,0,0))) * Transform::translate(-0.03, 0, -0.083) * Transform::scale(0.15, 0.25, 0.15))[0][0]);
-    glutSolidSphere(0.1, 40, 40);
-
+        
     glutSwapBuffers();
 }

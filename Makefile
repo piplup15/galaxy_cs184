@@ -15,8 +15,8 @@ endif
 
 RM = /bin/rm -f 
 all: galaxy
-galaxy: main.o shaders.o Transform.o readfile.o display.o variables.h readfile.h shaders.h Transform.h grader.o UCB/grader.h ModelObj.o ModelObj.h
-	$(CC) $(CFLAGS) -o galaxy shaders.o main.o Transform.o readfile.o display.o grader.o ModelObj.o $(INCFLAGS) $(LDFLAGS) 
+galaxy: main.o shaders.o Transform.o readfile.o display.o variables.h readfile.h shaders.h Transform.h grader.o UCB/grader.h ModelObj.o ModelObj.h Texture.o Texture.h
+	$(CC) $(CFLAGS) -o galaxy shaders.o main.o Transform.o readfile.o display.o grader.o ModelObj.o Texture.o $(INCFLAGS) $(LDFLAGS) 
 main.o: main.cpp shaders.h Transform.h variables.h
 	$(CC) $(CFLAGS) $(INCFLAGS) -c main.cpp
 shaders.o: shaders.cpp shaders.h
@@ -29,8 +29,10 @@ Transform.o: Transform.cpp Transform.h
 	$(CC) $(CFLAGS) $(INCFLAGS) -c Transform.cpp  
 grader.o: UCB/grader.cpp UCB/grader.h
 	$(CC) $(CFLAGS) $(INCFLAGS) -c UCB/grader.cpp
-ModelObj: ModelObj.cpp ModelObj.h
+ModelObj.o: ModelObj.cpp ModelObj.h
 	$(CC) $(CFLAGS) $(INCFLAGS) -c ModelObj.cpp
+Texture.o: Texture.cpp Texture.h variables.h
+	$(CC) $(CFLAGS) $(INCFLAGS) -c Texture.cpp
 clean: 
 	$(RM) *.o galaxy *.png
 

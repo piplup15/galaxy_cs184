@@ -12,7 +12,12 @@
 
 varying vec4 color ;
 varying vec3 mynormal ; 
-varying vec4 myvertex ; 
+varying vec4 myvertex ;
+uniform int isTex ;
+uniform sampler2D tex;
+
+uniform int isBump;
+uniform sampler2D normalTexture;
 
 const int numLights = 10 ; 
 uniform bool enablelighting ; // are we lighting at all (global).
@@ -31,57 +36,66 @@ uniform vec4 specular ;
 uniform vec4 emission ; 
 uniform float shininess ; 
 
-vec4 ComputeLight (const in vec3 direction, const in vec4 lightcolor, const in vec3 normal, const in vec3 halfvec, const in vec4 mydiffuse, const in vec4 myspecular, const in float myshininess) {
-
-    float nDotL = dot(normal, direction);         
-    vec4 lambert = mydiffuse * lightcolor * max (nDotL, 0.0);  
-
-    float nDotH = dot(normal, halfvec); 
-    vec4 phong = myspecular * lightcolor * pow (max(nDotH, 0.0), myshininess); 
-
-    vec4 retval = lambert + phong ; 
-    return retval ;            
-}      
-
 void main (void) 
-{       
-    if (enablelighting) {       
+{
+   if(isTex > 0){
+      gl_FragColor = texture2D(tex, gl_TexCoord[0].st);
+   }
+    else if (enablelighting) {       
         
-        vec4 finalcolor = vec4(0.0,0.0,0.0,1.0) ; 
+        gl_FragColor = ambient + emission;
 
-        // YOUR CODE FOR HW 2 HERE
-        // A key part is implementation of the fragment shader
-
-	const vec3 eyepos = vec3(0.0,0.0,0.0) ; 
+        // Implementation of Fragment Shader
+        
+        const vec3 eyepos = vec3(0,0,0) ; 
         vec4 _mypos = gl_ModelViewMatrix * myvertex ; 
-        vec3 mypos = _mypos.xyz / _mypos.w ; // Dehomogenize current location 
-        vec3 eyedirn = normalize(eyepos - mypos) ; 
-	vec3 _normal = (gl_ModelViewMatrixInverseTranspose*vec4(mynormal,0.0)).xyz ; 
-        vec3 normal = normalize(_normal) ; 
+        vec3 mypos = _mypos.xyz / _mypos.w ;
+        vec3 eyedir = normalize(eyepos - mypos) ;
 
-	vec4 diffuse_and_specular_component = vec4(0.0,0.0,0.0,0.0); // initially all 0
+        vec3 normal = normalize((gl_ModelViewMatrixInverseTranspose*vec4(mynormal,0.0)).xyz) ; 
 
-	for (int i = 0; i < numused; i++) {
-	    
-	    vec3 position_light = vec3(0.0,0.0,0.0);
-	    vec3 direction_light = vec3(0.0,0.0,0.0);
-	    if (lightposn[i].w != 0) {
-	       position_light = lightposn[i].xyz / lightposn[i].w ;
-	       direction_light = normalize(position_light - mypos); // no attenuation
-	    } else {
-	       direction_light = normalize(lightposn[i].xyz);
-	    } 
-            vec3 half_vec = normalize (direction_light + eyedirn) ;  
-	    
-	    diffuse_and_specular_component += ComputeLight(direction_light, lightcolor[i], normal, half_vec, diffuse, specular, shininess);
-	    
-	    }
-
-        finalcolor = ambient + emission + diffuse_and_specular_component;
-        
-	
-
-        gl_FragColor = finalcolor ; 
+        if(isBump > 0){
+            normal = 2.0 * texture2D (normalTexture, gl_TexCoord[0].st).rgb - 1.0;
+            normal = normalize (normal);
         }
-    else gl_FragColor = color ; 
+        
+        //Iterate through all lights
+        for(int i = 0; i < numused; i++){
+        
+            //Decalare variables that will be used for computation
+            vec3 direction;
+            vec3 halfVec;
+            vec4 lightColor = lightcolor[i];
+        
+            //Directional lights
+            if(lightposn[i][3] == 0){
+                vec3 currentPos = lightposn[i].xyz;
+                direction = normalize(currentPos);
+                halfVec = normalize(direction + eyedir);
+            }
+            
+            //Point lights
+            else{
+                vec4 currentPos = lightposn[i];
+                vec3 position = currentPos.xyz / currentPos.w;
+                direction = normalize(position - mypos);
+                halfVec = normalize(direction + eyedir);
+            }
+            
+            //Lambert
+            float nDotL = dot(normal, direction);
+            vec4 lambert = diffuse * lightColor * max(nDotL, 0.0);
+            
+            //Phong
+            float nDotH = dot(normal, halfVec);
+            vec4 phong = specular * lightColor * pow(max(nDotH, 0.0), shininess);
+            
+            vec4 lightContribution = lambert + phong;
+            
+            gl_FragColor += lightContribution;
+        }
+        
+        //gl_FragColor = finalcolor;
+    }
+
 }

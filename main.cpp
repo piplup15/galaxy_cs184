@@ -27,6 +27,8 @@ using namespace std ;
 #include "readfile.h" // prototypes for readfile.cpp
 #include "ModelObj.h"
 
+void reinit();
+
 // Keyboard variables
 bool * key_states = new bool[256];
 bool keyboard_locked;
@@ -36,11 +38,13 @@ void handleForwardMovement();
 void handleBackwardMovement();
 
 // Animation Variables
-struct timeval time_register_key, train_one_loop, train_two_loop, train_three_loop, train_four_loop, blue_coin_time, char_animation_time;
+struct timeval time_register_key, train_one_loop, train_two_loop, train_three_loop, train_four_loop, blue_coin_time, char_animation_time, died_timer;
 int train_one_counter, train_two_counter, train_three_counter, train_four_counter, blue_coin_counter;
 void calculateCharDirection();
 void setMultipliers();
 void calculateBonusDueToLongJump();
+void handleFallDeath();
+void handlePoisonDeath();
 
 // Cannon Variables
 GLfloat first_cannon_t_val;
@@ -65,6 +69,10 @@ GLfloat second_cannon_angle;
 int second_cannon_countdown;
 GLfloat second_cannon_landing_rotation;
 int second_cannon_stage;
+
+bool victory;
+int victory_stage;
+void handleVictory();
 
 // Menu Variables
 int num_blue_coins_collected;
@@ -104,10 +112,12 @@ void loadTex (const char * filename, GLubyte textureLocation[256][256][3]) {
 	fscanf(fp,"%*s %*d %*d %*d%*c") ;
 	for (i = 0 ; i < 256 ; i++)
 		for (j = 0 ; j < 256 ; j++)
-			for (k = 0 ; k < 3 ; k++)
+			for (k = 0 ; k < 3 ; k++) {
 				fscanf(fp,"%c",&(textureLocation[i][j][k])) ;
+            }
 	fclose(fp) ;  
 }
+
 
 void evaluateQuadraticBezierCurve(glm::vec3 & result, glm::vec3 point1, glm::vec3 point2, glm::vec3 point3, GLfloat t) {
     result.x = (1.0-t)*(1.0-t)*point1.x + 2.0*t*(1.0-t)*point2.x + t*t*point3.x;
@@ -498,7 +508,8 @@ void handleSecondCannon() {
             char_position = glm::vec3(Transform::translate(result.x - char_position.x, result.y - char_position.y, result.z - char_position.z) * glm::vec4(char_position.x, char_position.y, char_position.z, 1.0));
             if (second_cannon_t_val != 0.0 ){
                 character->transform = Transform::translate(char_position.x, char_position.y, char_position.z) * glm::mat4(Transform::rotate(360.0/25.0, glm::normalize(glm::cross(glm::vec3(0.0, 0.0, 1.0), char_direction_absolute)))) * Transform::translate(-char_position.x, -char_position.y, -char_position.z) * character->transform;
-            } else {
+            } 
+            if (approx_equals(second_cannon_t_val,0.9,0.001)) {
                 current_stage++;
             }
             if (approx_equals(second_cannon_t_val,0.9,0.001)) {
@@ -532,6 +543,12 @@ void handleSecondCannon() {
             second_cannon_t_val += 0.004;
         }
     }
+}
+
+// HandleVictory
+void handleVictory() {
+    cout << "Congrats on Winning!" << endl;
+    exit(0);
 }
 
 
@@ -887,13 +904,17 @@ void handleDisappearCube() {
 
 void handleCharacterGravity () {
     bool updateGravity = true;
-    struct timeval current_time;
-    gettimeofday(&current_time, NULL);
-    if ((current_time.tv_sec - char_animation_time.tv_sec) * 1000000.0 + (current_time.tv_usec - char_animation_time.tv_usec) > 20000.0) {
+    //struct timeval current_time;
+    //gettimeofday(&current_time, NULL);
+    //if ((current_time.tv_sec - char_animation_time.tv_sec) * 1000000.0 + (current_time.tv_usec - char_animation_time.tv_usec) > 20000.0) {
         for (int i = 0; i < num_static_objects; i++) {
             object * obj = &(static_objects[i]);
             if (obj->test_collision) {
                 if (objectTopCollision(obj, updateGravity)) {
+                    if (obj->name == "poison_cube") {
+                        gettimeofday(&died_timer, NULL);
+                        char_poison = true;
+                    }
                     break;
                 }
             }
@@ -920,8 +941,8 @@ void handleCharacterGravity () {
                 char_velocity.z -= 0.008;
             }
             updateCharacterGravity();
-        }
-        gettimeofday(&char_animation_time, NULL);
+        //}
+        //gettimeofday(&char_animation_time, NULL);
     }
 }
 
@@ -1033,21 +1054,60 @@ void idleFunc() {
             keyboard_locked = true;
             second_cannon = true;
         }
+        if (char_position.x >= -50.15 && char_position.x <= -49.85 && char_position.y >= 69.85 && char_position.y <= 70.15 && !is_jumping && num_blue_coins_collected == 100) {
+            keyboard_locked = true;
+            victory = true;
+        }
+        if (current_stage == 0 && char_position.z <= -15.0) {
+            gettimeofday(&died_timer, NULL);
+            char_died = true;
+        }
+        if (current_stage == 1 && char_position.z <= -315.0) {
+            gettimeofday(&died_timer, NULL);
+            char_died = true;
+        }
+        if (current_stage == 2 && char_position.z <= -75.0) {
+            gettimeofday(&died_timer, NULL);
+            char_died = true;
+        }
+        if (!keyboard_locked) {
+            on_train_one = false;
+            on_train_two = false;
+            on_train_three = false;
+            on_train_four = false;
+            handleCharacterGravity();
+        }
+        handleAnimation();
         gettimeofday(&time_register_key, NULL);
-        
     }
-    
+    if (char_position.x >= -50.15 && char_position.x <= -49.85 && char_position.y >= 69.85 && char_position.y <= 70.15 && !is_jumping && num_blue_coins_collected == 100) {
+        keyboard_locked = true;
+        victory = true;
+    }
+    if (char_died == true) {
+        keyboard_locked = true;
+        handleAnimation();
+        handleFallDeath();
+    }
+    if (char_poison == true) {
+        keyboard_locked = true;
+        handleAnimation();
+        handlePoisonDeath();
+    }
     if (first_cannon && (current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000.0) {
         handleFirstCannon();
+        handleAnimation();
         gettimeofday(&time_register_key, NULL);
     }
     if (second_cannon && (current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000.0) {
         handleSecondCannon();
+        handleAnimation();
         gettimeofday(&time_register_key, NULL);
     }
-    handleAnimation();
-    if (!keyboard_locked) {
-        handleCharacterGravity();
+    if (victory && (current_time.tv_sec - time_register_key.tv_sec)*1000000.0+(current_time.tv_usec - time_register_key.tv_usec) > 20000.0) {
+        handleVictory();
+        handleAnimation();
+        gettimeofday(&time_register_key, NULL);
     }
     glutPostRedisplay();
 }
@@ -1269,6 +1329,159 @@ void mouse(int x, int y) {
     }
 }
 
+void initTextures(){
+    /**
+    textureOn = true;
+    isTex = glGetUniformLocation(shaderprogram,"isTex") ;
+    isBump = glGetUniformLocation(shaderprogram,"isBump") ;
+    
+    loadTex("images/textures/deathbed/washington.pbm", washington);
+    
+    //glEnable(GL_TEXTURE_2D) ; 
+    glGenTextures(1, &texNames[0]); 
+    glBindTexture (GL_TEXTURE_2D, texNames[0]) ;
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST) ; 
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST) ; 
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT) ;
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT) ;
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 256, 256, 0, GL_RGB, GL_UNSIGNED_BYTE, washington) ;
+    //glDisable(GL_TEXTURE_2D);
+     **/
+    
+    textureOn = true;
+    isTex = glGetUniformLocation(shaderprogram,"isTex") ;
+    isBump = glGetUniformLocation(shaderprogram,"isBump") ;
+    
+    loadTex("images/textures/deathbed/washington.pbm", washington);
+    
+    glEnable(GL_TEXTURE_2D) ; 
+    glGenTextures(32, texNames);
+    glBindTexture (GL_TEXTURE_2D, texNames[0]) ; 
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR) ; 
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR) ; 
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT) ;
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT) ;
+    
+    
+    
+    glTexImage2D(GL_TEXTURE_2D,0,GL_RGB, 256, 256, 0, GL_RGB, GL_UNSIGNED_BYTE, washington) ;
+    glDisable(GL_TEXTURE_2D) ;
+}
+    
+void handleFallDeath() {
+    struct timeval current_time;
+    gettimeofday(&current_time, NULL);
+    if (((current_time.tv_sec - died_timer.tv_sec) * 1000000.0 + (current_time.tv_usec - died_timer.tv_usec)) < 500000.0) {
+        character -> transform = Transform::translate(char_velocity.x, char_velocity.y, char_velocity.z) * character -> transform;
+        previous_char_position = glm::vec3(char_position.x, char_position.y, char_position.z);
+        char_position.z += char_velocity.z;
+        center = glm::vec3(Transform::translate(char_velocity.x, char_velocity.y, char_velocity.z) * glm::vec4(center.x, center.y, center.z, 1.0));
+    } else if (((current_time.tv_sec - died_timer.tv_sec) * 1000000.0 + (current_time.tv_usec - died_timer.tv_usec)) > 2500000.0) {
+        dont_draw = false;
+        reinit();
+    } else {
+        dont_draw = true;
+    }
+}
+
+void handlePoisonDeath() {
+    struct timeval current_time;
+    gettimeofday(&current_time, NULL);
+    if (((current_time.tv_sec - died_timer.tv_sec) * 1000000.0 + (current_time.tv_usec - died_timer.tv_usec)) < 500000.0) {
+        character -> transform = Transform::translate(0, 0, -0.02) * character -> transform;
+        char_position.z -= 0.002;
+    } else if (((current_time.tv_sec - died_timer.tv_sec) * 1000000.0 + (current_time.tv_usec - died_timer.tv_usec)) > 2500000.0) {
+        dont_draw = false;
+        reinit();
+    } else {
+        dont_draw = true;
+    }
+}
+
+void reinit() {
+    numused = 0;
+    
+    gettimeofday(&time_register_key, NULL);
+    anim_state = "none";
+    gettimeofday(&train_one_loop,NULL);
+    train_one_counter = 32; // train 1 has 32 objects
+    gettimeofday(&train_two_loop,NULL);
+    train_two_counter = 32; // train 2 has 32 objects
+    gettimeofday(&train_three_loop,NULL);
+    train_three_counter = 32; // train 3 has 32 objects
+    gettimeofday(&train_four_loop,NULL);
+    train_four_counter = 32; // train 4 has 32 objects
+    gettimeofday(&blue_coin_time,NULL);
+    blue_coin_counter = 100; // initially 100 blue coins
+    gettimeofday(&char_animation_time,NULL);
+    keyboard_locked = false;
+    cout << keyboard_locked << endl;
+    
+    char_position = vec3(0.0,0.0,0.0);
+    previous_char_position = vec3(0.0,0.0,0.0);
+    char_velocity = vec3(0.0,0.0,0.0);
+    max_run_velocity = 0.04;
+    jump_velocity = 0.1;
+    is_jumping = false;
+    
+    num_static_objects = 0;
+    num_dynamic_objects = 0;
+    dynamic_objects = std::vector<object>();
+    
+    num_blue_coins_collected = 0;
+    
+    on_train_one = false;
+    on_train_two = false;
+    on_train_three = false;
+    on_train_four = false;
+    
+    test_collision = false;
+    
+    rate_disappear = 0.005;
+    disappear_cube_indices = std::vector<int>();
+    coin_indices = std::vector<int>();
+    
+    coin_radius = 0.12;
+    
+    char_feet_rotation = 0;
+    char_feet_rotation_amount = 5;
+    char_tail_rotation = 0;
+    char_tail_rotation_amount = 5;
+    
+    char_direction_relative = glm::vec3(0.0,1.0,0.0);
+    char_direction_absolute = glm::vec3(0.0,1.0,0.0);
+    
+    first_cannon = false;
+    first_cannon_t_val = 0.0;
+    first_cannon_stage = 1;
+    first_cannon_angle = 165;
+    first_cannon_countdown = 50;
+    first_cannon_landing_rotation = 0;
+    
+    second_cannon = false;
+    second_cannon_t_val = 0.0;
+    second_cannon_stage = 1;
+    second_cannon_angle = 165;
+    second_cannon_countdown = 50;
+    second_cannon_landing_rotation = 0;
+    
+    victory = false;
+    victory_stage = 1;
+    
+    hide_tail = false;
+    
+    north_south_multiplier = east_west_multiplier = northwest_southeast_multiplier = northeast_southwest_multiplier = false;
+    
+    current_stage = 0;
+    char_died = false;
+    dont_draw = false;
+    culling_state = "none";
+    char_poison = false;
+    
+    readfile("input/toytimegalaxy.scene");
+
+}
+
 void init() {
     // Initialize shaders
     vertexshader = initshaders(GL_VERTEX_SHADER, "shaders/light.vert.glsl") ;
@@ -1283,6 +1496,8 @@ void init() {
     specularcol = glGetUniformLocation(shaderprogram,"specular") ;       
     emissioncol = glGetUniformLocation(shaderprogram,"emission") ;       
     shininesscol = glGetUniformLocation(shaderprogram,"shininess") ;
+    tex_loc = glGetUniformLocation(shaderprogram, "tex");
+
     
     gettimeofday(&time_register_key, NULL);
     anim_state = "none";
@@ -1347,19 +1562,48 @@ void init() {
     second_cannon_countdown = 50;
     second_cannon_landing_rotation = 0;
     
+    victory = false;
+    victory_stage = 1;
+    
     hide_tail = false;
     
     north_south_multiplier = east_west_multiplier = northwest_southeast_multiplier = northeast_southwest_multiplier = false;
     
     current_stage = 0;
     char_died = false;
+    dont_draw = false;
     culling_state = "none";
+    char_poison = false;
+    
+    
+
+    /**
+    //Texture variables init
+    currentTexIndex = 0;
+
+    textureOn = true;
+    isTex = glGetUniformLocation(shaderprogram,"isTex") ;
+    isBump = glGetUniformLocation(shaderprogram,"isBump") ;
+    shadeTex = glGetUniformLocation(shaderprogram, "shadeTex") ;
+
+    for(int j = 0; j < 32; j++){
+        std::cout << "Before" << texNames[j] << std::endl;
+    }
+
+    glGenTextures(32, texNames);
+    texNumInUse = 0;
+
+    for(int i = 0; i < 32; i++){
+        std::cout << "After" << texNames[i] << std::endl;
+    }
+     **/
+    textureOn = true;
 }
 
 int main(int argc, char* argv[]) {
 
 	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH );
 	glutCreateWindow("HW6: Nintendo Galaxy - Pikachu and Luigi");
 	init();
     readfile("input/toytimegalaxy.scene") ; 
@@ -1375,6 +1619,7 @@ int main(int argc, char* argv[]) {
         key_states[i] = false;
     }
 	printHelp();
+    initTextures();
 	glutMainLoop();
 	return 0;
 }

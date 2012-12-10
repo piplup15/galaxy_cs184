@@ -146,3 +146,19 @@ EXTERN int current_stage;
 EXTERN bool char_died;
 EXTERN std::string culling_state;
 
+/* Variables used for general texture system */
+EXTERN std::vector<int> texture_indices;
+EXTERN int currentTexIndex;
+EXTERN bool isTex;
+EXTERN bool isBump;
+EXTERN bool shadeTex;
+EXTERN bool textureOn;
+EXTERN bool texNumInUse;
+EXTERN GLuint texNames[32] ;
+
+EXTERN GLubyte washington[256][256][3] ;
+EXTERN GLuint tex_loc;
+
+EXTERN bool dont_draw;
+EXTERN bool char_poison;
+
